@@ -4,6 +4,7 @@ import { WebsiteModule } from './website/website.module';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./website/website.module').then(m => m.WebsiteModule)},
+  { path: 'core', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
-<div>
+<!-- <div>
     <input type="checkbox" id="check">
-<!--  header area start  -->
+
 <header>
   <label for="check">
     <i class="fas fa-bars" id="sidebar_btn"></i>
@@ -11,18 +11,29 @@
   <div class="right_area">
     <a href="#" class="logout_btn">Logout</a>
   </div>
-</header>
-<!--  header area end   -->
-<!--  sidebar start  -->
-<div class="sidebar">
-  <a routerLink="landing"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-  <a routerLink="job-posting"><i class="fas fa-cogs"></i><span>Job Posting</span></a>
-  <a routerLink="work-tracker"><i class="fas fa-cogs"></i><span>Work Tracker</span></a>
-  <a routerLink="talents"><i class="fas fa-cogs"></i><span>Talents</span></a>
-</div>
-<!-- sidebar end -->
-<div class="content">
-    <router-outlet></router-outlet>
-</div>
+</header> -->
 
-</div>
+<mat-drawer-container class="hack-container" autosize>
+  <mat-drawer #drawer opened class="hack-sidenav" mode="side">
+    <div>
+      <img src="assets/images/google.png" alt="logo" height="70px">
+    </div>
+    <div fxLayout="column">
+      <a routerLink="landing"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a routerLink="job-posting"><i class="fas fa-cogs"></i><span>Job Posting</span></a>
+      <a routerLink="work-tracker"><i class="fas fa-cogs"></i><span>Work Tracker</span></a>
+      <a routerLink="talents"><i class="fas fa-cogs"></i><span>Talents</span></a>
+    </div>
+  </mat-drawer>
+  <div class="hack-content">
+    <div class="hack-header">
+      HEADER
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" class="hack-open" (click)="drawer.toggle()">
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+    <div class="hack-content__content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #F1F2F3;
+  color: #222;
+  font-family: Josefin Sans, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 28px;
+  overflow-x: hidden;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+button, input {
+  font-family: Josefin Sans, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image:
+    -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.44, #ccc),
+        color-stop(0.66, #ccc),
+        color-stop(0.77, #ccc)
+    );
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+li {
+  list-style: none;
+}

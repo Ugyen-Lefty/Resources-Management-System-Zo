@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     MatDialogModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatChipsModule,
   ]
 })
 export class CoreModule { }

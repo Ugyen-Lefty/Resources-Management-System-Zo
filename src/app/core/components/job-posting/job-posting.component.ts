@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { JobPostingModalComponent } from './job-posting-modal/job-posting-modal.component';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-job-posting',
@@ -19,8 +20,8 @@ export class JobPostingComponent implements OnInit {
     this.dialog.open(JobPostingModalComponent, {
        width: '30%',
       autoFocus: false,
-    }).afterClosed().subscribe(result => {
-      console.log(result);
+    }).afterClosed().pipe(filter(value =>!!value)).subscribe(result => {
+          //Call API
     });
   }
 }

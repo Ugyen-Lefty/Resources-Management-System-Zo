@@ -13,6 +13,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { YourProjectsComponent } from './components/your-projects/your-projects.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { YourProjectsComponent } from './components/your-projects/your-projects.
     JobPostingComponent,
     WorkTrackerComponent,
     TalentsComponent,
-    YourProjectsComponent
+    YourProjectsComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

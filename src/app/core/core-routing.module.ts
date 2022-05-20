@@ -4,6 +4,7 @@ import { JobPostingComponent } from './components/job-posting/job-posting.compon
 import { TalentsComponent } from './components/talents/talents.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { UserLandingPageComponent } from './components/user-landing-page/user-landing-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { WorkTrackerComponent } from './components/work-tracker/work-tracker.component';
 import { YourProjectsComponent } from './components/your-projects/your-projects.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'work-tracker', component: WorkTrackerComponent},
     { path: 'talents', component: TalentsComponent},
     { path: 'your-projects', component: YourProjectsComponent},
+    { path: 'user-profile', component: UserProfileComponent},
   ]},
 ];
 

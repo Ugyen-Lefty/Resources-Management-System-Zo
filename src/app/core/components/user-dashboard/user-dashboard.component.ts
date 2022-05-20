@@ -13,7 +13,6 @@ export class UserDashboardComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigateByUrl('core/landing');
   }
 
 }

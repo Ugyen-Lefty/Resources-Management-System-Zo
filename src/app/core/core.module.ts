@@ -18,6 +18,7 @@ import { JobPostingModalComponent } from './components/job-posting/job-posting-m
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     WorkTrackerComponent,
     TalentsComponent,
     YourProjectsComponent,
-    JobPostingModalComponent
+    JobPostingModalComponent,
+    YourProjectsComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
+    FlexLayoutModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     MatDialogModule,

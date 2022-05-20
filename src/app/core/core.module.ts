@@ -13,7 +13,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { YourProjectsComponent } from './components/your-projects/your-projects.component';
-
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { YourProjectsComponent } from './components/your-projects/your-projects.
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CalendarModule
   ]
 })
 export class CoreModule { }

@@ -1,0 +1,24 @@
+
+<h1>Edit Profile</h1>
+<div [formGroup]="userEditForm">
+  <input type="text" formControlName="name" placeholder="Full Name"><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select [formControl]="gender">
+      <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <textarea type="text" formControlName="address" height="30px" width="40px" placeholder="Address"></textarea><br>
+  <input type="email" formControlName="email" placeholder="email"><br>
+  <input type="password" formControlName="password" placeholder="password"><br>
+  <input type="phone" formControlName="phone" placeholder="Phone Number"><br>
+</div>
+<br>
+<div>
+  <div class="file-upload" type="file" (click)="file.click()" style="cursor: pointer">Upload</div>
+    <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
+                   accept="image/jpg,image/jpeg,image/png" (click)="selectFiles($event)">
+  </div>
+<button (click)="close()">cancel</button>
+<button (click)="addJobPosting()">Add</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -9,9 +10,10 @@ export class UserDashboardComponent implements OnInit {
 
   drawer = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.router.navigateByUrl('core/landing');
   }
 
 }

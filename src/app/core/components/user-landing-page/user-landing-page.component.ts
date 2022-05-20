@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { filter, tap } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-user-landing-page',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLandingPageComponent implements OnInit {
 
-  constructor() { }
+  users: any;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.getUsersList()
+      .subscribe((res: any) => {
+        res.forEach((res: any) => {
+          if(res.id === "jntWRNUzw5tIItzzuafl"){
+            this.users = res;
+          }
+        });
+      });
   }
 
 }

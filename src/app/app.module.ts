@@ -8,7 +8,6 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDagZxR2jxDyi9aYnhzzE9lEp9ZhLJbPII",
@@ -33,7 +32,6 @@ const firebaseConfig = {
     AngularFireStorageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     BrowserAnimationsModule,
-    CalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

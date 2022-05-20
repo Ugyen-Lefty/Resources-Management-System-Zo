@@ -12,6 +12,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { YourProjectsComponent } from './components/your-projects/your-projects.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     UserLandingPageComponent,
     JobPostingComponent,
     WorkTrackerComponent,
-    TalentsComponent
+    TalentsComponent,
+    YourProjectsComponent
   ],
   imports: [
     CommonModule,

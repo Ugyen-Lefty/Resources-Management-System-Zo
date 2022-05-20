@@ -13,6 +13,11 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { YourProjectsComponent } from './components/your-projects/your-projects.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { JobPostingModalComponent } from './components/job-posting/job-posting-modal/job-posting-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -22,7 +27,8 @@ import { YourProjectsComponent } from './components/your-projects/your-projects.
     JobPostingComponent,
     WorkTrackerComponent,
     TalentsComponent,
-    YourProjectsComponent
+    YourProjectsComponent,
+    JobPostingModalComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,11 @@ import { YourProjectsComponent } from './components/your-projects/your-projects.
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
   ]
 })
 export class CoreModule { }

@@ -1,0 +1,33 @@
+
+<h1>JOB POST CREATION</h1>
+<div [formGroup]="jobPostingForm">
+  <input type="text" formControlName="title" placeholder="title"><br>
+  <textarea type="text" formControlName="description" height="30px" width="40px" placeholder="Description"></textarea><br>
+  <input type="text" formControlName="location" placeholder="location"><br>
+  <input type="text" formControlName="cardTitle" placeholder="card-title"><br>
+    <input type="text" formControlName="assignee" placeholder="Assignee"><br>
+</div>
+<mat-form-field class="example-form-field" appearance="fill">
+  <mat-label>Select Date</mat-label>
+
+  <mat-date-range-input
+    [formGroup]="campaignOne"
+    [rangePicker]="campaignOnePicker"
+    [comparisonStart]="campaignTwo.value.start"
+    [comparisonEnd]="campaignTwo.value.end">
+    <input matStartDate placeholder="Start date" formControlName="start">
+    <input matEndDate placeholder="End date" formControlName="end">
+  </mat-date-range-input>
+
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+  <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+</mat-form-field>
+<br>
+<div>
+  <div class="file-upload" type="file" (click)="file.click()" style="cursor: pointer">Upload</div>
+    <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
+                   accept="image/jpg,image/jpeg,image/png" (click)="selectFiles($event)">
+  </div>
+<button>cancel</button>
+<button (click)="addJobPosting()">Add</button>

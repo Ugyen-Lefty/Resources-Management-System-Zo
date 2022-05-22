@@ -4,9 +4,9 @@
 
 
 .hack-sidenav {
-  padding: 20px;
   width: 288px;
   height: 100%;
+  color: rgba(0,0,0, 0.6);
 }
 
 .hack-open {
@@ -32,6 +32,7 @@
 
   &__content {
     padding: 20px;
+    box-shadow: 0 3px 4px 1px #cccccc;
   }
 }
 
@@ -40,4 +41,12 @@
   height: 64px;
   padding: 20px 32px;
   box-shadow: 0 2px 4px #cccccc;
+}
+
+.hack-nav-list {
+  background-color: #0091EA;
+
+  &--hover:hover {
+    background-color: #F1F2F3;
+  }
 }

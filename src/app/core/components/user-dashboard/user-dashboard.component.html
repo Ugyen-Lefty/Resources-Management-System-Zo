@@ -15,15 +15,41 @@
 
 <mat-drawer-container class="hack-container" autosize>
   <mat-drawer #drawer opened class="hack-sidenav" mode="side">
-    <div>
+    <div class="p-20">
       <img src="assets/images/google.png" alt="logo" height="70px">
     </div>
     <div fxLayout="column">
-      <a routerLink="landing"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-      <a routerLink="job-posting"><i class="fas fa-cogs"></i><span>Job Posting</span></a>
-      <a routerLink="work-tracker"><i class="fas fa-cogs"></i><span>Work Tracker</span></a>
-      <a routerLink="talents"><i class="fas fa-cogs"></i><span>Talents</span></a>
-      <a routerLink="your-projects"><i class="fas fa-cogs"></i><span>Your Projects</span></a>
+
+      <div class="text-center p-20">
+        <p class="text-18 text-black bold leading-normal">Dechen Wangmo</p>
+        <p>dechen.wangmo@selise.ch</p>
+        <img src="assets/images/profile.png" alt="profile" height="100px" width="100px" class="rounded-full mb-20">
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" class="hack-nav-list bold hack-nav-list--hover px-20 py-12 text-white cursor-pointer">
+        <mat-icon class="text-20">dashboard</mat-icon>
+        <a routerLink="landing" class="text-16">Dashboard</a>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+        <mat-icon class="text-20">signpost</mat-icon>
+        <a routerLink="job-posting" class="text-16"><span>Job Posting</span></a>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+        <mat-icon class="text-20">pivot_table_chart</mat-icon>
+        <a routerLink="work-tracker" class="text-16"><span>Work Tracker</span></a>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+        <mat-icon class="text-20">engineering</mat-icon>
+        <a routerLink="talents" class="text-16"><span>Talents</span></a>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+        <mat-icon class="text-20">workspaces_filled</mat-icon>
+        <a routerLink="your-projects" class="text-16"><span>Your Projects</span></a>
+      </div>
     </div>
   </mat-drawer>
   <div class="hack-content">
@@ -33,7 +59,7 @@
     <div fxLayout="row" fxLayoutAlign="center center" class="hack-open" (click)="drawer.toggle()">
       <mat-icon>chevron_right</mat-icon>
     </div>
-    <div class="hack-content__content">
+    <div class="hack-content__content bg-white rounded-8 m-24">
       <router-outlet></router-outlet>
     </div>
   </div>

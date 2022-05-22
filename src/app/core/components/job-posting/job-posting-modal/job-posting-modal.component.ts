@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -41,11 +41,11 @@ export class JobPostingModalComponent implements OnInit {
 
   setForm(): void {
     this.jobPostingForm = this.fb.group({
-       title: [''],
-       description: [''],
-       location: [''],
-       cardTitle: [''],
-       assignee:['']
+       title: ['', Validators.required],
+       description: ['', Validators.required],
+       location: ['', Validators.required],
+       cardTitle: ['', Validators.required],
+       assignee:['', Validators.required]
     });
   }
 

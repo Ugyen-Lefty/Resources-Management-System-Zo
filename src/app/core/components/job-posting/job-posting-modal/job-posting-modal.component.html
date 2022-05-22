@@ -49,5 +49,5 @@
 </mat-dialog-content>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
   <button mat-button mat-stroked-button [mat-dialog-close]="true">cancel</button>
-  <button mat-button mat-stroked-button color="primary" (click)="addJobPosting()">Add</button>
+  <button mat-button mat-stroked-button color="primary" (click)="addJobPosting()" [disabled]="jobPostingForm.invalid">Add</button>
 </mat-dialog-actions>

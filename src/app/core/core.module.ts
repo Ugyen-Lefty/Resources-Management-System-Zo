@@ -20,7 +20,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatChipsModule,
+    FullCalendarModule
   ]
 })
 export class CoreModule { }

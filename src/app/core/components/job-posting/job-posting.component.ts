@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { JobPostingModalComponent } from './job-posting-modal/job-posting-modal.component';
 import { filter } from 'rxjs';
+import { ApiService } from '../../services/api.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-job-posting',
@@ -11,7 +13,7 @@ import { filter } from 'rxjs';
 })
 export class JobPostingComponent implements OnInit {
 
-  constructor( private dialog: MatDialog) { }
+  constructor( private dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +23,8 @@ export class JobPostingComponent implements OnInit {
        width: '30%',
       autoFocus: false,
     }).afterClosed().pipe(filter(value =>!!value)).subscribe(result => {
-          //Call API
+        this.api.postJob(result);
+        Swal.fire('Job posted succesfully!', '', 'success');
     });
   }
 }

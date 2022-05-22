@@ -8,14 +8,18 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 })
 export class ApiService {
 
-  usersCollection: AngularFirestoreCollection<any>;
+  jobCollection: AngularFirestoreCollection<any>;
 
   constructor(private fireStore: AngularFirestore, private db: AngularFireDatabase, private storage: AngularFireStorage) {
-    this.usersCollection = fireStore.collection<any>('users');
+    this.jobCollection = fireStore.collection<any>('job');
   }
 
   getUsersList() {
     return this.fireStore.collection('users').valueChanges({ idField: 'id' });
+  }
+
+  postJob(result: any) {
+    this.jobCollection.add(result);
   }
 
 }

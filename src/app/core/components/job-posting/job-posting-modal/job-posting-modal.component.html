@@ -34,4 +34,4 @@
                       <mat-chip class="white-color">{{chip}}</mat-chip>
                     </mat-chip-list>
 <button (click)="close()">cancel</button>
-<button (click)="addJobPosting()">Add</button>
+<button (click)="addJobPosting()" [disabled]="jobPostingForm.invalid">Add</button>

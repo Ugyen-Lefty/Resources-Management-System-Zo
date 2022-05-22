@@ -9,6 +9,18 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+])
 
 const firebaseConfig = {
   apiKey: "AIzaSyDagZxR2jxDyi9aYnhzzE9lEp9ZhLJbPII",
@@ -33,7 +45,8 @@ const firebaseConfig = {
     AngularFireStorageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     BrowserAnimationsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

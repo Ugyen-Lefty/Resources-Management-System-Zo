@@ -56,7 +56,11 @@ export class JobPostingModalComponent implements OnInit {
       startDate: this.campaignOne?.get('start')?.value,
       endDate: this.campaignTwo?.get('end')?.value,
       status: 'posted',
-      work_type: this.totalJobs
+      work_type: this.totalJobs,
+      applied: [''],
+      recruits: [''],
+      //TO BE CHANGED LATER TO DYNAMIC USER ID FROM LOCALSTORAGE
+      postedBy: '0uv4r4jLry1UEtW2XAJz'
     }
      this.close(payload);
   }

@@ -42,6 +42,10 @@
     <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
            accept="image/jpg,image/jpeg,image/png" (click)="selectFiles($event)">
   </div>
+  <input (keyup.enter)="addJobs(jobsControl.value)" [formControl]="jobsControl"><br>
+  <mat-chip-list *ngFor="let chip of totalJobs">
+    <mat-chip class="white-color">{{chip}}</mat-chip>
+  </mat-chip-list>
 </mat-dialog-content>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
   <button mat-button mat-stroked-button [mat-dialog-close]="true">cancel</button>

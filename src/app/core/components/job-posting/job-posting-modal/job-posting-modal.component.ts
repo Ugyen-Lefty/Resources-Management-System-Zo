@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-job-posting-modal',
@@ -13,8 +14,11 @@ export class JobPostingModalComponent implements OnInit {
    attachment = new FormControl();
      campaignOne!: FormGroup;
   campaignTwo!: FormGroup;
+  totalJobs: string[] = [];
+     jobsControl = new FormControl();
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>) {
 
    const today = new Date();
     const month = today.getMonth();
@@ -46,11 +50,27 @@ export class JobPostingModalComponent implements OnInit {
   }
 
   addJobPosting() {
-    // console.log(this.jobPostingForm.value);
-    debugger
+  const payload = {
+      ...this.jobPostingForm.value,
+      image: this.attachment.value,
+      startDate: this.campaignOne?.get('start')?.value,
+      endDate: this.campaignTwo?.get('end')?.value,
+      status: 'posted',
+      work_type: this.totalJobs
+    }
+     this.close(payload);
   }
 
   selectFiles(files: any) {
      this.attachment.setValue(files.files);
+  }
+
+  close(payload?: any){
+      this.dialogRef.close(payload);
+  }
+
+  addJobs(event: any) {
+    this.totalJobs.push(event);
+    this.jobsControl.setValue('');
   }
 }

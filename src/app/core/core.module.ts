@@ -19,8 +19,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
+import { MatChipsModule } from '@angular/material/chips';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatDialogModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatChipsModule,
     MatInputModule,
     MatButtonModule,
   ]

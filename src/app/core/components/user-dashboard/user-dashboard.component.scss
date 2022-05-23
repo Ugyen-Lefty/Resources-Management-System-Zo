@@ -44,7 +44,8 @@
 }
 
 .hack-nav-list {
-  background-color: #0091EA;
+  background-color: var(--primary);
+  color: white;
 
   &--hover:hover {
     background-color: #F1F2F3;

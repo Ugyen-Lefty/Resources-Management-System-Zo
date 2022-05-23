@@ -1,8 +1,23 @@
 <div>
   <div>
+    <!-- <select>
+      <option *ngFor="let item of " [value]="item.id">{{ item?.cardTitle }}</option>
+    </select> -->
+    <mat-label>Select One</mat-label>
+    <select (change)="selectProject($event.target)">
+      <option>
+        Select one
+      </option>
+      <option *ngFor="let item of projects" [value]="item?.id">
+        {{ item?.cardTitle }}
+      </option>
+    </select>
+  </div>
+  <div>
     <div>
       <p>Week</p>
       <p>Todo</p>
+      <full-calendar [options]='calendarOptions'></full-calendar>
     </div>
     <div>
       <p>Minimum</p>

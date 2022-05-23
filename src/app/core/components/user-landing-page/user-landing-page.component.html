@@ -1,31 +1,41 @@
 <div>
-  <div>
-    <div>
-      <img src="assets/images/google.png" alt="">
-      <p>{{ users?.name }}</p>
-      <p>{{ users?.address }}</p>
-      <p>{{ users?.avatar }}</p>
-      <p>{{ users?.email }}</p>
-      <p>{{ users?.gender }}</p>
-      <p>{{ users?.phone }}</p>
-      <p>{{ users?.role }}</p>
-<hr>
+  <div fxLayout="row" fxLayoutGap="32px">
+    <div fxFlex="40" fxLayout="column" fxLayoutAlign="start center" class="border-gray p-28 rounded-8">
+      <img src="assets/images/profile.png" alt="avatar" height="100px" width="100px" class="rounded-full">
+      <div class="text-center p-16">
+        <h2 class="mt-12 mb-12">{{ users?.name }}</h2>
+        <div class="text-black">
+          <p>{{ users?.address }}</p>
+          <p>{{ users?.avatar }}</p>
+          <p>{{ users?.email }}</p>
+          <p>{{ users?.gender }}</p>
+          <p>{{ users?.phone }}</p>
+          <p class="leading-normal">{{ users?.role }}</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <p>Currently hired</p>
-      <p>345678</p>
-    </div>
-    <div>
-      <p>Your projects</p>
-      <p>345678</p>
+    <div fxFlex="60" class="border-gray p-28 rounded-8">
+      <div>
+        <h2 class="text-center mb-20">Currently hired</h2>
+        <div fxLayout="row wrap" fxLayoutGap="20px grid">
+          <div fxFlex="50" *ngFor="let i of ['Total Hired', 'Types Hired', ]">
+            <div class="rounded-8 border-gray p-20">
+              <h3>{{ i }}: 300</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayoutAlign="center end" class="mt-32">
+        <button mat-button class="bg-primary text-white bold">My Projects</button>
+      </div>
     </div>
   </div>
-  <div>
-    <div>
-      <p>Amount</p>
+  <div fxLayout="row" fxLayoutGap="32px" class="mt-32">
+    <div fxFlex="40" class="border-gray p-28 rounded-8">
+      <h2>Accounts</h2>
     </div>
-    <div>
-      <p>Incidents</p>
+    <div fxFlex="60" class="border-gray p-28 rounded-8">
+      <h2>Incidents</h2>
     </div>
   </div>
 </div>

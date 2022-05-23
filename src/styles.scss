@@ -2,6 +2,10 @@
 @import 'assets/stylesheets/common';
 @import 'assets/stylesheets/utilities';
 
+:root {
+  --primary: #5F9DA0;
+}
+
 body {
   background-color: #f3f5f6;
   color: #222;

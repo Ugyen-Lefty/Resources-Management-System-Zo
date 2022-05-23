@@ -20,6 +20,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -52,6 +53,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatChipsModule,
     MatInputModule,
     MatButtonModule,
+    FullCalendarModule
   ]
 })
 export class CoreModule { }

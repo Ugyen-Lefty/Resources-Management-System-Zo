@@ -16,18 +16,18 @@
 <mat-drawer-container class="hack-container" autosize>
   <mat-drawer #drawer opened class="hack-sidenav" mode="side">
     <div class="p-20">
-      <img src="assets/images/google.png" alt="logo" height="70px">
+      <img src="https://images.selise.club/ui-assets/images/logos/site_logo.svg" alt="logo" height="46px">
     </div>
-    <div fxLayout="column">
+    <div fxLayout="column" class="text-white px-16">
 
-      <div class="text-center p-20">
-        <p class="text-18 text-black bold leading-normal">{{ currentUser?.name }}</p>
-        <p>{{ currentUser?.email }}</p>
-        <img routerLink="user-profile" src="assets/images/profile.png" alt="profile" height="100px" width="100px" class="rounded-full mb-20 cursor-pointer">
+      <div class="text-center mt-32 mb-32">
+        <img routerLink="user-profile" src="assets/images/profile.png" alt="profile" height="80px" width="80px" class="rounded-full mb-20 cursor-pointer">
+        <p class="text-18 bold leading-normal">{{ currentUser?.name }}</p>
+        <p class="text-gray">{{ currentUser?.email }}</p>
       </div>
 
       <div routerLink="landing" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
-        <mat-icon class="text-20">dashboard</mat-icon>
+        <mat-icon class="text-20 material-icons-outlined">dashboard</mat-icon>
         <a class="text-16">Dashboard</a>
       </div>
 
@@ -53,13 +53,12 @@
     </div>
   </mat-drawer>
   <div class="hack-content">
-    <div class="hack-header">
-      HEADER
+    <div class="hack-header cursor-pointer">
+      <div (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </div>
     </div>
-    <div fxLayout="row" fxLayoutAlign="center center" class="hack-open" (click)="drawer.toggle()">
-      <mat-icon>chevron_right</mat-icon>
-    </div>
-    <div class="hack-content__content bg-white rounded-8 m-24">
+    <div class="hack-content__ content">
       <router-outlet></router-outlet>
     </div>
   </div>

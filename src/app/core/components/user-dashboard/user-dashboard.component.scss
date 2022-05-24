@@ -7,32 +7,15 @@
   width: 288px;
   height: 100%;
   color: rgba(0,0,0, 0.6);
+  background-color: var(--primary);
 }
 
-.hack-open {
-  position: absolute;
-  left: -10px;
-  top: 12px;
-  padding: 6px;
-  border-radius: 20px;
-  background-color: white;
-  border: 1px solid cadetblue;
-  color: cadetblue;
-  z-index: 99999;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #222;
-    color: #FFFFFF;
-  }
-}
 
 .hack-content {
   position: relative;
 
   &__content {
-    padding: 20px;
-    box-shadow: 0 3px 4px 1px #cccccc;
+    //box-shadow: 0 3px 4px 1px #cccccc;
   }
 }
 
@@ -41,14 +24,21 @@
   height: 64px;
   padding: 20px 32px;
   box-shadow: 0 2px 4px #cccccc;
+  margin-bottom: 1px;
 }
 
 .hack-nav-list {
   background-color: var(--primary);
   color: white;
+  border-radius: 6px;
+  margin: 4px 0;
 
   &--hover:hover {
-    background-color: #F1F2F3;
-    color: #222;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
   }
+}
+
+::ng-deep.mat-drawer-content {
+  background-color: #F1F2F3;
 }

@@ -23,7 +23,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
+import { WorkProgressComponent } from './components/work-progress/work-progress.component';
+import { MatCardModule } from '@angular/material/card';
+import { KanbanComponent } from './components/work-progress/kanban/kanban.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import {MatButtonModule} from '@angular/material/button';
     YourProjectsComponent,
     JobPostingModalComponent,
     YourProjectsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    WorkProgressComponent,
+    KanbanComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +59,13 @@ import {MatButtonModule} from '@angular/material/button';
     MatChipsModule,
     MatInputModule,
     MatButtonModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatCardModule,
+    DragDropModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
   ]
 })
 export class CoreModule { }

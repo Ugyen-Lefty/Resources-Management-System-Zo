@@ -21,9 +21,9 @@
     <div fxLayout="column">
 
       <div class="text-center p-20">
-        <p class="text-18 text-black bold leading-normal">Dechen Wangmo</p>
-        <p>dechen.wangmo@selise.ch</p>
-        <img src="assets/images/profile.png" alt="profile" height="100px" width="100px" class="rounded-full mb-20">
+        <p class="text-18 text-black bold leading-normal">{{ currentUser?.name }}</p>
+        <p>{{ currentUser?.email }}</p>
+        <img routerLink="user-profile" src="assets/images/profile.png" alt="profile" height="100px" width="100px" class="rounded-full mb-20 cursor-pointer">
       </div>
 
       <div routerLink="landing" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">

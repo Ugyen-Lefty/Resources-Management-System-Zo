@@ -17,6 +17,7 @@ export class UserLandingPageComponent implements OnInit {
     this.api.getUsersList()
       .subscribe((res: any) => {
         res.forEach((res: any) => {
+          //DYNAMIC USER
           if(res.id === "jntWRNUzw5tIItzzuafl"){
             this.users = res;
           }

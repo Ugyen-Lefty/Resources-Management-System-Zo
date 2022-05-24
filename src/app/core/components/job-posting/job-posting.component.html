@@ -1,22 +1,27 @@
 <div>
   <button (click)="creationModal()">Post Job</button>
-  <div class="card">
+  <div *ngFor="let job of jobs; let i = index">
+    <div class="card">
     <div>
       <img src="" alt="">
     </div>
     <div>
-      <p>title</p>
+      <p>{{job.title}}</p>
     </div>
     <div>
-      djhjadh
+      {{job.description}}
     </div>
   </div>
+  <button><a routerLink="details/{{job.id}}">VIEW DETAILS</a></button>
+  <button (click)="deleteJob(job)">>DELETE</button>
 </div>
+  </div>
 
 
 
-<!--this is pop-->
-<div>
-  <p>Title</p>
-  <input type="file"/>
-</div>
+
+<!--&lt;!&ndash;this is pop&ndash;&gt;-->
+<!--<div>-->
+<!--  <p>Title</p>-->
+<!--  <input type="file"/>-->
+<!--</div>-->

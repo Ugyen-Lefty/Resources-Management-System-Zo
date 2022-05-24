@@ -53,8 +53,8 @@ export class JobPostingModalComponent implements OnInit {
   const payload = {
       ...this.jobPostingForm.value,
       image: this.attachment.value,
-      startDate: this.campaignOne?.get('start')?.value,
-      endDate: this.campaignTwo?.get('end')?.value,
+      startDate: this.campaignOne?.value?.start,
+      endDate: this.campaignOne?.value?.end,
       status: 'posted',
       work_type: this.totalJobs,
       applied: [''],

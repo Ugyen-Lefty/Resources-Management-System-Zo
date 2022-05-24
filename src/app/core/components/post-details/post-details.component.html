@@ -1,0 +1,28 @@
+<div>
+<button (click)="goBack()">GO BACK</button><button (click)="cardCreation()">CARD CREATION</button>
+  <div>
+      <img src="" alt="">
+    </div>
+    <div>
+      <p>{{post.title}}</p>
+    </div>
+    <div>
+      {{post.description}}
+    </div>
+</div>
+<div>
+<br>
+  <h1>CARDS</h1>
+  <div>
+    <ng-container>
+       <div *ngFor="let card of cards"><br>
+        <div>
+          <p>{{card.title}}</p>
+        </div>
+        <div>
+          <p>{{card.description}}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

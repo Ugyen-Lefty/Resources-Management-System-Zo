@@ -23,6 +23,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { CardCreationComponent } from './components/post-details/card-creation/card-creation.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import {MatButtonModule} from '@angular/material/button';
     YourProjectsComponent,
     JobPostingModalComponent,
     YourProjectsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PostDetailsComponent,
+    CardCreationComponent
   ],
   imports: [
     CommonModule,

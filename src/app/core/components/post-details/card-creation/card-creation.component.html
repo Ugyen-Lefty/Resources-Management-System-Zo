@@ -1,0 +1,8 @@
+<h1>CARD CREATION</h1>
+
+<div [formGroup]="cardForm">
+  <input placeholder="title" formControlName="title"><br>
+  <input placeholder="description" formControlName="description"><br>
+  <button (click)="addCard()">SUBMIT CARD</button>
+  <button (click)="close()">CLOSE</button>
+</div>

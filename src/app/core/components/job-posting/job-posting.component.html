@@ -20,7 +20,7 @@
                <div>
                  <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
                  <mat-menu #menu="matMenu">
-                   <button mat-menu-item>
+                   <button mat-menu-item (click)="editJob(job)">
                      <mat-icon class="material-icons-outlined text-20">edit</mat-icon>
                      <span>Edit</span>
                    </button>
@@ -32,7 +32,7 @@
                </div>
              </div>
              <div>
-               <p>12/12/2022</p>
+               <p>{{formatedDate(job?.createdAt)}}</p>
              </div>
              <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
                <div>

@@ -47,4 +47,7 @@ export class ApiService {
     return this.fireStore.collection('work-progress').valueChanges({ idField: 'id' });
   }
 
+  updateJob(result: any, id: string) {
+    return this.fireStore.collection('job').doc(id).update(result);
+  }
 }

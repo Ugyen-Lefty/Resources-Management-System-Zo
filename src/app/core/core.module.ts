@@ -32,6 +32,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { CardCreationComponent } from './components/post-details/card-creation/card-creation.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatMenuModule} from "@angular/material/menu";
+import { CardDetailsComponent } from './components/post-details/card-details/card-details.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {MatMenuModule} from "@angular/material/menu";
     CardCreationComponent,
     UserProfileComponent,
     WorkProgressComponent,
-    KanbanComponent
+    KanbanComponent,
+    CardDetailsComponent
   ],
   imports: [
     CommonModule,

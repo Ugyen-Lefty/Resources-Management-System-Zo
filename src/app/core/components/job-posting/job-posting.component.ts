@@ -22,13 +22,21 @@ export class JobPostingComponent implements OnInit {
      this.getJobs();
   }
 
-  creationModal(): void {
+  creationModal(job?: any): void {
     this.dialog.open(JobPostingModalComponent, {
        width: '30%',
       autoFocus: false,
+      data: job
     }).afterClosed().pipe(filter(value =>!!value)).subscribe(result => {
-        this.api.postJob(result);
+    if(job){
+      this.api.updateJob(result, job.id);
+       this.getJobs();
+       this.jobs = [];
+      Swal.fire('Job updated successfully!', '', 'success');
+    } else {
+     this.api.postJob(result);
         Swal.fire('Job posted successfully!', '', 'success');
+    }
     });
   }
 
@@ -42,7 +50,7 @@ export class JobPostingComponent implements OnInit {
         //DYNAMIC USER
           if (ans.postedBy === '0uv4r4jLry1UEtW2XAJz') {
             this.jobs.push(ans);
-            this.jobs = uniqBy(this.jobs, 'title');
+            this.jobs = uniqBy(this.jobs, 'id');
           }
         });
       });
@@ -53,5 +61,16 @@ export class JobPostingComponent implements OnInit {
      this.jobs = [];
       this.getJobs();
      })
+  }
+
+  formatedDate(createdAt: any) {
+    if(createdAt){
+         return createdAt.toDate().toISOString().replace(/T.*$/, '');
+    }
+    return '';
+  }
+
+  editJob(job: any) {
+   this.creationModal(job);
   }
 }

@@ -24,6 +24,7 @@ export class WorkProgressComponent implements OnInit {
   projects: any = [];
   selectedProject: any;
   id: any;
+  status: any;
 
   ngOnInit(): void {
     this.api.getAllJobs()
@@ -91,24 +92,27 @@ export class WorkProgressComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
-    this.getStatus(event.currentIndex);
+    setTimeout(() => {
+      this.getStatus(event.currentIndex);
+      this.api.updateCardStatus(event.container.data[0].id, this.status);
+    }, 1000);
   }
 
-  getStatus(id: any) {
-    // switch (id) {
-    //   case 0:
-
-    //     break;
-    //   case 1:
-
-    //     break;
-    //   case 2:
-
-    //     break;
-
-    //   default:
-    //     break;
-    // }
+  getStatus(index: any) {
+    switch (index) {
+      case 0:
+        this.status = 'requested';
+        break;
+      case 1:
+        this.status = 'inProgress';
+        break;
+      case 2:
+        this.status = 'done';
+        break;
+      default:
+        this.status = 'requested';
+        break;
+    }
   }
 
   selectProject(id: any) {
@@ -128,7 +132,15 @@ export class WorkProgressComponent implements OnInit {
                 title: ans.title,
                 description: ans.description
               };
-              this.todo.push(payload);
+              if (ans.status === 'requested') {
+                this.todo.push(payload);
+              }
+              else if (ans.status === 'inProgress') {
+                this.inProgress.push(payload);
+              }
+              else {
+                this.done.push(payload);
+              }
             }
           });
         });

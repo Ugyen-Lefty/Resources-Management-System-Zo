@@ -27,15 +27,15 @@ export class ApiService {
     return this.fireStore.collection('job').valueChanges({ idField: 'id' });
   }
 
-  triggerReload(): void{
+  triggerReload(): void {
     this.onTrigger.next();
   }
 
-  onReload(){
+  onReload() {
     return this.onTrigger.asObservable();
   }
 
-  delete(id: string){
+  delete(id: string) {
     return this.jobCollection.doc(id).delete();
   }
 
@@ -43,8 +43,16 @@ export class ApiService {
     return this.fireStore.collection('work-progress').add(result);
   }
 
-  getCards(){
+  getCards() {
     return this.fireStore.collection('work-progress').valueChanges({ idField: 'id' });
   }
+
+  updateCardStatus(id: any, status: any) {
+    this.fireStore.collection('work-progress').doc(id).update({
+      status: status
+    });
+  }
+  // editInterviewer(data: editInterviewer, id: string): void {
+  // }
 
 }

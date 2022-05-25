@@ -35,4 +35,16 @@ export class ApiService {
     return this.onTrigger.asObservable();
   }
 
+  delete(id: string){
+    return this.jobCollection.doc(id).delete();
+  }
+
+  postCard(result: any) {
+    return this.fireStore.collection('work-progress').add(result);
+  }
+
+  getCards(){
+    return this.fireStore.collection('work-progress').valueChanges({ idField: 'id' });
+  }
+
 }

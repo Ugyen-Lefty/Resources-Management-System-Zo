@@ -28,6 +28,9 @@ import { MatCardModule } from '@angular/material/card';
 import { KanbanComponent } from './components/work-progress/kanban/kanban.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { CardCreationComponent } from './components/post-details/card-creation/card-creation.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { FormsModule } from '@angular/forms';
     YourProjectsComponent,
     JobPostingModalComponent,
     YourProjectsComponent,
+    UserProfileComponent,
+    PostDetailsComponent,
+    CardCreationComponent,
     UserProfileComponent,
     WorkProgressComponent,
     KanbanComponent

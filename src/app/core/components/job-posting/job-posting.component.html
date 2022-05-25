@@ -1,22 +1,27 @@
-<div class="p-20">
-  <div class="bg-white rounded-8 p-28">
-    <button mat-button class="bg-primary text-white" (click)="creationModal()">Post Job</button>
-    <div fxLayout="row" class="card">
-      <div>
-        <img src="" alt="">
-      </div>
-      <div>
-        <p>title</p>
-      </div>
-      <div>
-        djhjadh
-      </div>
+<div>
+  <button (click)="creationModal()">Post Job</button>
+  <div *ngFor="let job of jobs; let i = index">
+    <div class="card">
+    <div>
+      <img src="" alt="">
+    </div>
+    <div>
+      <p>{{job.title}}</p>
+    </div>
+    <div>
+      {{job.description}}
     </div>
   </div>
-
-  <!--this is pop-->
-  <div class="bg-white mt-28 rounded-8 p-28">
-    <p>Title</p>
-    <input type="file"/>
-  </div>
+  <button><a routerLink="details/{{job.id}}">VIEW DETAILS</a></button>
+  <button (click)="deleteJob(job)">>DELETE</button>
 </div>
+  </div>
+
+
+
+
+<!--&lt;!&ndash;this is pop&ndash;&gt;-->
+<!--<div>-->
+<!--  <p>Title</p>-->
+<!--  <input type="file"/>-->
+<!--</div>-->

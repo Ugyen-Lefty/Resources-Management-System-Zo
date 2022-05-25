@@ -1,1 +1,24 @@
-<p>talents works!</p>
+<div>
+  <div *ngFor="let list of talentLists" (click)="showDetails(list)">
+  <div>
+     <div>
+        <div class="talent-list-header">
+           <div class="talent-list-header-name">
+              {{list.name}}
+           </div>
+          <img height="30px" width="30px" [src]="list.image">
+        </div>
+        <div>
+          {{list.type}}
+        </div>
+        <div>
+          Hourly Pay:  {{list.Hourly_Pay}}
+        </div>
+        <div>
+         currently available:  {{list.currently_available}}
+        </div>
+     </div>
+  </div>
+
+  </div>
+</div>

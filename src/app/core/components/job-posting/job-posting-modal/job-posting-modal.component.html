@@ -1,24 +1,29 @@
 
-<h2>JOB POST CREATION</h2>
+<h2 class="mb-20">JOB POST CREATION</h2>
 <mat-dialog-content>
   <div [formGroup]="jobPostingForm">
     <mat-form-field appearance="outline" class="w-full">
-      <input matInput type="text" formControlName="title" placeholder="title">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" formControlName="title">
     </mat-form-field>
     <mat-form-field appearance="outline" class="w-full">
-      <textarea matInput type="text" formControlName="description" placeholder="Description" rows="5"></textarea>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="w-full">
-      <input matInput type="text" formControlName="location" placeholder="location">
+      <mat-label>Description</mat-label>
+      <textarea matInput type="text" formControlName="description" rows="5"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="w-full">
-      <input matInput type="text" formControlName="cardTitle" placeholder="card-title">
+      <mat-label>Location</mat-label>
+      <input matInput type="text" formControlName="location">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="w-full">
-      <input matInput type="text" formControlName="assignee" placeholder="Assignee">
+      <mat-label>Card Title</mat-label>
+      <input matInput type="text" formControlName="cardTitle">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Assignee</mat-label>
+      <input matInput type="text" formControlName="assignee">
     </mat-form-field>
   </div>
   <mat-form-field class="example-form-field" appearance="outline" class="w-full">
@@ -36,7 +41,6 @@
     <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
     <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
   </mat-form-field>
-  <br>
   <div>
     <div class="file-upload" type="file" (click)="file.click()" style="cursor: pointer">Upload</div>
     <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
@@ -47,7 +51,8 @@
     <mat-chip class="white-color">{{chip}}</mat-chip>
   </mat-chip-list>
 </mat-dialog-content>
-<mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="end" class="mb-20">
   <button mat-button mat-stroked-button [mat-dialog-close]="true">cancel</button>
-  <button mat-button mat-stroked-button color="primary" (click)="addJobPosting()" [disabled]="jobPostingForm.invalid">Add</button>
+  <button mat-button mat-raised-button class="bg-primary text-white" (click)="addJobPosting()"
+          [disabled]="jobPostingForm.invalid">Add</button>
 </mat-dialog-actions>

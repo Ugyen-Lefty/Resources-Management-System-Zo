@@ -24,7 +24,7 @@ export class JobPostingComponent implements OnInit {
 
   creationModal(): void {
     this.dialog.open(JobPostingModalComponent, {
-       width: '30%',
+       width: '550px',
       autoFocus: false,
     }).afterClosed().pipe(filter(value =>!!value)).subscribe(result => {
         this.api.postJob(result);

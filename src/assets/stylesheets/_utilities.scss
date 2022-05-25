@@ -384,3 +384,11 @@
 .text-gray {
   color: #64738B;
 }
+
+.border-primary {
+  border: 1px solid var(--primary);
+}
+
+.text-primary {
+  color: var(--primary);
+}

@@ -1,8 +1,14 @@
 <h1>CARD CREATION</h1>
 
 <div [formGroup]="cardForm">
-  <input placeholder="title" formControlName="title"><br>
-  <input placeholder="description" formControlName="description"><br>
-  <button (click)="addCard()">SUBMIT CARD</button>
-  <button (click)="close()">CLOSE</button>
+  <mat-form-field appearance="outline" class="w-full">
+    <input placeholder="title" formControlName="title">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-full">
+    <input placeholder="description" formControlName="description">
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="end">
+    <button mat-button mat-stroked-button (click)="addCard()">SUBMIT CARD</button>
+    <button mat-button class="bg-primary text-white ml-8" (click)="close()">CLOSE</button>
+  </div>
 </div>

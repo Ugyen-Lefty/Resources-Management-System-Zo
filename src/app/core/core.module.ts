@@ -30,6 +30,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { CardCreationComponent } from './components/post-details/card-creation/card-creation.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -72,6 +74,8 @@ import { CardCreationComponent } from './components/post-details/card-creation/c
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    MatTabsModule,
+    MatMenuModule,
   ]
 })
 export class CoreModule { }

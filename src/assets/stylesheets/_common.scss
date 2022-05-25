@@ -1,3 +1,24 @@
 .card-shadow {
-  box-shadow: 0 3px 4px 1px #cccccc;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+  border-radius: 22px !important;
+  height: 42px !important;
+}
+
+.line-truncate {
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.break-word {
+  word-break: break-all;
+}
+
+.h-full {
+  height: 100%;
 }

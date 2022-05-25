@@ -1,21 +1,93 @@
 <div>
-  <button (click)="creationModal()">Post Job</button>
-  <div *ngFor="let job of jobs; let i = index">
-    <div class="card">
-    <div>
-      <img src="" alt="">
+  <div class="bg-white p-28">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <h1>Jobs</h1>
+      <button mat-button class="text-white bg-primary" (click)="creationModal()">
+        <mat-icon class="material-icons-outlined text-20">post_add</mat-icon>
+        <span class="ml-8">Post Job</span>
+      </button>
     </div>
-    <div>
-      <p>{{job.title}}</p>
-    </div>
-    <div>
-      {{job.description}}
-    </div>
+    <div class="mt-28" style="border-bottom: 1px solid #E0E0E0;"></div>
   </div>
-  <button><a routerLink="details/{{job.id}}">VIEW DETAILS</a></button>
-  <button (click)="deleteJob(job)">>DELETE</button>
+  <mat-tab-group dynamicHeight>
+    <mat-tab class="bg-white" label="Posted Job">
+     <div class="p-20">
+       <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
+         <div fxFlex="50" *ngFor="let job of jobs; let i = index">
+           <div class="card bg-white rounded-8 p-20 card-shadow">
+             <div fxLayout="row" fxLayoutAlign="space-between">
+               <h2>{{job.title}}</h2>
+               <div>
+                 <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
+                 <mat-menu #menu="matMenu">
+                   <button mat-menu-item>
+                     <mat-icon class="material-icons-outlined text-20">edit</mat-icon>
+                     <span>Edit</span>
+                   </button>
+                   <button mat-menu-item (click)="deleteJob(job)">
+                     <mat-icon class="material-icons-outlined text-20">delete</mat-icon>
+                     <span>Delete</span>
+                   </button>
+                 </mat-menu>
+               </div>
+             </div>
+             <div>
+               <p>12/12/2022</p>
+             </div>
+             <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
+               <div>
+                 <p class="text-gray">Project Budget</p>
+                 <h2>$12345</h2>
+               </div>
+               <button mat-button mat-stroked-button class="border-primary">
+                 <a routerLink="details/{{job.id}}" class="text-primary">View Details</a>
+               </button>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+    </mat-tab>
+    <mat-tab label="Review Job">
+      <div class="p-20">
+        <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
+          <div fxFlex="50" *ngFor="let job of jobs; let i = index">
+            <div class="card bg-white rounded-8 p-20 card-shadow">
+              <div fxLayout="row" fxLayoutAlign="space-between">
+                <h2>{{job.title}}</h2>
+                <div>
+                  <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon class="material-icons-outlined text-20">edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteJob(job)">
+                      <mat-icon class="material-icons-outlined text-20">delete</mat-icon>
+                      <span>Delete</span>
+                    </button>
+                  </mat-menu>
+                </div>
+              </div>
+              <div>
+                <p>12/12/2022</p>
+              </div>
+              <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
+                <div>
+                  <p class="text-gray">Project Budget</p>
+                  <h2>$12345</h2>
+                </div>
+                <button mat-button mat-stroked-button class="border-primary">
+                  <a routerLink="details/{{job.id}}" class="text-primary">View Details</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
-  </div>
 
 
 

@@ -1,6 +1,8 @@
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { filter } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 
 export interface Task {
   id?: string;
@@ -16,13 +18,29 @@ export interface Task {
 
 export class WorkProgressComponent implements OnInit {
 
-  ngOnInit(): void {
-  }
   todo: Task[] = [];
   inProgress: Task[] = [];
   done: Task[] = [];
+  projects: any = [];
+  selectedProject: any;
+  id: any;
 
-  constructor(private dialog: MatDialog) { }
+  ngOnInit(): void {
+    this.api.getAllJobs()
+      .pipe(
+        filter(res => !!res)
+      )
+      .subscribe(res => {
+        res.forEach((ans: any) => {
+          //DYNAMIC USER
+          if (ans.postedBy === '0uv4r4jLry1UEtW2XAJz') {
+            this.projects.push(ans);
+          }
+        });
+      });
+  }
+
+  constructor(private dialog: MatDialog, private api: ApiService) { }
 
   newTask(): void {
     //   const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -73,5 +91,49 @@ export class WorkProgressComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
+    this.getStatus(event.currentIndex);
   }
+
+  getStatus(id: any) {
+    // switch (id) {
+    //   case 0:
+
+    //     break;
+    //   case 1:
+
+    //     break;
+    //   case 2:
+
+    //     break;
+
+    //   default:
+    //     break;
+    // }
+  }
+
+  selectProject(id: any) {
+    this.projects.forEach((res: any) => {
+      res.id === id.value ? this.selectedProject = res : '';
+    });
+    if (this.selectedProject) {
+      this.api.getCards()
+        .pipe(
+          filter(res => !!res)
+        )
+        .subscribe(res => {
+          res.forEach((ans: any) => {
+            if (ans.jobid === id.value) {
+              const payload = {
+                id: ans.id,
+                title: ans.title,
+                description: ans.description
+              };
+              this.todo.push(payload);
+            }
+          });
+        });
+      this.todo = [];
+    }
+  }
+
 }

@@ -50,8 +50,9 @@ export class PostDetailsComponent implements OnInit {
 
   cardCreation() {
      this.dialog.open(CardCreationComponent, {
-      width: '500px',
-      data: this.id
+      width: '600px',
+      data: this.id,
+       autoFocus: false
   }).afterClosed().pipe(filter( value => !!value)).subscribe(res => {
         this.api.postCard(res);
         this.getCards();

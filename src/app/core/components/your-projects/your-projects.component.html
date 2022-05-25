@@ -1,42 +1,23 @@
-<div>
+<div class="p-28">
   <div>
     <!-- <select>
       <option *ngFor="let item of " [value]="item.id">{{ item?.cardTitle }}</option>
     </select> -->
-    <mat-label>Select One</mat-label>
-    <select (change)="selectProject($event.target)">
-      <option>
-        Select one
-      </option>
-      <option *ngFor="let item of projects" [value]="item?.id">
-        {{ item?.cardTitle }}
-      </option>
-    </select>
+    <mat-form-field appearance="outline">
+      <mat-label>Select One</mat-label>
+      <mat-select (change)="selectProject($event.target)">
+        <mat-option *ngFor="let item of projects" [value]="item?.id">
+          {{ item?.cardTitle }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
   </div>
   <div>
     <div>
       <p>Week</p>
       <p>Todo</p>
       <full-calendar [options]='calendarOptions'></full-calendar>
-    </div>
-    <div>
-      <p>Minimum</p>
-    </div>
-  </div>
-  <div>
-    <div>
-      <p>Graph</p>
-    </div>
-    <div>
-      <p>Employees</p>
-      <div>
-        <div>
-          <img src="assets/images/google.png" alt="">
-          <div>
-            <p>jhdjafh</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

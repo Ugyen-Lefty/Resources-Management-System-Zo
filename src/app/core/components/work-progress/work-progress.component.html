@@ -1,18 +1,19 @@
-<div>
-  <mat-label>Select One</mat-label>
-  <select (change)="selectProject($event.target)">
-    <option>
-      Select one
-    </option>
-    <option *ngFor="let item of projects" [value]="item?.id">
-      {{ item?.cardTitle }}
-    </option>
-  </select>
-</div>
-<div class="content-wrapper">
-  <button (click)="newTask()" mat-button>
+<div fxLayout="row" fxLayoutAlign="space-between start" class="p-28 bg-white">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Select One</mat-label>
+    <mat-select (selectionChange)="selectProject($event)">
+      <mat-option *ngFor="let item of projects" [value]="item?.id">
+        {{ item?.cardTitle }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button class="bg-primary text-white" (click)="newTask()" mat-button>
     <mat-icon>add</mat-icon> Add Task
   </button>
+</div>
+<div class="content-wrapper p-28">
 
   <div class="container-wrapper">
     <div class="container">

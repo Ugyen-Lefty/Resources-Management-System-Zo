@@ -86,13 +86,16 @@ export class WorkProgressComponent implements OnInit {
     if (event.previousContainer === event.container) {
       return;
     }
+    if (!event.container.data || !event.previousContainer.data) {
+      return;
+    }
     transferArrayItem(
       event.previousContainer.data,
       event.container.data,
       event.previousIndex,
       event.currentIndex
     );
-    // this.api.updateCardStatus(event.container.data[0].id, this.getStatus(drop));
+    this.api.updateCardStatus(event.container.data[0].id, this.getStatus(drop));
   }
 
   getStatus(index?: number) {

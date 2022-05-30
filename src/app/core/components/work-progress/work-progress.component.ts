@@ -92,24 +92,18 @@ export class WorkProgressComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
-    this.getStatus(drop);
-    this.api.updateCardStatus(event.container.data[0].id, this.status);
+    // this.api.updateCardStatus(event.container.data[0].id, this.getStatus(drop));
   }
 
   getStatus(index?: number) {
-    switch (index) {
-      case 0:
-        this.status = 'requested';
-        break;
-      case 1:
-        this.status = 'inProgress';
-        break;
-      case 2:
-        this.status = 'done';
-        break;
-      default:
-        this.status = 'requested';
-        break;
+    if (index == 0) {
+      return 'requested';
+    }
+    else if (index == 1) {
+      return 'inProgress';
+    }
+    else {
+      return 'done';
     }
   }
 

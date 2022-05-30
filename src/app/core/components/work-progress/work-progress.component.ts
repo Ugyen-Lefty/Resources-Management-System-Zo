@@ -1,7 +1,7 @@
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { filter } from 'rxjs';
+import { filter, take } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 
 export interface Task {
@@ -117,8 +117,8 @@ export class WorkProgressComponent implements OnInit {
     if (this.selectedProject) {
       this.api.getCards()
         .pipe(
-          filter(res => !!res)
-        )
+           take(1),
+          filter(res => !!res))
         .subscribe(res => {
           res.forEach((ans: any) => {
             if (ans.jobid === id.value) {

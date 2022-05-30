@@ -9,6 +9,7 @@ import { WorkProgressComponent } from './components/work-progress/work-progress.
 import { WorkTrackerComponent } from './components/work-tracker/work-tracker.component';
 import { YourProjectsComponent } from './components/your-projects/your-projects.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { ChatsComponent } from './components/chats/chats.component';
 
 const routes: Routes = [
   { path: '', component: UserDashboardComponent, children: [
@@ -19,7 +20,9 @@ const routes: Routes = [
     { path: 'your-projects', component: YourProjectsComponent},
     { path: 'user-profile', component: UserProfileComponent},
     { path: 'work-progress', component: WorkProgressComponent},
-      {path: 'job-posting/details/:id', component: PostDetailsComponent}
+     {path: 'job-posting/details/:id', component: PostDetailsComponent},
+     {path: 'chats', component: ChatsComponent},
+
   ]},
 ];
 

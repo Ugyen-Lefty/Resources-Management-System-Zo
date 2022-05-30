@@ -32,6 +32,8 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { CardCreationComponent } from './components/post-details/card-creation/card-creation.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatMenuModule} from "@angular/material/menu";
+import { ChatsComponent } from './components/chats/chats.component';
+import { TalkService } from './services/talk.service';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import {MatMenuModule} from "@angular/material/menu";
     CardCreationComponent,
     UserProfileComponent,
     WorkProgressComponent,
-    KanbanComponent
+    KanbanComponent,
+    ChatsComponent
   ],
   imports: [
     CommonModule,
@@ -76,6 +79,8 @@ import {MatMenuModule} from "@angular/material/menu";
     FormsModule,
     MatTabsModule,
     MatMenuModule,
-  ]
+  ],
+    providers: [TalkService],
+
 })
 export class CoreModule { }

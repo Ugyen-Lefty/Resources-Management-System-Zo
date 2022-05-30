@@ -140,6 +140,8 @@ export class WorkProgressComponent implements OnInit {
           });
         });
       this.todo = [];
+      this.inProgress = [];
+      this.done = [];
     }
   }
 

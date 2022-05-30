@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { filter, take } from 'rxjs';
 import { ApiService } from '../../services/api.service';
+import { findIndex } from 'lodash-es';
 
 export interface Task {
   id?: string;
@@ -25,6 +26,7 @@ export class WorkProgressComponent implements OnInit {
   selectedProject: any;
   id: any;
   status: any;
+  movedId!: any;
 
   ngOnInit(): void {
     this.api.getAllJobs()
@@ -95,7 +97,8 @@ export class WorkProgressComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
-    this.api.updateCardStatus(event.container.data[0].id, this.getStatus(drop));
+    const index = findIndex(event.container.data,  (data) => { return data.id === this.movedId; })
+    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop));
   }
 
   getStatus(index?: number) {
@@ -145,4 +148,7 @@ export class WorkProgressComponent implements OnInit {
     }
   }
 
+  setId(task: any) {
+    this.movedId = task?.id;
+  }
 }

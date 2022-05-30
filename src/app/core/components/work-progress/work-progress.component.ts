@@ -82,7 +82,7 @@ export class WorkProgressComponent implements OnInit {
     // });
   }
 
-  drop(event: CdkDragDrop<any[]>): void {
+  drop(event: CdkDragDrop<any[]>, drop?: number): void {
     if (event.previousContainer === event.container) {
       return;
     }
@@ -92,13 +92,11 @@ export class WorkProgressComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
-    setTimeout(() => {
-      this.getStatus(event.currentIndex);
-      this.api.updateCardStatus(event.container.data[0].id, this.status);
-    }, 1000);
+    this.getStatus(drop);
+    this.api.updateCardStatus(event.container.data[0].id, this.status);
   }
 
-  getStatus(index: any) {
+  getStatus(index?: number) {
     switch (index) {
       case 0:
         this.status = 'requested';

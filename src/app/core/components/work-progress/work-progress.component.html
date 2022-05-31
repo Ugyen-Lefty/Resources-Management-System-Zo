@@ -22,7 +22,7 @@
       <mat-card cdkDropList id="todo" #todoList="cdkDropList" [cdkDropListData]="todo"
         [cdkDropListConnectedTo]="[doneList, inProgressList]" (cdkDropListDropped)="drop($event, 0)" class="list">
         <p class="empty-label" *ngIf="todo.length === 0">Empty list</p>
-        <app-kanban cdkDropList (edit)="editTask('todo', $event)" *ngFor="let task of todo" cdkDrag [task]="task" (cdkDragReleased)=setId(task)></app-kanban>
+        <app-kanban cdkDropList (edit)="editTask('todo', $event)" *ngFor="let task of todo" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)></app-kanban>
       </mat-card>
     </div>
 
@@ -32,7 +32,7 @@
       <mat-card cdkDropList id="inProgress" #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
         [cdkDropListConnectedTo]="[todoList, doneList]" (cdkDropListDropped)="drop($event, 1)" class="list">
         <p class="empty-label" *ngIf="inProgress.length === 0">Empty list</p>
-        <app-kanban (edit)="editTask('inProgress', $event)" *ngFor="let task of inProgress" cdkDrag [task]="task" (cdkDragReleased)=setId(task)>
+        <app-kanban (edit)="editTask('inProgress', $event)" *ngFor="let task of inProgress" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)>
         </app-kanban>
       </mat-card>
     </div>
@@ -43,7 +43,7 @@
       <mat-card cdkDropList id="done" #doneList="cdkDropList" [cdkDropListData]="done"
         [cdkDropListConnectedTo]="[todoList, inProgressList]" (cdkDropListDropped)="drop($event, 2)" class="list">
         <p class="empty-label" *ngIf="done.length === 0">Empty list</p>
-        <app-kanban (edit)="editTask('done', $event)" *ngFor="let task of done" cdkDrag [task]="task" (cdkDragReleased)=setId(task)></app-kanban>
+        <app-kanban (edit)="editTask('done', $event)" *ngFor="let task of done" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)></app-kanban>
       </mat-card>
     </div>
   </div>

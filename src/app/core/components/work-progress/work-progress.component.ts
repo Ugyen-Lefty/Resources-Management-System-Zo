@@ -5,6 +5,7 @@ import { filter, take, tap } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { findIndex } from 'lodash-es';
 import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Task {
   id?: string;
@@ -44,7 +45,7 @@ export class WorkProgressComponent implements OnInit {
       });
   }
 
-  constructor(private dialog: MatDialog, private api: ApiService) { }
+  constructor(private dialog: MatDialog, private api: ApiService, private router: Router, private route: ActivatedRoute) { }
 
   newTask(): void {
     this.dialog.open(CardCreationComponent, {
@@ -159,4 +160,9 @@ export class WorkProgressComponent implements OnInit {
   setId(task: any) {
     this.movedId = task?.id;
   }
+
+  showCardDetails(id: any) {
+    this.router.navigate(['card-details', id], {relativeTo: this.route.parent});
+  }
+
 }

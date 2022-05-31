@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class TalentsComponent implements OnInit {
 
-    talentLists: any;
+    talentLists: any = [];
 
     constructor(private api: ApiService) { }
 
@@ -19,9 +19,8 @@ export class TalentsComponent implements OnInit {
 
     initializer(): void {
         this.api.getUsersList().subscribe((res: any) => {
-            this.talentLists = find(res, (ans: any) => { return ans.role === 'worker' });
+            this.talentLists.push(find(res, (ans: any) => { return ans.role === 'worker' }));
         });
-        // debugger
     }
 
     showDetails(list: any) {

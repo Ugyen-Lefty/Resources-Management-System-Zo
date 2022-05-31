@@ -32,6 +32,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { CardCreationComponent } from './components/post-details/card-creation/card-creation.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatMenuModule} from "@angular/material/menu";
+import { UserProfileModalComponent } from './components/user-profile/user-profile-modal/user-profile-modal.component';
 import { ChatsComponent } from './components/chats/chats.component';
 import { TalkService } from './services/talk.service';
 
@@ -52,7 +53,8 @@ import { TalkService } from './services/talk.service';
     UserProfileComponent,
     WorkProgressComponent,
     KanbanComponent,
-    ChatsComponent
+    ChatsComponent,
+    UserProfileModalComponent
   ],
   imports: [
     CommonModule,

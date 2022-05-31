@@ -31,20 +31,6 @@ export class UserProfileModalComponent implements OnInit {
   campaignTwo!: FormGroup;
 
   constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<UserProfileModalComponent>, private api: ApiService) {
-
-   const today = new Date();
-    const month = today.getMonth();
-    const year = today.getFullYear();
-
-    this.campaignOne = new FormGroup({
-      start: new FormControl(new Date(year, month, 13)),
-      end: new FormControl(new Date(year, month, 16)),
-    });
-
-    this.campaignTwo = new FormGroup({
-      start: new FormControl(new Date(year, month, 15)),
-      end: new FormControl(new Date(year, month, 19)),
-    });
      }
 
   setForm(): void {
@@ -63,8 +49,6 @@ export class UserProfileModalComponent implements OnInit {
      gender: this.gender.value
     }
     this.close(payLoad);
-    // console.log(this.jobPostingForm.value);
-    // debugger
   }
 
   selectFiles(files: any) {

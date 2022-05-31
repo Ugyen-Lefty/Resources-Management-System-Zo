@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { distinctUntilChanged, filter } from 'rxjs';
 import { uniqBy } from 'lodash-es';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CardCreationComponent } from './card-creation/card-creation.component';
 
@@ -17,7 +17,7 @@ export class PostDetailsComponent implements OnInit {
    post: any = '';
    cards!: any[];
 
-  constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
    this.route.paramMap.pipe(distinctUntilChanged()).subscribe(paramMap => {
@@ -63,5 +63,9 @@ export class PostDetailsComponent implements OnInit {
     this.api.getCards().subscribe( res => {
         this.cards = res;
     })
+  }
+
+  showCardDetails(id: any) {
+    this.router.navigate(['card-details', id], {relativeTo: this.route.parent});
   }
 }

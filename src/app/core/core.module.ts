@@ -35,6 +35,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { UserProfileModalComponent } from './components/user-profile/user-profile-modal/user-profile-modal.component';
 import { ChatsComponent } from './components/chats/chats.component';
 import { TalkService } from './services/talk.service';
+import { CardDetailsComponent } from './components/card-details/card-details.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { TalkService } from './services/talk.service';
     WorkProgressComponent,
     KanbanComponent,
     ChatsComponent,
-    UserProfileModalComponent
+    UserProfileModalComponent,
+    CardDetailsComponent
   ],
   imports: [
     CommonModule,

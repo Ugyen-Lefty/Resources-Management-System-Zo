@@ -10,6 +10,7 @@ import { WorkTrackerComponent } from './components/work-tracker/work-tracker.com
 import { YourProjectsComponent } from './components/your-projects/your-projects.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { ChatsComponent } from './components/chats/chats.component';
+import { CardDetailsComponent } from './components/card-details/card-details.component';
 
 const routes: Routes = [
   { path: '', component: UserDashboardComponent, children: [
@@ -22,6 +23,9 @@ const routes: Routes = [
     { path: 'work-progress', component: WorkProgressComponent},
      {path: 'job-posting/details/:id', component: PostDetailsComponent},
      {path: 'chats', component: ChatsComponent},
+     {path: 'card-details/:id', component: CardDetailsComponent},
+      { path: '', redirectTo: 'landing', pathMatch: 'full' }
+
 
   ]},
 ];

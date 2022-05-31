@@ -9,7 +9,7 @@
     </mat-select>
   </mat-form-field>
 
-  <button class="bg-primary text-white" (click)="newTask()" mat-button>
+  <button [disabled]="!selectedProject" class="bg-primary text-white" (click)="newTask()" mat-button>
     <mat-icon>add</mat-icon> Add Task
   </button>
 </div>

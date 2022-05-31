@@ -1,9 +1,10 @@
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { filter, take } from 'rxjs';
+import { filter, take, tap } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { findIndex } from 'lodash-es';
+import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
 
 export interface Task {
   id?: string;
@@ -46,20 +47,22 @@ export class WorkProgressComponent implements OnInit {
   constructor(private dialog: MatDialog, private api: ApiService) { }
 
   newTask(): void {
-    //   const dialogRef = this.dialog.open(TaskDialogComponent, {
-    //     width: '270px',
-    //     data: {
-    //       task: {},
-    //     },
-    //   });
-    //   dialogRef
-    //     .afterClosed()
-    //     .subscribe((result: TaskDialogResult) => {
-    //       if (!result) {
-    //         return;
-    //       }
-    //       this.todo.push(result.task);
-    //     });
+    this.dialog.open(CardCreationComponent, {
+      width: '270px',
+      data: this.selectedProject.id,
+    }).afterClosed()
+      .pipe(
+        filter(res => !!res)
+      )
+      .subscribe((result: any) => {
+        if (!result) {
+          return;
+        }
+        this.api.postCard(result);
+        setTimeout(() => {
+          this.getCards(this.id);
+        }, 1000);
+      });
   }
 
   editTask(list: 'done' | 'todo' | 'inProgress', task: any): void {
@@ -97,7 +100,7 @@ export class WorkProgressComponent implements OnInit {
       event.previousIndex,
       event.currentIndex
     );
-    const index = findIndex(event.container.data,  (data) => { return data.id === this.movedId; })
+    const index = findIndex(event.container.data, (data) => { return data.id === this.movedId; })
     this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop));
   }
 
@@ -118,34 +121,39 @@ export class WorkProgressComponent implements OnInit {
       res.id === id.value ? this.selectedProject = res : '';
     });
     if (this.selectedProject) {
-      this.api.getCards()
-        .pipe(
-           take(1),
-          filter(res => !!res))
-        .subscribe(res => {
-          res.forEach((ans: any) => {
-            if (ans.jobid === id.value) {
-              const payload = {
-                id: ans.id,
-                title: ans.title,
-                description: ans.description
-              };
-              if (ans.status === 'requested') {
-                this.todo.push(payload);
-              }
-              else if (ans.status === 'inProgress') {
-                this.inProgress.push(payload);
-              }
-              else {
-                this.done.push(payload);
-              }
-            }
-          });
-        });
+      this.id = id;
+      this.getCards(this.id);
       this.todo = [];
       this.inProgress = [];
       this.done = [];
     }
+  }
+
+  getCards(id?: any): void {
+    this.api.getCards()
+      .pipe(
+        take(1),
+        filter(res => !!res))
+      .subscribe(res => {
+        res.forEach((ans: any) => {
+          if (ans.jobid === id.value) {
+            const payload = {
+              id: ans.id,
+              title: ans.title,
+              description: ans.description
+            };
+            if (ans.status === 'requested') {
+              this.todo.push(payload);
+            }
+            else if (ans.status === 'inProgress') {
+              this.inProgress.push(payload);
+            }
+            else {
+              this.done.push(payload);
+            }
+          }
+        });
+      });
   }
 
   setId(task: any) {

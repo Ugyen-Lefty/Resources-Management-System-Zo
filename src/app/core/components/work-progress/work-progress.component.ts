@@ -49,7 +49,7 @@ export class WorkProgressComponent implements OnInit {
 
   newTask(): void {
     this.dialog.open(CardCreationComponent, {
-      width: '270px',
+      width: '600px',
       data: this.selectedProject.id,
     }).afterClosed()
       .pipe(

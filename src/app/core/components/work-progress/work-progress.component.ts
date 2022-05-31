@@ -61,7 +61,7 @@ export class WorkProgressComponent implements OnInit {
         }
         this.api.postCard(result);
         setTimeout(() => {
-          this.getCards(this.id);
+          this.getCards(this.id, true);
         }, 1000);
       });
   }
@@ -130,7 +130,12 @@ export class WorkProgressComponent implements OnInit {
     }
   }
 
-  getCards(id?: any): void {
+  getCards(id?: any, reset = false): void {
+  if(reset){
+     this.todo = [];
+     this.inProgress = [];
+     this.done = [];
+  }
     this.api.getCards()
       .pipe(
         take(1),

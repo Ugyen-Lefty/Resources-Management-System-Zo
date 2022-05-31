@@ -13,7 +13,7 @@
 <div class="p-28">
   <h1 class="mb-32">CARDS</h1>
   <div fxLayout="row wrap" fxLayoutAlign="start stretch" fxLayoutGap="32px grid">
-       <div fxFlex="30" *ngFor="let card of cards">
+       <div fxFlex="30" *ngFor="let card of cards" (click)="showCardDetails(card.id)" class="cursor-pointer">
          <div class="bg-white card-shadow h-full" style="border-radius: 16px;">
            <div>
              <img src="https://angular-material.fusetheme.com/assets/images/cards/02-320x200.jpg" alt="image" height="200px" width="100%"
@@ -23,7 +23,6 @@
              <h2>{{card.title}}</h2>
              <p class="line-truncate break-word mt-12">{{card.description}}</p>
            </div>
-           <button (click)="showCardDetails(card.id)">VEW DETAILS</button>
          </div>
       </div>
   </div>

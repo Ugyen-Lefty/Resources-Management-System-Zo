@@ -23,9 +23,9 @@
     <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
     <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
   </mat-form-field>
-  
+
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px">
     <button mat-button mat-stroked-button (click)="close()">CLOSE</button>
-    <button mat-button class="bg-primary text-white" (click)="addCard()">SUBMIT CARD</button>
+    <button mat-button class="bg-primary text-white" (click)="addCard()">{{id? 'Edit Card' : 'Submit Card'}}</button>
   </div>
 </div>

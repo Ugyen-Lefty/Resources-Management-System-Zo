@@ -10,9 +10,11 @@ import { Subject } from 'rxjs';
 export class ApiService {
   onTrigger = new Subject<void>();
   jobCollection: AngularFirestoreCollection<any>;
+  endPoints: any;
 
   constructor(private fireStore: AngularFirestore, private db: AngularFireDatabase, private storage: AngularFireStorage) {
     this.jobCollection = fireStore.collection<any>('job');
+    this.endPoints = `https://hackathon-layog.herokuapp.com/`;
   }
 
   getUsersList() {

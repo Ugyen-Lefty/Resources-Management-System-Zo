@@ -36,6 +36,7 @@ import { UserProfileModalComponent } from './components/user-profile/user-profil
 import { ChatsComponent } from './components/chats/chats.component';
 import { TalkService } from './services/talk.service';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { CardDetailsComponent } from './components/card-details/card-details.com
     FormsModule,
     MatTabsModule,
     MatMenuModule,
+    HttpClientModule,
   ],
     providers: [TalkService],
 

@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ApiService {
   jobCollection: AngularFirestoreCollection<any>;
   endPoints: any;
 
-  constructor(private fireStore: AngularFirestore, private db: AngularFireDatabase, private storage: AngularFireStorage) {
+  constructor(private fireStore: AngularFirestore, private db: AngularFireDatabase, private storage: AngularFireStorage, private http: HttpClient) {
     this.jobCollection = fireStore.collection<any>('job');
     this.endPoints = `https://hackathon-layog.herokuapp.com/`;
   }

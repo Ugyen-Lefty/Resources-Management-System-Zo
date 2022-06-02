@@ -43,24 +43,20 @@ export class JobPostingModalComponent implements OnInit {
     this.jobPostingForm = this.fb.group({
        title: ['', Validators.required],
        description: ['', Validators.required],
-       location: ['', Validators.required],
-       cardTitle: ['', Validators.required],
-       assignee:['', Validators.required]
-    });
+       location: ['', Validators.required]
+       });
   }
 
   addJobPosting() {
   const payload = {
       ...this.jobPostingForm.value,
       image: this.attachment.value,
-      startDate: this.campaignOne?.value?.start,
-      endDate: this.campaignOne?.value?.end,
-      status: 'posted',
-      work_type: this.totalJobs,
-      applied: [''],
+      start_date: this.campaignOne?.value?.start,
+      end_date: this.campaignOne?.value?.end,
+      status: 'draft',
+      creator_id: 3,
       recruits: [''],
-      //TO BE CHANGED LATER TO DYNAMIC USER ID FROM LOCALSTORAGE
-      postedBy: '0uv4r4jLry1UEtW2XAJz'
+      job_type: this.totalJobs,
     }
      this.close(payload);
   }

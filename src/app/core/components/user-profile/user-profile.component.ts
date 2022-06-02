@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserProfileModalComponent } from './user-profile-modal/user-profile-modal.component';
 import { filter } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,10 +11,16 @@ import { filter } from 'rxjs';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  user: any;
+  constructor(private dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit(): void {
+  this.api.getCurrentUser().subscribe(user => {
+  debugger
+    this.user = user;
+  });
   }
+
 
   editProfile() {
    this.dialog.open(UserProfileModalComponent, {

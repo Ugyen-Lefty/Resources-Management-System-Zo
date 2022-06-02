@@ -15,16 +15,6 @@
       <mat-label>Location</mat-label>
       <input matInput type="text" formControlName="location">
     </mat-form-field>
-
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Card Title</mat-label>
-      <input matInput type="text" formControlName="cardTitle">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="w-full">
-      <mat-label>Assignee</mat-label>
-      <input matInput type="text" formControlName="assignee">
-    </mat-form-field>
   </div>
   <mat-form-field class="example-form-field" appearance="outline" class="w-full">
     <mat-label>Select Date</mat-label>
@@ -41,11 +31,14 @@
     <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
     <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
   </mat-form-field>
-  <div>
-    <div class="file-upload" type="file" (click)="file.click()" style="cursor: pointer">Upload</div>
-    <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
+
+<!--  <div>
+ //Used for uploading images
+   <div class="file-upload" type="file" (click)="file.click()" style="cursor: pointer">Upload</di
+  <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
            accept="image/jpg,image/jpeg,image/png" (click)="selectFiles($event)">
-  </div>
+</div>-->
+
   <input (keyup.enter)="addJobs(jobsControl.value)" [formControl]="jobsControl"><br>
   <mat-chip-list *ngFor="let chip of totalJobs">
     <mat-chip class="white-color">{{chip}}</mat-chip>

@@ -18,12 +18,24 @@ export class ApiService {
     this.endPoints = `https://hackathon-layog.herokuapp.com/`;
   }
 
+  getCurrentUser() {
+  const payload = {
+     email: 'sc1@selise.ch',
+     password: 'Selise123'
+  }
+    return this.http.post(`${this.endPoints}`,{user: payload});
+  }
+
   getUsersList() {
     return this.fireStore.collection('users').valueChanges({ idField: 'id' });
   }
 
   postJob(result: any) {
-    this.jobCollection.add(result);
+    return this.http.post(`${this.endPoints}jobs`,{job: result});
+  }
+
+  getJobs(){
+  return this.http.get(`${this.endPoints}jobs`);
   }
 
   getAllJobs() {
@@ -39,7 +51,7 @@ export class ApiService {
   }
 
   delete(id: string) {
-    return this.jobCollection.doc(id).delete();
+    return this.http.delete(`${this.endPoints}jobs/${id}`);
   }
 
   postCard(result: any) {

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { JobPostingModalComponent } from './job-posting-modal/job-posting-modal.component';
-import { filter } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2'
-import { uniqBy } from 'lodash-es';
 import { Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { find } from 'lodash-es';
 
 @Component({
   selector: 'app-job-posting',
@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
 export class JobPostingComponent implements OnInit {
 
   jobs: any = [];
+  completedJobs: any = [];
+  postedJobs: any = [];
+  reviewJobs: any = [];
   constructor( private dialog: MatDialog, private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,30 +30,35 @@ export class JobPostingComponent implements OnInit {
        width: '550px',
       autoFocus: false,
     }).afterClosed().pipe(filter(value =>!!value)).subscribe(result => {
-        this.api.postJob(result);
+        this.api.postJob(result).subscribe( () => {
         Swal.fire('Job posted successfully!', '', 'success');
+        this.getJobs();
+        }, () => {
+         Swal.fire('Job posting error!', '', 'error');
+        });
+
     });
   }
 
    getJobs(): void {
-     this.api.getAllJobs()
-      .pipe(
-        filter(res => !!res)
-      )
-      .subscribe(res => {
-        res.forEach((ans: any) => {
-        //DYNAMIC USER
-          if (ans.postedBy === '0uv4r4jLry1UEtW2XAJz') {
-            this.jobs.push(ans);
-            this.jobs = uniqBy(this.jobs, 'title');
-          }
-        });
-      });
+    this.api.getJobs().subscribe( (data: any) => {
+    data.forEach( (val : any) => {
+        if(val.status === 'completed') {
+          this.completedJobs.push(val);
+        } else if(val.status === 'posted') {
+          this.postedJobs.push(val);
+        } else if(val.status === 'draft') {
+          this.reviewJobs.push(val);
+        }
+    })
+    });
   }
 
   deleteJob(job: any): void {
-     this.api.delete(job.id).then(res => {
-     this.jobs = [];
+     this.api.delete(job.id).subscribe(() => {
+     this.completedJobs = [];
+     this.reviewJobs= [];
+     this.postedJobs = [];
       this.getJobs();
      })
   }

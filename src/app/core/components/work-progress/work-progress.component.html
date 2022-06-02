@@ -2,14 +2,14 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Select One</mat-label>
-    <mat-select (selectionChange)="selectProject($event)">
+    <mat-select (selectionChange)="selectProject($event?.value)" [(value)]="currentProject">
       <mat-option *ngFor="let item of projects" [value]="item?.id">
         {{ item?.title }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <button [disabled]="!selectedProject" class="bg-primary text-white" (click)="newTask()" mat-button>
+  <button [disabled]="!id" class="bg-primary text-white" (click)="newTask()" mat-button>
     <mat-icon>add</mat-icon> Add Task
   </button>
 </div>
@@ -32,7 +32,7 @@
       <mat-card cdkDropList id="inProgress" #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
         [cdkDropListConnectedTo]="[todoList, doneList]" (cdkDropListDropped)="drop($event, 1)" class="list">
         <p class="empty-label" *ngIf="inProgress.length === 0">Empty list</p>
-        <app-kanban (edit)="editTask('inProgress', $event)" *ngFor="let task of inProgress" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)>
+        <app-kanban (edit)="editTask('in_progress', $event)" *ngFor="let task of inProgress" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)>
         </app-kanban>
       </mat-card>
     </div>

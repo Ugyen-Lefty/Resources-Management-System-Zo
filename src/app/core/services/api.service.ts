@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Subject } from 'rxjs';
+import { Subject, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -63,18 +63,21 @@ export class ApiService {
   return this.http.put(`${this.endPoints}jobs/${id}/cards/${card_id}`, {card: result});
   } else {
   return this.http.post(`${this.endPoints}jobs/${id}/cards`, {card: result});
-  }
-
+   }
   }
 
   getCards(id?: string) {
     return this.http.get(`${this.endPoints}jobs/${id}/cards`);
   }
 
-  updateCardStatus(id: any, status: any) {
-    this.fireStore.collection('work-progress').doc(id).update({
-      status: status
-    });
+  updateCardStatus(id: any, status: any, job_id?: any) {
+    return this.getCardDetail(id, job_id).pipe( switchMap(res => {
+      const payload = {
+        ...res,
+        status: status
+      }
+       return this.http.put(`${this.endPoints}jobs/${job_id}/cards/${id}`, {card: payload});
+    } ))
   }
 
   signin(user: any) {

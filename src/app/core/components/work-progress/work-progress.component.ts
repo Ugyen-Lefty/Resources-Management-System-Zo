@@ -6,6 +6,7 @@ import { ApiService } from '../../services/api.service';
 import { findIndex } from 'lodash-es';
 import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 export interface Task {
   id?: string;
@@ -29,19 +30,13 @@ export class WorkProgressComponent implements OnInit {
   id: any;
   status: any;
   movedId!: any;
+  currentProject: any;
 
   ngOnInit(): void {
-    this.api.getAllJobs()
-      .pipe(
-        filter(res => !!res)
-      )
-      .subscribe(res => {
-        res.forEach((ans: any) => {
-          //DYNAMIC USER
-          if (ans.postedBy === '0uv4r4jLry1UEtW2XAJz') {
-            this.projects.push(ans);
-          }
-        });
+    this.api.getJobs().subscribe(res => {
+        this.projects = res;
+        this.currentProject = this.projects[0].id;
+        this.selectProject(this.projects[0].id);
       });
   }
 
@@ -66,7 +61,7 @@ export class WorkProgressComponent implements OnInit {
       });
   }
 
-  editTask(list: 'done' | 'todo' | 'inProgress', task: any): void {
+  editTask(list: 'done' | 'todo' | 'in_progress', task: any): void {
     // const dialogRef = this.dialog.open(TaskDialogComponent, {
     //   width: '270px',
     //   data: {
@@ -102,7 +97,9 @@ export class WorkProgressComponent implements OnInit {
       event.currentIndex
     );
     const index = findIndex(event.container.data, (data) => { return data.id === this.movedId; })
-    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop));
+    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop), this.id).subscribe( res => {
+       debugger
+    });
   }
 
   getStatus(index?: number) {
@@ -110,7 +107,7 @@ export class WorkProgressComponent implements OnInit {
       return 'requested';
     }
     else if (index == 1) {
-      return 'inProgress';
+      return 'in_progress';
     }
     else {
       return 'done';
@@ -118,16 +115,13 @@ export class WorkProgressComponent implements OnInit {
   }
 
   selectProject(id: any) {
-    this.projects.forEach((res: any) => {
-      res.id === id.value ? this.selectedProject = res : '';
-    });
-    if (this.selectedProject) {
+     this.currentProject = id;
       this.id = id;
       this.getCards(this.id);
       this.todo = [];
       this.inProgress = [];
       this.done = [];
-    }
+
   }
 
   getCards(id?: any, reset = false): void {
@@ -136,31 +130,18 @@ export class WorkProgressComponent implements OnInit {
      this.inProgress = [];
      this.done = [];
   }
-    this.api.getCards()
-      .pipe(
-        take(1),
-        filter(res => !!res))
-      .subscribe(res => {
-        // res.forEach((ans: any) => {
-        //   if (ans.jobid === id.value) {
-        //     const payload = {
-        //       id: ans.id,
-        //       title: ans.title,
-        //       description: ans.description
-        //     };
-        //     if (ans.status === 'requested') {
-        //       this.todo.push(payload);
-        //     }
-        //     else if (ans.status === 'inProgress') {
-        //       this.inProgress.push(payload);
-        //     }
-        //     else {
-        //       this.done.push(payload);
-        //     }
-        //   }
-        // });
-      });
-  }
+    this.api.getCards(this.id).subscribe( (res: any) => {
+      res.forEach((res: any) => {
+        if (res.status === 'requested') {
+          this.todo.push(res);
+        } else if (res.status === 'in_progress') {
+          this.inProgress.push(res);
+        } else {
+          this.done.push(res);
+           }
+         });
+       });
+    }
 
   setId(task: any) {
     this.movedId = task?.id;

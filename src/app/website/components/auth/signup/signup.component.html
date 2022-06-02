@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div [formGroup]="signupForm">
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" formControlName="email">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Address</mat-label>
+    <input matInput type="text" formControlName="address">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option *ngFor="let gender of ['Female', 'Male', 'Others']" [value]="gender">{{ gender }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Phone</mat-label>
+    <input matInput type="text" formControlName="phone">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="roles">
+      <mat-option *ngFor="let role of ['Buyer', 'Worker']" [value]="role">{{ role }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <button mat-button class="text-white bg-primary" (click)="signup()">
+    <mat-icon class="material-icons-outlined text-20">add</mat-icon>
+    <span class="ml-8">Signup</span>
+  </button>
+</div>

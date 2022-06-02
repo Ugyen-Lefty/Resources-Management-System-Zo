@@ -72,4 +72,8 @@ export class ApiService {
     return this.http.post(`${this.endPoints}users/sign_in`, { user });
   }
 
+  signup(user: any) {
+    return this.http.post(`${this.endPoints}users`, { user });
+  }
+
 }

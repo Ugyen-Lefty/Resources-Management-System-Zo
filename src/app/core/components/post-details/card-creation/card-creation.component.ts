@@ -13,9 +13,11 @@ export class CardCreationComponent implements OnInit {
   cardForm!: FormGroup;
   id!: string;
   campaignOne?: FormGroup;
+  card: any;
 
   constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private api: ApiService, public dialogRef: MatDialogRef<CardCreationComponent>) {
-       this.id = data;
+       this.id = data.id || '';
+       this.card = data.card || '';
   }
 
   ngOnInit(): void {
@@ -24,16 +26,16 @@ export class CardCreationComponent implements OnInit {
 
   initializer(): void {
     this.createCard();
+    this.cardForm.patchValue(this.card);
   }
-
 
   createCard() {
     this.cardForm = this.fb.group({
       title: [''],
       description: [''],
       price: [''],
-      startDate: [''],
-      endDate: ['']
+      start_date: [''],
+      end_date: ['']
     });
   }
 
@@ -41,7 +43,7 @@ export class CardCreationComponent implements OnInit {
     const payload = {
        ...this.cardForm.value,
        status: 'requested',
-       jobid: this.id
+       job_id: this.id,
     }
     this.close(payload);
   }

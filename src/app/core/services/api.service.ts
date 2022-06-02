@@ -58,12 +58,17 @@ export class ApiService {
     return this.http.delete(`${this.endPoints}jobs/${id}`);
   }
 
-  postCard(result: any) {
-    return this.fireStore.collection('work-progress').add(result);
+  postCard(result: any, id?: any, card_id?: string ) {
+  if(card_id){
+  return this.http.put(`${this.endPoints}jobs/${id}/cards/${card_id}`, {card: result});
+  } else {
+  return this.http.post(`${this.endPoints}jobs/${id}/cards`, {card: result});
   }
 
-  getCards() {
-    return this.fireStore.collection('work-progress').valueChanges({ idField: 'id' });
+  }
+
+  getCards(id?: string) {
+    return this.http.get(`${this.endPoints}jobs/${id}/cards`);
   }
 
   updateCardStatus(id: any, status: any) {
@@ -86,5 +91,13 @@ export class ApiService {
 
   editJob(id: string, payload: any) {
     return this.http.put(`${this.endPoints}jobs/${id}`, {job: payload});
+  }
+
+  getCardDetail(cardId: any, jobId: any) {
+    return this.http.get(`${this.endPoints}jobs/${jobId}/cards/${cardId}`);
+  }
+
+  deleteCard(jobId: any, cardId: any) {
+    return this.http.delete(`${this.endPoints}jobs/${jobId}/cards/${cardId}`);
   }
 }

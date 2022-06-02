@@ -1,16 +1,19 @@
 <div>
 <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
 <button (click)="editCard()">edit</button><button (click)="deleteCard()">Delete</button>
-  <div>Title
+  <div>{{cardDetails?.title}}
   </div>
   <div>
-    Description
+    {{cardDetails?.description}}
   </div>
   <div>
-    Dateline
+    {{cardDetails?.start_date}} --> {{cardDetails?.end_date}}
   </div>
 <!--  show it in chips-->
   <div>
     assignees
+  </div>
+  <div>
+    ${{cardDetails?.price}}
   </div>
 </div>

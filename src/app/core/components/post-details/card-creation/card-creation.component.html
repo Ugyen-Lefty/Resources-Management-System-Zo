@@ -16,8 +16,8 @@
     <mat-label>Select Date</mat-label>
     <mat-date-range-input
       [rangePicker] = "campaignOnePicker">
-      <input matStartDate placeholder="Start date" formControlName="startDate">
-      <input matEndDate placeholder="End date" formControlName="endDate">
+      <input matStartDate placeholder="Start date" formControlName="start_date">
+      <input matEndDate placeholder="End date" formControlName="end_date">
     </mat-date-range-input>
 
     <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
@@ -26,6 +26,6 @@
 
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px">
     <button mat-button mat-stroked-button (click)="close()">CLOSE</button>
-    <button mat-button class="bg-primary text-white" (click)="addCard()">{{id? 'Edit Card' : 'Submit Card'}}</button>
+    <button mat-button class="bg-primary text-white" (click)="addCard()">{{card ? 'Edit Card' : 'Submit Card'}}</button>
   </div>
 </div>

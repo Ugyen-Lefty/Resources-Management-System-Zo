@@ -42,7 +42,7 @@ export class JobPostingModalComponent implements OnInit {
   const payload = {
       ...this.jobPostingForm.value,
       image: this.attachment.value,
-      status: 'draft',
+      status: this.job.status || 'draft',
       creator_id: 3,
       recruits: [''],
       job_type: this.totalJobs,

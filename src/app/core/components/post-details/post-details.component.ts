@@ -43,22 +43,24 @@ export class PostDetailsComponent implements OnInit {
   cardCreation() {
      this.dialog.open(CardCreationComponent, {
       width: '600px',
-      data: this.id,
+      data: {id : this.id, card: undefined},
        autoFocus: false
   }).afterClosed().pipe(filter( value => !!value)).subscribe(res => {
-        this.api.postCard(res);
+        this.api.postCard(res, this.id).subscribe( (res: any) => {
+        Swal.fire('Card successfully created!', '', 'success');
         this.getCards();
+        });
   });
   }
 
   private getCards() {
-    this.api.getCards().subscribe( res => {
+    this.api.getCards(this.id).subscribe( (res: any) => {
         this.cards = res;
     })
   }
 
   showCardDetails(id: any) {
-    this.router.navigate(['card-details', id], {relativeTo: this.route.parent});
+    this.router.navigate([`job/${this.id}/card-details`, id], {relativeTo: this.route.parent});
   }
 
   postJob(type: string) {

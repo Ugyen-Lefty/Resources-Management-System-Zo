@@ -23,7 +23,7 @@ const routes: Routes = [
     { path: 'work-progress', component: WorkProgressComponent},
      {path: 'job-posting/details/:id', component: PostDetailsComponent},
      {path: 'chats', component: ChatsComponent},
-     {path: 'card-details/:id', component: CardDetailsComponent},
+     {path: 'job/:jid/card-details/:cid', component: CardDetailsComponent},
       { path: '', redirectTo: 'landing', pathMatch: 'full' }
 
 

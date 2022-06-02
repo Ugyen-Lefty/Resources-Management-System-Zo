@@ -141,24 +141,24 @@ export class WorkProgressComponent implements OnInit {
         take(1),
         filter(res => !!res))
       .subscribe(res => {
-        res.forEach((ans: any) => {
-          if (ans.jobid === id.value) {
-            const payload = {
-              id: ans.id,
-              title: ans.title,
-              description: ans.description
-            };
-            if (ans.status === 'requested') {
-              this.todo.push(payload);
-            }
-            else if (ans.status === 'inProgress') {
-              this.inProgress.push(payload);
-            }
-            else {
-              this.done.push(payload);
-            }
-          }
-        });
+        // res.forEach((ans: any) => {
+        //   if (ans.jobid === id.value) {
+        //     const payload = {
+        //       id: ans.id,
+        //       title: ans.title,
+        //       description: ans.description
+        //     };
+        //     if (ans.status === 'requested') {
+        //       this.todo.push(payload);
+        //     }
+        //     else if (ans.status === 'inProgress') {
+        //       this.inProgress.push(payload);
+        //     }
+        //     else {
+        //       this.done.push(payload);
+        //     }
+        //   }
+        // });
       });
   }
 

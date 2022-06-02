@@ -7,6 +7,7 @@ import { findIndex } from 'lodash-es';
 import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 export interface Task {
   id?: string;
@@ -45,42 +46,13 @@ export class WorkProgressComponent implements OnInit {
   newTask(): void {
     this.dialog.open(CardCreationComponent, {
       width: '600px',
-      data: this.selectedProject.id,
-    }).afterClosed()
-      .pipe(
-        filter(res => !!res)
-      )
-      .subscribe((result: any) => {
-        if (!result) {
-          return;
-        }
-        this.api.postCard(result);
-        setTimeout(() => {
-          this.getCards(this.id, true);
-        }, 1000);
+      data: {id : this.id, card: undefined},
+    }).afterClosed().subscribe((result: any) => {
+        this.api.postCard(result).subscribe( res => {
+         Swal.fire('Card successfully created!', '', 'success');
+         this.getCards(this.id, true);
+        });
       });
-  }
-
-  editTask(list: 'done' | 'todo' | 'in_progress', task: any): void {
-    // const dialogRef = this.dialog.open(TaskDialogComponent, {
-    //   width: '270px',
-    //   data: {
-    //     task,
-    //     enableDelete: true,
-    //   },
-    // });
-    // dialogRef.afterClosed().subscribe((result: TaskDialogResult) => {
-    //   if (!result) {
-    //     return;
-    //   }
-    //   const dataList = this[list];
-    //   const taskIndex = dataList.indexOf(task);
-    //   if (result.delete) {
-    //     dataList.splice(taskIndex, 1);
-    //   } else {
-    //     dataList[taskIndex] = task;
-    //   }
-    // });
   }
 
   drop(event: CdkDragDrop<any[]>, drop?: number): void {
@@ -97,9 +69,7 @@ export class WorkProgressComponent implements OnInit {
       event.currentIndex
     );
     const index = findIndex(event.container.data, (data) => { return data.id === this.movedId; })
-    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop), this.id).subscribe( res => {
-       debugger
-    });
+    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop), this.id).subscribe();
   }
 
   getStatus(index?: number) {
@@ -148,7 +118,7 @@ export class WorkProgressComponent implements OnInit {
   }
 
   showCardDetails(id: any) {
-    this.router.navigate(['card-details', id], {relativeTo: this.route.parent});
+    this.router.navigate([`job/${this.id}/card-details/`, id], {relativeTo: this.route.parent});
   }
 
 }

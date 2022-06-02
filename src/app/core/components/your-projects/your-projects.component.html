@@ -3,20 +3,20 @@
     <!-- <select>
       <option *ngFor="let item of " [value]="item.id">{{ item?.cardTitle }}</option>
     </select> -->
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
       <mat-label>Select One</mat-label>
       <mat-select (change)="selectProject($event.target)">
         <mat-option *ngFor="let item of projects" [value]="item?.id">
           {{ item?.cardTitle }}
         </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
   </div>
   <div>
     <div>
-      <p>Week</p>
-      <p>Todo</p>
+      <div>
+      </div>
       <full-calendar [options]='calendarOptions'></full-calendar>
     </div>
   </div>

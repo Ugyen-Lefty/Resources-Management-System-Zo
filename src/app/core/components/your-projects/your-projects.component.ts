@@ -5,12 +5,28 @@ import { ApiService } from '../../services/api.service';
 import { createEventId } from './your-projects-utils';
 
 export const INITIAL_EVENTS: EventInput[] = [
+  // {
+  //   id: createEventId(),
+  //   title: '',
+  //   start: '',
+  //   end: ''
+  // }
   {
     id: createEventId(),
-    title: '',
-    start: '',
-    end: ''
-  }
+    title: 'All-day event',
+    start: new Date().toISOString().replace(/T.*$/, ''),
+    end: new Date().toISOString().replace(/T.*$/, ''),
+    backgroundColor: 'red'
+
+  },
+  {
+    id: createEventId(),
+    title: 'All-day event',
+    start: '2022-06-01',
+    end: '2022-06-07',
+    backgroundColor: 'blue'
+
+  },
 ];
 
 @Component({
@@ -23,39 +39,58 @@ export class YourProjectsComponent implements OnInit {
   projects: any = [];
   selectedProject: any;
   calendarVisible = true;
-  calendarOptions: CalendarOptions = {
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-    },
-    initialView: 'dayGridMonth',
-    initialEvents: INITIAL_EVENTS,
-    weekends: true,
-    editable: true,
-    selectable: true,
-    selectMirror: true,
-    dayMaxEvents: true,
-    select: this.handleDateSelect.bind(this),
-    eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this)
-  };
+  calendarEvents: EventInput[] = [];
+  calendarOptions!: CalendarOptions;
   currentEvents: EventApi[] = [];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.api.getAllJobs()
-      .pipe(
-        filter(res => !!res)
-      )
-      .subscribe(res => {
-        res.forEach((ans: any) => {
-          if (ans.postedBy === '0uv4r4jLry1UEtW2XAJz') {
-            this.projects.push(ans);
+    this.api.getJobs().subscribe((res: any) => {
+      res.forEach((ans: any) => {
+        this.calendarEvents.push(
+          {
+            id: createEventId(),
+            title: ans.title,
+            start: ans.start_date,
+            end: ans.end_date,
+            backgroundColor: 'red'
           }
-        });
+        );
       });
+      this.calendarOptions = {
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        },
+        initialView: 'dayGridMonth',
+        initialEvents: this.calendarEvents,
+        weekends: true,
+        editable: false,
+        selectable: true,
+        selectMirror: true,
+        dayMaxEvents: true,
+        select: this.handleDateSelect.bind(this),
+        eventClick: this.handleEventClick.bind(this),
+        eventsSet: this.handleEvents.bind(this)
+      };
+      // this.calendarEvents.map(ans => {
+      //   ans.id = createEventId();
+      //   ans.title = res.title;
+      //   ans.start = res.start_date;
+      //   ans.end = res.end_date;
+      //   ans.backgroundColor = this.getRandomColor();
+      // res.title = this.selectedProject.cardTitle,
+      // res.start = this.selectedProject.startDate.toDate().toISOString().replace(/T.*$/, ''),
+      // res.end = this.selectedProject.endDate.toDate().toISOString().replace(/T.*$/, '')
+      // });
+    });
+  }
+
+  getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
   }
 
   handleCalendarToggle() {
@@ -92,27 +127,20 @@ export class YourProjectsComponent implements OnInit {
 
   handleEvents(events: EventApi[]) {
     this.currentEvents = events;
+
   }
 
-  selectProject(id: any) {
-    this.projects.forEach((res: any) => {
-      res.id === id.value ? this.selectedProject = res : '';
-    });
-    if (this.selectedProject) {
-      INITIAL_EVENTS.map(res => {
-        res.title = this.selectedProject.cardTitle,
-          res.start = this.selectedProject.startDate.toDate().toISOString().replace(/T.*$/, ''),
-          res.end = this.selectedProject.endDate.toDate().toISOString().replace(/T.*$/, '')
-      });
-      this.api.triggerReload();
-      // calendarApi.addEvent({
-      //   id: createEventId(),
-      //   title: this.selectedProject.cardTitle,
-      //   start: this.selectedProject.startDate,
-      //   end: this.selectedProject.endDate,
-      //   allDay: true
-      // });
-
-    }
+  selectProject() {
+    // this.projects.forEach((res: any) => {
+    //   res.id === id.value ? this.selectedProject = res : '';
+    // });
+    // this.api.triggerReload();
+    // calendarApi.addEvent({
+    //   id: createEventId(),
+    //   title: this.selectedProject.cardTitle,
+    //   start: this.selectedProject.startDate,
+    //   end: this.selectedProject.endDate,
+    //   allDay: true
+    // });
   }
 }

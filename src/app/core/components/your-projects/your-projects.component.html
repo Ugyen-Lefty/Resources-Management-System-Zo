@@ -17,7 +17,9 @@
     <div>
       <div>
       </div>
-      <full-calendar [options]='calendarOptions'></full-calendar>
+      <ng-container *ngIf="calendarEvents.length > 0">
+       <full-calendar [options]='calendarOptions'></full-calendar>
+      </ng-container>
     </div>
   </div>
 </div>

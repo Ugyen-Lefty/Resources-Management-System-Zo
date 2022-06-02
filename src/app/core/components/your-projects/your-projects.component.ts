@@ -54,7 +54,7 @@ export class YourProjectsComponent implements OnInit {
             title: ans.title,
             start: ans.start_date,
             end: ans.end_date,
-            backgroundColor: 'red'
+            backgroundColor: this.getRandomColor()
           }
         );
       });
@@ -89,7 +89,7 @@ export class YourProjectsComponent implements OnInit {
   }
 
   getRandomColor() {
-    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    const color = Math.floor(0x1000000 * Math.random()).toString(16);
     return '#' + ('000000' + color).slice(-6);
   }
 

@@ -19,20 +19,6 @@ export class JobPostingModalComponent implements OnInit {
      job: any;
 
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
-
-   const today = new Date();
-    const month = today.getMonth();
-    const year = today.getFullYear();
-
-    this.campaignOne = new FormGroup({
-      start: new FormControl(new Date(year, month, 13)),
-      end: new FormControl(new Date(year, month, 16)),
-    });
-
-    this.campaignTwo = new FormGroup({
-      start: new FormControl(new Date(year, month, 15)),
-      end: new FormControl(new Date(year, month, 19)),
-    });
     this.job = data || '';
      }
 
@@ -46,7 +32,9 @@ export class JobPostingModalComponent implements OnInit {
     this.jobPostingForm = this.fb.group({
        title: ['', Validators.required],
        description: ['', Validators.required],
-       location: ['', Validators.required]
+       location: ['', Validators.required],
+       start_date: [''],
+       end_date: ['']
        });
   }
 
@@ -54,8 +42,6 @@ export class JobPostingModalComponent implements OnInit {
   const payload = {
       ...this.jobPostingForm.value,
       image: this.attachment.value,
-      start_date: this.campaignOne?.value?.start,
-      end_date: this.campaignOne?.value?.end,
       status: 'draft',
       creator_id: 3,
       recruits: [''],

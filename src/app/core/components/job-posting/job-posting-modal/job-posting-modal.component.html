@@ -19,15 +19,10 @@
   <mat-form-field class="example-form-field" appearance="outline" class="w-full">
     <mat-label>Select Date</mat-label>
     <mat-date-range-input
-      [formGroup]="campaignOne"
-      [rangePicker]="campaignOnePicker"
-      [comparisonStart]="campaignTwo.value.start"
-      [comparisonEnd]="campaignTwo.value.end">
-      <input matStartDate placeholder="Start date" formControlName="start">
-      <input matEndDate placeholder="End date" formControlName="end">
+      [rangePicker] = "campaignOnePicker">
+      <input matStartDate placeholder="Start date" formControlName="start_date">
+      <input matEndDate placeholder="End date" formControlName="end_date">
     </mat-date-range-input>
-
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
     <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
   </mat-form-field>

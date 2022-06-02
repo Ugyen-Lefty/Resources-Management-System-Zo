@@ -38,9 +38,7 @@ export class JobPostingComponent implements OnInit {
          this.reviewJobs= [];
           this.postedJobs = [];
         this.getJobs();
-        }, () => {
-         Swal.fire('Job updating error!', '', 'error');
-        });
+        })
     } else {
  this.api.postJob(result).subscribe( () => {
         Swal.fire('Job posted successfully!', '', 'success');
@@ -48,8 +46,6 @@ export class JobPostingComponent implements OnInit {
          this.reviewJobs= [];
           this.postedJobs = [];
         this.getJobs();
-        }, () => {
-         Swal.fire('Job posting error!', '', 'error');
         });
     }
 

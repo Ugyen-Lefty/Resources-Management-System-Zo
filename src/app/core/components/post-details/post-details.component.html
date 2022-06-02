@@ -11,8 +11,19 @@
 
   </div>
   <div>
-    {{post.description}}
+    {{post?.description}}
   </div>
+  <div>
+    {{post?.location}}
+  </div>
+  <div>
+    {{post?.start_date}} ---> {{post?.end_date}}
+  </div>
+    <div *ngFor="let type of post?.job_type">
+     <mat-chip-list aria-label="Fish selection" fxLayout="row">
+  <mat-chip color="primary" selected>{{type}}</mat-chip>
+</mat-chip-list>
+    </div>
 </div>
 <div class="p-28">
   <h1 class="mb-32">CARDS</h1>

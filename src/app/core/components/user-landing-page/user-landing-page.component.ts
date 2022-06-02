@@ -10,10 +10,12 @@ import { ApiService } from '../../services/api.service';
 export class UserLandingPageComponent implements OnInit {
 
   users: any;
+  role: any;
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem('User Role');
     this.api.getUsersList()
       .subscribe((res: any) => {
         res.forEach((res: any) => {

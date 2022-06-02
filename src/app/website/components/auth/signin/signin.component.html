@@ -1,0 +1,14 @@
+<div [formGroup]="signinForm">
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" formControlName="email">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+  <button mat-button class="text-white bg-primary" (click)="signin()">
+    <mat-icon class="material-icons-outlined text-20">add</mat-icon>
+    <span class="ml-8">Login</span>
+  </button>
+</div>

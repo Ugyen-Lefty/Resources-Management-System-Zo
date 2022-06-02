@@ -55,7 +55,9 @@ export class ApiService {
       status: status
     });
   }
-  // editInterviewer(data: editInterviewer, id: string): void {
-  // }
+  
+  signin(user: any) {
+    return this.http.post(`${this.endPoints}users/sign_in`, { user });
+  }
 
 }

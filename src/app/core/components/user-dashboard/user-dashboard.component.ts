@@ -26,4 +26,9 @@ export class UserDashboardComponent implements OnInit {
       });
   }
 
+  signOut() {
+    localStorage.removeItem('User Role');
+    location.href = "";
+  }
+
 }

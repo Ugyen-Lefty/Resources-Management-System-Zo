@@ -6,7 +6,6 @@ import { ApiService } from '../../services/api.service';
 import { findIndex } from 'lodash-es';
 import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 export interface Task {
@@ -47,7 +46,7 @@ export class WorkProgressComponent implements OnInit {
     this.dialog.open(CardCreationComponent, {
       width: '600px',
       data: {id : this.id, card: undefined},
-    }).afterClosed().subscribe((result: any) => {
+    }).afterClosed().pipe(filter (val => !!val)).subscribe((result: any) => {
         this.api.postCard(result).subscribe( res => {
          Swal.fire('Card successfully created!', '', 'success');
          this.getCards(this.id, true);

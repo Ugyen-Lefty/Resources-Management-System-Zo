@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
 import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-card-details',
@@ -28,7 +29,7 @@ export class CardDetailsComponent implements OnInit {
       width: '600px',
       data: {id : this.jobId, card: this.cardDetails},
        autoFocus: false
-    }).afterClosed().subscribe(result => {
+    }).afterClosed().pipe(filter(val => !!val)).subscribe(result => {
        this.api.postCard(result, this.jobId, this.cardDetails.id).subscribe( (res: any) => {
        Swal.fire('Card successfully Changed!', '', 'success');
         this.getCardDetail();

@@ -47,5 +47,5 @@
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="end" class="mb-20">
   <button mat-button mat-stroked-button [mat-dialog-close]="true">cancel</button>
   <button mat-button mat-raised-button class="bg-primary text-white" (click)="addJobPosting()"
-          [disabled]="jobPostingForm.invalid">Add</button>
+          [disabled]="jobPostingForm.invalid">{{this.job? 'Edit' : 'Add'}}</button>
 </mat-dialog-actions>

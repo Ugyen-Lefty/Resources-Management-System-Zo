@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-job-posting-modal',
@@ -16,9 +16,9 @@ export class JobPostingModalComponent implements OnInit {
   campaignTwo!: FormGroup;
   totalJobs: string[] = [];
      jobsControl = new FormControl();
+     job: any;
 
-
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>) {
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
 
    const today = new Date();
     const month = today.getMonth();
@@ -33,10 +33,13 @@ export class JobPostingModalComponent implements OnInit {
       start: new FormControl(new Date(year, month, 15)),
       end: new FormControl(new Date(year, month, 19)),
     });
+    this.job = data || '';
      }
 
   ngOnInit(): void {
   this.setForm();
+  this.jobPostingForm.patchValue(this.job);
+  this.totalJobs = this.job?.job_type;
   }
 
   setForm(): void {

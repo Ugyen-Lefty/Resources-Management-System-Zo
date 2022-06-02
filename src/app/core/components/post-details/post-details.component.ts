@@ -5,6 +5,7 @@ import { uniqBy } from 'lodash-es';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CardCreationComponent } from './card-creation/card-creation.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post-details',
@@ -30,18 +31,9 @@ export class PostDetailsComponent implements OnInit {
   }
 
    getJobs(): void {
-     this.api.getAllJobs()
-      .pipe(
-        filter(res => !!res)
-      )
-      .subscribe(res => {
-        res.forEach((ans: any) => {
-        //DYNAMIC USER
-          if (ans.id === this.id) {
-          this.post = ans;
-          }
-        });
-      });
+     this.api.getJobs(this.id).subscribe( (res: any) => {
+       this.post = res;
+     })
   }
 
   goBack() {
@@ -67,5 +59,11 @@ export class PostDetailsComponent implements OnInit {
 
   showCardDetails(id: any) {
     this.router.navigate(['card-details', id], {relativeTo: this.route.parent});
+  }
+
+  postJob(type: string) {
+    this.api.updateJob(type, this.id).subscribe( () => {
+       Swal.fire('Job Status successfully Changed!', '', 'success');
+    });
   }
 }

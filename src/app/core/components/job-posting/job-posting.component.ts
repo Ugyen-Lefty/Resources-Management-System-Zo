@@ -25,17 +25,29 @@ export class JobPostingComponent implements OnInit {
      this.getJobs();
   }
 
-  creationModal(): void {
+  creationModal(job?: any): void {
     this.dialog.open(JobPostingModalComponent, {
        width: '550px',
       autoFocus: false,
+      data: job
     }).afterClosed().pipe(filter(value =>!!value)).subscribe(result => {
-        this.api.postJob(result).subscribe( () => {
-        Swal.fire('Job posted successfully!', '', 'success');
+    if(job){
+     this.api.editJob(job.id, result).subscribe( () => {
+        Swal.fire('Job updated successfully!', '', 'success');
+         this.completedJobs = [];
+         this.reviewJobs= [];
+          this.postedJobs = [];
         this.getJobs();
-        }, () => {
-         Swal.fire('Job posting error!', '', 'error');
+        })
+    } else {
+ this.api.postJob(result).subscribe( () => {
+        Swal.fire('Job posted successfully!', '', 'success');
+         this.completedJobs = [];
+         this.reviewJobs= [];
+          this.postedJobs = [];
+        this.getJobs();
         });
+    }
 
     });
   }

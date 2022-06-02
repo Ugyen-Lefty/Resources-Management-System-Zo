@@ -20,8 +20,8 @@
                <div>
                  <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
                  <mat-menu #menu="matMenu">
-                   <button mat-menu-item>
-                     <mat-icon class="material-icons-outlined text-20">edit</mat-icon>
+                   <button mat-menu-item (click)="creationModal(job)">
+                     <mat-icon class="material-icons-outlined text-20" >edit</mat-icon>
                      <span>Edit</span>
                    </button>
                    <button mat-menu-item (click)="deleteJob(job)">
@@ -32,7 +32,7 @@
                </div>
              </div>
              <div>
-               <p>12/12/2022</p>
+               <p>{{job.start_date}} --> {{job?.end_date}}</p>
              </div>
              <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
                <div>
@@ -70,7 +70,7 @@
                </div>
              </div>
              <div>
-               <p>12/12/2022</p>
+               <p>{{job.start_date}} --> {{job?.end_date}}</p>
              </div>
              <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
                <div>
@@ -108,7 +108,7 @@
                 </div>
               </div>
               <div>
-                <p>12/12/2022</p>
+               <p>{{job.start_date}} --> {{job?.end_date}}</p>
               </div>
               <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
                 <div>

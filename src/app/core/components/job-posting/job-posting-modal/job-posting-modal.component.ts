@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-job-posting-modal',
@@ -16,34 +16,25 @@ export class JobPostingModalComponent implements OnInit {
   campaignTwo!: FormGroup;
   totalJobs: string[] = [];
      jobsControl = new FormControl();
+     job: any;
 
-
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>) {
-
-   const today = new Date();
-    const month = today.getMonth();
-    const year = today.getFullYear();
-
-    this.campaignOne = new FormGroup({
-      start: new FormControl(new Date(year, month, 13)),
-      end: new FormControl(new Date(year, month, 16)),
-    });
-
-    this.campaignTwo = new FormGroup({
-      start: new FormControl(new Date(year, month, 15)),
-      end: new FormControl(new Date(year, month, 19)),
-    });
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.job = data || '';
      }
 
   ngOnInit(): void {
   this.setForm();
+  this.jobPostingForm.patchValue(this.job);
+  this.totalJobs = this.job?.job_type;
   }
 
   setForm(): void {
     this.jobPostingForm = this.fb.group({
        title: ['', Validators.required],
        description: ['', Validators.required],
-       location: ['', Validators.required]
+       location: ['', Validators.required],
+       start_date: [''],
+       end_date: ['']
        });
   }
 
@@ -51,8 +42,6 @@ export class JobPostingModalComponent implements OnInit {
   const payload = {
       ...this.jobPostingForm.value,
       image: this.attachment.value,
-      start_date: this.campaignOne?.value?.start,
-      end_date: this.campaignOne?.value?.end,
       status: 'draft',
       creator_id: 3,
       recruits: [''],

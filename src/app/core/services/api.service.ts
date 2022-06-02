@@ -34,8 +34,12 @@ export class ApiService {
     return this.http.post(`${this.endPoints}jobs`,{job: result});
   }
 
-  getJobs(){
+  getJobs(id?: string){
+  if(id){
+   return this.http.get(`${this.endPoints}jobs/${id}`);
+  } else {
   return this.http.get(`${this.endPoints}jobs`);
+  }
   }
 
   getAllJobs() {
@@ -67,7 +71,7 @@ export class ApiService {
       status: status
     });
   }
-  
+
   signin(user: any) {
     return this.http.post(`${this.endPoints}users/sign_in`, { user });
   }
@@ -76,4 +80,11 @@ export class ApiService {
     return this.http.post(`${this.endPoints}users`, { user });
   }
 
+  updateJob(type: string, id: string) {
+    return this.http.put(`${this.endPoints}jobs/${id}`, {status: type});
+  }
+
+  editJob(id: string, payload: any) {
+    return this.http.put(`${this.endPoints}jobs/${id}`, {job: payload});
+  }
 }

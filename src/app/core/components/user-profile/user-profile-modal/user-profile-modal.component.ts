@@ -30,7 +30,7 @@ export class UserProfileModalComponent implements OnInit {
      campaignOne!: FormGroup;
   campaignTwo!: FormGroup;
 
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<UserProfileModalComponent>, private api: ApiService) {
+  constructor(private fb: FormBuilder, private api: ApiService) {
      }
 
   setForm(): void {
@@ -56,7 +56,7 @@ export class UserProfileModalComponent implements OnInit {
   }
 
   close(payload?: any){
-   this.dialogRef.close(payload);
+   // this.dialogRef.close(payload);
   }
 
 }

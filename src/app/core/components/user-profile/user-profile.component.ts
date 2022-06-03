@@ -23,10 +23,10 @@ export class UserProfileComponent implements OnInit {
 
 
   editProfile() {
-   this.dialog.open(UserProfileModalComponent, {
-    width: '550px',
-    autoFocus: false,
-   }).afterClosed().pipe(filter( value => !!value)).subscribe( value => {
-   })
+   // this.dialog.open(UserProfileModalComponent, {
+   //  width: '550px',
+   //  autoFocus: false,
+   // }).afterClosed().pipe(filter( value => !!value)).subscribe( value => {
+   // })
   }
 }

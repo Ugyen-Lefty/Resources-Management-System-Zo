@@ -1,6 +1,11 @@
 <div>
-<span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
-<button (click)="editCard()">edit</button><button (click)="deleteCard()">Delete</button>
+<div fxLayout="row" fxLayoutAlign="space-between start" class="bg-white p-28">
+  <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
+  <div fxLayout="row" fxLayoutGap="12px">
+    <button (click)="editCard()">edit</button>
+    <button mat-button class="" (click)="deleteCard()">Delete</button>
+  </div>
+</div>
   <div>{{cardDetails?.title}}
   </div>
   <div>

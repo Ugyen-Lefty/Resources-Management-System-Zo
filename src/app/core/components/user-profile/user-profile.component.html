@@ -1,9 +1,26 @@
 <div>
-  <img class="center" height="100px" width="100px" src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg">
-  <div fxLayout="column"> <span><mat-icon (click)="editProfile()">edit</mat-icon></span>
-  <span>Tilal</span>
-  <span>Phone number  - +975BYEBYE</span>
-  <span>gender - I don't know</span>
-  <span>Email - idontknow@selise.ch</span>
+  <div fxLayoutAlign="center end" class="hack-profile">
+    <img class="hack-profile__img" height="120px" width="120px"
+         src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg">
+  </div>
+  <div class="mt-60">
+    <h2 class="text-center">Dechen Wangmo</h2>
+  </div>
+  <div fxLayoutAlign="center" class="mt-28">
+    <div fxFlex="70">
+      <div class="bg-white p-20 rounded-8">
+        <div fxLayout="row" fxLayoutAlign="space-between start" class="mb-12">
+          <h2>Personal Information</h2>
+          <mat-icon class="cursor-pointer text-primary text-20" (click)="editProfile()">edit</mat-icon>
+        </div>
+        <p>Tilal</p>
+        <p>Phone number  - +975BYEBYE</p>
+        <p>gender - I don't know</p>
+        <p>Email - idontknow@selise.ch</p>
+      </div>
+      <div class="bg-white p-20 mt-28">
+        <app-user-profile-modal></app-user-profile-modal>
+      </div>
+    </div>
   </div>
 </div>

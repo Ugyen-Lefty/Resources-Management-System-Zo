@@ -22,3 +22,8 @@
 .h-full {
   height: 100%;
 }
+
+::ng-deep.Inbox:not(.chat-only) .center-stage {
+  width: 100% !important;
+  max-width: 100% !important;
+}

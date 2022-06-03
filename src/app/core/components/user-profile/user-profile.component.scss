@@ -1,7 +1,13 @@
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50px;
-  margin-top: 30px;
+$primary-color: #10172A;
+
+.hack-profile {
+
+  background-image: linear-gradient(to right, rgba($primary-color, 0.7), rgba($primary-color, 0.9));
+  height: 152px;
+
+  &__img {
+    border-radius: 50%;
+    margin-bottom: -56px;
+    border: 3px solid #FFFFFF;
+  }
 }

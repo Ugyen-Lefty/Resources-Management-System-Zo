@@ -17,20 +17,24 @@
 
   <div class="container-wrapper">
     <div class="container">
-      <h2>Requested</h2>
+      <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #FFD035;">
+        <h3>Requested</h3>
+      </div>
 
       <mat-card cdkDropList id="todo" #todoList="cdkDropList" [cdkDropListData]="todo"
-        [cdkDropListConnectedTo]="[doneList, inProgressList]" (cdkDropListDropped)="drop($event, 0)" class="list">
+        [cdkDropListConnectedTo]="[doneList, inProgressList]" (cdkDropListDropped)="drop($event, 0)" class="list mat-elevation-z0">
         <p class="empty-label" *ngIf="todo.length === 0">Empty list</p>
         <app-kanban cdkDropList *ngFor="let task of todo" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)></app-kanban>
       </mat-card>
     </div>
 
     <div class="container">
-      <h2>In progress</h2>
+      <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #4094F6;">
+        <h3>In progress</h3>
+      </div>
 
       <mat-card cdkDropList id="inProgress" #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
-        [cdkDropListConnectedTo]="[todoList, doneList]" (cdkDropListDropped)="drop($event, 1)" class="list">
+        [cdkDropListConnectedTo]="[todoList, doneList]" (cdkDropListDropped)="drop($event, 1)" class="list mat-elevation-z0">
         <p class="empty-label" *ngIf="inProgress.length === 0">Empty list</p>
         <app-kanban *ngFor="let task of inProgress" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)>
         </app-kanban>
@@ -38,10 +42,12 @@
     </div>
 
     <div class="container">
-      <h2>Done</h2>
+      <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #2DCD6E;">
+        <h3>Done</h3>
+      </div>
 
       <mat-card cdkDropList id="done" #doneList="cdkDropList" [cdkDropListData]="done"
-        [cdkDropListConnectedTo]="[todoList, inProgressList]" (cdkDropListDropped)="drop($event, 2)" class="list">
+        [cdkDropListConnectedTo]="[todoList, inProgressList]" (cdkDropListDropped)="drop($event, 2)" class="list mat-elevation-z0">
         <p class="empty-label" *ngIf="done.length === 0">Empty list</p>
         <app-kanban *ngFor="let task of done" (click)="showCardDetails(task.id)" cdkDrag [task]="task" (cdkDragReleased)=setId(task)></app-kanban>
       </mat-card>

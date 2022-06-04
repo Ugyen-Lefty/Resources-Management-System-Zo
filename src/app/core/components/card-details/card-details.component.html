@@ -2,23 +2,25 @@
 <div fxLayout="row" fxLayoutAlign="space-between start" class="bg-white p-28">
   <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
   <div fxLayout="row" fxLayoutGap="12px">
-    <button (click)="editCard()">edit</button>
-    <button mat-button class="" (click)="deleteCard()">Delete</button>
+    <button mat-button mat-stroked-button (click)="editCard()">edit</button>
+    <button mat-button class="bg-primary text-white" (click)="deleteCard()">Delete</button>
   </div>
 </div>
-  <div>{{cardDetails?.title}}
-  </div>
-  <div>
-    {{cardDetails?.description}}
-  </div>
-  <div>
-    {{cardDetails?.start_date}} --> {{cardDetails?.end_date}}
-  </div>
-<!--  show it in chips-->
-  <div>
-    assignees
-  </div>
-  <div>
-    ${{cardDetails?.price}}
+  <div class="p-28">
+    <div>
+     <h2>{{cardDetails?.title}}</h2>
+      <p class="mt-12 mb-12">{{cardDetails?.description}}</p>
+      <div fxLayout="row" fxLayoutAlign="start center">
+       <mat-icon class="mr-12">today</mat-icon> <p>{{cardDetails?.start_date}} - {{cardDetails?.end_date}}</p>
+      </div>
+    </div>
+
+    <!--  show it in chips-->
+    <div>
+      assignees
+    </div>
+    <div>
+      ${{cardDetails?.price}}
+    </div>
   </div>
 </div>

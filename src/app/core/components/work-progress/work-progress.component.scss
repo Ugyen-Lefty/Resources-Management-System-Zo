@@ -13,11 +13,6 @@
     margin: 0 25px 25px 0;
   }
 
-  .list {
-    border-top: solid 2px #6AC94F;
-    border-radius: 2px;
-  }
-
   .app-new-task {
     margin-bottom: 30px;
   }
@@ -36,5 +31,6 @@
   }
 
   .mat-card {
-    padding: 10px !important;
+    padding: 0 !important;
+    background-color: #F1F5F9 !important;
   }

@@ -103,4 +103,9 @@ export class ApiService {
   deleteCard(jobId: any, cardId: any) {
     return this.http.delete(`${this.endPoints}jobs/${jobId}/cards/${cardId}`);
   }
+
+  signOut() {
+    return this.http.delete(`${this.endPoints}users/sign_out`);
+  }
+
 }

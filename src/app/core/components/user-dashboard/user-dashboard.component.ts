@@ -27,6 +27,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   signOut() {
+    this.api.signOut().subscribe();
     localStorage.removeItem('User Role');
     location.href = "";
   }

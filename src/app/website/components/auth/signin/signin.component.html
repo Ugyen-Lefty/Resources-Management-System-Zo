@@ -1,17 +1,36 @@
-<div [formGroup]="signinForm">
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Email</mat-label>
-    <input matInput type="text" formControlName="email">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Password</mat-label>
-    <input matInput type="password" formControlName="password">
-  </mat-form-field>
-  <button mat-button class="text-white bg-primary" (click)="signin()">
-    <mat-icon class="material-icons-outlined text-20">add</mat-icon>
-    <span class="ml-8">Login</span>
-  </button>
-  <div (click)="signUp()" style="cursor: pointer;">
-    Don't have an account yet? Sign up
+<div fxLayout="row" fxLayoutAlign="start center" style="height: 100vh;">
+  <div fxLayoutAlign="center center" fxFlexFill fxFlex="50" class="bg-primary p-80">
+    <div class="text-white p-32">
+      <h1 style="font-size: 62px; text-shadow: 2px 2px deepskyblue;" class="leading-normal mb-16">Welcome to our community</h1>
+      <p class="text-20">Fuse helps developers to build organized and well coded dashboards full of beautiful and rich modules.
+        Join us and start building your application today.</p>
+    </div>
   </div>
+  <div fxFlex="50" class="p-32" style="background-color: #F1F5F9; height: 100%; overflow-y: auto;">
+    <div fxLayoutAlign="center center" class="h-full">
+      <div class="p-32 card-shadow border-gray rounded-8 bg-white">
+        <div class="text-center">
+          <img src="assets/images/google.png" alt="logo" height="60px">
+          <h1 class="mb-32" style="font-size: 42px;">Sign in</h1>
+        </div>
+        <div [formGroup]="signinForm">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+          </mat-form-field>
+          <button mat-button class="text-white bg-primary w-full" (click)="signin()">
+            <mat-icon class="material-icons-outlined text-20">add</mat-icon>
+            <span class="ml-8">Login</span>
+          </button>
+          <div class="mt-28" style="border-top: 1px solid #cccccc;">
+            <p class="mt-28 text-center text-16">Don't have an account yet?<span class="text-primary cursor-pointer" style="color: deepskyblue;" (click)="signUp()"> Sign up</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 </div>

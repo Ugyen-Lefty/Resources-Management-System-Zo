@@ -1,40 +1,61 @@
-<div [formGroup]="signupForm">
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Email</mat-label>
-    <input matInput type="text" formControlName="email">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Password</mat-label>
-    <input matInput type="password" formControlName="password">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Address</mat-label>
-    <input matInput type="text" formControlName="address">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Gender</mat-label>
-    <mat-select formControlName="gender">
-      <mat-option *ngFor="let gender of ['Female', 'Male', 'Others']" [value]="gender">{{ gender }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Name</mat-label>
-    <input matInput type="text" formControlName="name">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="">
-    <mat-label>Phone</mat-label>
-    <input matInput type="text" formControlName="phone">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Role</mat-label>
-    <mat-select formControlName="roles">
-      <mat-option *ngFor="let role of ['Buyer', 'Worker']" [value]="role">{{ role }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<div fxLayout="row" fxLayoutAlign="start center" style="height: 100vh;">
+  <div fxLayoutAlign="center center" fxFlexFill fxFlex="50" class="bg-primary p-80">
+    <div class="text-white p-32">
+      <h1 style="font-size: 62px; text-shadow: 2px 2px deepskyblue;" class="leading-normal mb-16">Welcome to our community</h1>
+      <p class="text-20">Fuse helps developers to build organized and well coded dashboards full of beautiful and rich modules.
+        Join us and start building your application today.</p>
+    </div>
+  </div>
+  <div fxFlex="50" style="height: 100%; overflow-y: auto; padding: 80px 90px; background-color: #F1F5F9;">
+    <div class="p-32 card-shadow border-gray rounded-8 bg-white">
+      <div class="text-center">
+        <img src="assets/images/google.png" alt="logo" height="60px">
+        <h1 class="mb-32" style="font-size: 42px;">Sign Up</h1>
+      </div>
+      <div [formGroup]="signupForm">
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" formControlName="address">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of ['Female', 'Male', 'Others']" [value]="gender">{{ gender }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Phone</mat-label>
+          <input matInput type="text" formControlName="phone">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="roles">
+            <mat-option *ngFor="let role of ['Buyer', 'Worker']" [value]="role">{{ role }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <button mat-button class="text-white bg-primary w-full" (click)="signup()">
+          <mat-icon class="material-icons-outlined text-20">add</mat-icon>
+          <span class="ml-8">Signup</span>
+        </button>
 
-  <button mat-button class="text-white bg-primary" (click)="signup()">
-    <mat-icon class="material-icons-outlined text-20">add</mat-icon>
-    <span class="ml-8">Signup</span>
-  </button>
+        <div class="mt-28" style="border-top: 1px solid #cccccc;">
+          <p class="mt-28 text-center text-16">Already have an account?
+            <span class="text-primary cursor-pointer" style="color: deepskyblue;"> Sign in</span></p>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/stylesheets/common';
 @import 'assets/stylesheets/utilities';
+//@import 'assets/stylesheets/theme';
 
 :root {
   --primary: #10172A;
@@ -19,6 +20,7 @@ html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *, *:before, *:after {

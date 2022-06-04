@@ -1,3 +1,5 @@
+$my-primary: #2096F3;
+
 .hack-container {
   height: 100vh;
 }
@@ -25,6 +27,9 @@
   padding: 20px 32px;
   box-shadow: 0 2px 4px #cccccc;
   margin-bottom: 1px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .hack-nav-list {

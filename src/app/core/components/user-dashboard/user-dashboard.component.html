@@ -57,16 +57,22 @@
       </div>
 
     </div>
-    <div (click)="signOut()" style="cursor: pointer;">
-      <mat-icon class="text-20" style="color: white;">exit_to_app</mat-icon>
-      <span style="color: white;">Sign out</span>
-    </div>
   </mat-drawer>
   <div class="hack-content">
-    <div class="hack-header cursor-pointer">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="hack-header cursor-pointer">
       <div (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </div>
+      <div [matMenuTriggerFor]="exitApp">
+        <img src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg"
+             alt="user profile" height="32px" width="32px" class="rounded-full" style="border: 2px solid var(--primary);">
+      </div>
+      <mat-menu #exitApp="matMenu">
+        <div mat-menu-item (click)="signOut()" class="cursor-pointer">
+          <mat-icon class="text-20 text-primary">exit_to_app</mat-icon>
+          <span>Sign out</span>
+        </div>
+      </mat-menu>
     </div>
     <div class="hack-content__ content">
       <router-outlet></router-outlet>

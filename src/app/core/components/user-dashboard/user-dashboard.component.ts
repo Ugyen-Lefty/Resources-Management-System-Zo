@@ -15,6 +15,9 @@ export class UserDashboardComponent implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
+  this.api.getUser().subscribe( (res: any) => {
+       localStorage.setItem('user_id', res.id);
+  })
     this.api.getWorkerlists()
       .subscribe((res: any) => {
         res.forEach((res: any) => {
@@ -29,6 +32,7 @@ export class UserDashboardComponent implements OnInit {
   signOut() {
     this.api.signOut().subscribe();
     localStorage.removeItem('User Role');
+    localStorage.removeItem('user_id');
     location.href = "";
   }
 

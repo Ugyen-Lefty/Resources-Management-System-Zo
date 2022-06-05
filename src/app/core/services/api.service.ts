@@ -131,4 +131,8 @@ export class ApiService {
   workerSendRequest(payload: { worker_ids: any[]; buyer_id: string; card_id: any }) {
     return of({})
   }
+
+  getUser() {
+    return this.http.get(`${this.endPoints}current_user`, {withCredentials: true});
+  }
 }

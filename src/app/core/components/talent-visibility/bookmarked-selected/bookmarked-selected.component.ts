@@ -39,7 +39,7 @@ export class BookmarkedSelectedComponent implements OnInit {
     const payload = {
       card_id: this.card_id,
       worker_ids: this.selectedLists.map(data => data.user.id),
-      buyer_id: '3'
+      buyer_id: localStorage.getItem('user_id') || ''
     };
      this.api.workerSendRequest(payload).subscribe((res: any) => {
        debugger

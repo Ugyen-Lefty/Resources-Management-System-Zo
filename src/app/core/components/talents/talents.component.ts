@@ -50,7 +50,7 @@ export class TalentsComponent implements OnInit {
 
   removeBookmarked(id: string){
   this.api.removeBookMark('3', id).subscribe( (res: any) => {
-     Swal.fire('Remove bookmarked successfully!', '', 'success');
+     Swal.fire('Removed bookmarked successfully!', '', 'success');
         this.initializer();
   });
   }

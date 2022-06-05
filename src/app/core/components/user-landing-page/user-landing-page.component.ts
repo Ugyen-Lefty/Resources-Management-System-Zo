@@ -16,7 +16,7 @@ export class UserLandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.role = localStorage.getItem('User Role');
-    this.api.getUsersList()
+    this.api.getWorkerlists()
       .subscribe((res: any) => {
         res.forEach((res: any) => {
           //DYNAMIC USER

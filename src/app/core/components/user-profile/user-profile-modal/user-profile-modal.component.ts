@@ -10,8 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileModalComponent implements OnInit {
 
+ constructor(private fb: FormBuilder, private api: ApiService) {
+ }
+
   ngOnInit(): void {
-    this.api.getUsersList().subscribe((res: any) => {
+    this.api.getWorkerlists().subscribe((res: any) => {
       res.forEach((ans: any) => {
         if(ans.id === '0uv4r4jLry1UEtW2XAJz'){
           this.userEditForm.patchValue(ans);
@@ -29,9 +32,6 @@ export class UserProfileModalComponent implements OnInit {
    attachment = new FormControl();
      campaignOne!: FormGroup;
   campaignTwo!: FormGroup;
-
-  constructor(private fb: FormBuilder, private api: ApiService) {
-     }
 
   setForm(): void {
     this.userEditForm = this.fb.group({

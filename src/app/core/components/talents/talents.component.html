@@ -1,20 +1,57 @@
-<div class="p-28">
-  <div fxLayout="row wrap" fxLayoutGap="24px grid">
-    <div fxFlex="25" *ngFor="let list of talentLists" (click)="showDetails(list)">
-      <div class="bg-white p-20 rounded-8 card-shadow">
+<mat-tab-group dynamicHeight>
+    <mat-tab class="bg-white" label="All Talents">
+     <div class="p-20">
+       <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
+         <div fxFlex="50" *ngFor="let list of talentLists; let i = index">
+            <div class="bg-white p-20 rounded-8 card-shadow">
         <div>
           <div class="talent-list-header text-center">
-            <h2 class="bold mb-12">{{list.name}}</h2>
+            <h2 class="bold mb-12">{{list.user.name}}</h2>
             <!-- <img [src]="list.image" height="75px" width="75px" class="rounded-full"> -->
             <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp" height="75px" width="75px" class="rounded-full">
           </div>
           <div class="leading-15 mt-12">
-            <p>{{list.type}}</p>
-            <p>Hourly Pay:  {{list.Hourly_Pay}}</p>
-            <p>currently available:  {{list.currently_available}}</p>
+            <p>{{list.profession}}</p>
+            <p>{{list.user.phone}}</p>
+            <p>Hourly Pay:  ${{list.rate}}</p>
+            <p>currently available:  {{list.available}}</p>
+            <ng-container *ngIf="!isBookmarked(list)">
+             <span class="material-icons" (click)="setBookmarked(list.id)" style="cursor: pointer">bookmark_border</span>
+            </ng-container>
+             <ng-container *ngIf="isBookmarked(list)">
+             <span class="material-icons" (click)="setBookmarked(list.id)" style="cursor: pointer">bookmark</span>
+            </ng-container>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+         </div>
+       </div>
+     </div>
+    </mat-tab>
+     <mat-tab class="bg-white" label="Bookmarked Talents">
+     <div class="p-20">
+       <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
+         <div fxFlex="50" *ngFor="let list of bookmarkedTalentLists; let i = index">
+            <div class="bg-white p-20 rounded-8 card-shadow">
+        <div>
+          <div class="talent-list-header text-center">
+            <h2 class="bold mb-12">{{list.user.name}}</h2>
+            <!-- <img [src]="list.image" height="75px" width="75px" class="rounded-full"> -->
+            <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp" height="75px" width="75px" class="rounded-full">
+          </div>
+          <div class="leading-15 mt-12">
+            <p>{{list.profession}}</p>
+            <p>{{list.user.phone}}</p>
+            <p>Hourly Pay:  ${{list.rate}}</p>
+            <p>currently available:  {{list.available}}</p>
+             <ng-container>
+             <span class="material-icons" (click)="setBookmarked(list.user.id)" style="cursor: pointer">bookmark</span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+         </div>
+       </div>
+     </div>
+    </mat-tab>
+  </mat-tab-group>

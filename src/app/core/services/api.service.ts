@@ -26,8 +26,8 @@ export class ApiService {
     return this.http.post(`${this.endPoints}`,{user: payload});
   }
 
-  getUsersList() {
-    return this.fireStore.collection('users').valueChanges({ idField: 'id' });
+  getWorkerlists() {
+     return this.http.get(`${this.endPoints}workers`);
   }
 
   postJob(result: any) {
@@ -108,4 +108,19 @@ export class ApiService {
     return this.http.delete(`${this.endPoints}users/sign_out`);
   }
 
+  getBookmarkedList(id: string) {
+     return this.http.get(`${this.endPoints}${id}/workers`);
+  }
+
+  // getUser(){
+  //     return this.http.get(`${this.endPoints}current_user`);
+  // }
+
+  setBookmarkMark(id: string, worker_id: string){
+  const payload = {
+       user_id: id,
+        worker_profile_id: worker_id
+  }
+  return this.http.post(`${this.endPoints}workers/bookmarked`, {worker: payload} );
+  }
 }

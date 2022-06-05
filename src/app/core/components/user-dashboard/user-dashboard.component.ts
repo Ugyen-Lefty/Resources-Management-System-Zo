@@ -15,7 +15,7 @@ export class UserDashboardComponent implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
-    this.api.getUsersList()
+    this.api.getWorkerlists()
       .subscribe((res: any) => {
         res.forEach((res: any) => {
           //DYNAMIC USER

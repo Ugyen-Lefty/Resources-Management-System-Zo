@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Subject, switchMap } from 'rxjs';
+import { of, Subject, switchMap } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
@@ -126,5 +126,9 @@ export class ApiService {
 
   removeBookMark(id: string, worker_id: string) {
     return this.http.delete(`${this.endPoints}workers/${id}/${worker_id}`);
+  }
+
+  workerSendRequest(payload: { worker_ids: any[]; buyer_id: string; card_id: any }) {
+    return of({})
   }
 }

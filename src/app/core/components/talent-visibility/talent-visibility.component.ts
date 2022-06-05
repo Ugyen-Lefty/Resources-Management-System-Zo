@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BookmarkedSelectedComponent } from './bookmarked-selected/bookmarked-selected.component';
 
@@ -9,6 +9,7 @@ import { BookmarkedSelectedComponent } from './bookmarked-selected/bookmarked-se
 })
 export class TalentVisibilityComponent implements OnInit {
 
+  @Input() card_id: any;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class TalentVisibilityComponent implements OnInit {
    this.dialog.open(BookmarkedSelectedComponent, {
      width: '30%',
       autoFocus: false,
+      data: this.card_id
    }).afterClosed().subscribe( res => {
 
    })

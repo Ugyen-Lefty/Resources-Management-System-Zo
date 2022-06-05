@@ -42,7 +42,7 @@ export class BookmarkedSelectedComponent implements OnInit {
       buyer_id: localStorage.getItem('user_id') || ''
     };
      this.api.workerSendRequest(payload).subscribe((res: any) => {
-       debugger
+       //value should be here
      });
   }
 }

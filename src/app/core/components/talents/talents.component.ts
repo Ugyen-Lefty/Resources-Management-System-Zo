@@ -46,7 +46,7 @@ export class TalentsComponent implements OnInit {
   }
 
   isBookmarked(list: any) {
-     return this.bookmarkedTalentLists.some((res: any) => res.id === list.id);
+     return this.bookmarkedTalentLists.some((res: any) => res.user.id === list.user.id);
   }
 
   removeBookmarked(id: string){

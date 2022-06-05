@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Subject, switchMap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -122,5 +122,9 @@ export class ApiService {
         worker_profile_id: worker_id
   }
   return this.http.post(`${this.endPoints}workers/bookmarked`, {worker: payload} );
+  }
+
+  removeBookMark(id: string, worker_id: string) {
+    return this.http.delete(`${this.endPoints}workers/${id}/${worker_id}`);
   }
 }

@@ -37,6 +37,10 @@ import { ChatsComponent } from './components/chats/chats.component';
 import { TalkService } from './services/talk.service';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TalentVisibilityComponent } from './components/talent-visibility/talent-visibility.component';
+import { BookmarkedSelectedComponent } from './components/talent-visibility/bookmarked-selected/bookmarked-selected.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -57,7 +61,9 @@ import { HttpClientModule } from '@angular/common/http';
     KanbanComponent,
     ChatsComponent,
     UserProfileModalComponent,
-    CardDetailsComponent
+    CardDetailsComponent,
+    TalentVisibilityComponent,
+    BookmarkedSelectedComponent
   ],
   imports: [
     CommonModule,
@@ -85,6 +91,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTabsModule,
     MatMenuModule,
     HttpClientModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
     providers: [TalkService],
 

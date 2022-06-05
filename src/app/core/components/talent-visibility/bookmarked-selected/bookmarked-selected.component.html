@@ -1,0 +1,27 @@
+<mat-dialog-content>
+  <div class="mb-16" *ngIf="bookmarkedTalentLists?.length">
+    <mat-chip-list class="avatar-chip">
+      <mat-chip *ngFor="let user of selectedLists" >
+        <img src="https://picsum.photos/1000/1000" width="24" height="24" alt="user image" class="mr-8 border-radius-100"/>
+        <span>{{user.name}}</span>
+        <mat-icon matChipRemove (click) = "selectGroup(false, user)">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div>
+    <p class="font-size-16 mb-16">Bookmarked Talents</p>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="select-group-modal-list surface-dark-bg border-radius-4 p-12"
+      *ngFor="let user of bookmarkedTalentLists">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <img src="https://picsum.photos/1000/1000" width="40" height="40" alt="group image" class="border-radius-100 mr-8"/>
+          <div>
+            <p>{{user.user.name}}</p>
+          </div>
+        </div>
+        <mat-checkbox (change)="selectGroup($event.checked, user)" [checked]="selectedCheck(user.user.id)"></mat-checkbox>
+      </div>
+  </div>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button (click)="addSendResquest()">Send request</button>
+      </mat-dialog-actions>

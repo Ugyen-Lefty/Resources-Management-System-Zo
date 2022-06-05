@@ -1,0 +1,21 @@
+<div class="visibility-options" >
+  <label class="block font-size-16 mb-8">Select Assignees</label>
+   <button mat-stroked-button color="primary" class="text-uppercase my-20" (click)="openDialog()">
+      <mat-icon class="primary-color ver-middle">add</mat-icon>
+      {{ 'BTN_SELECT_GROUP' }}
+    </button>
+  <div class="mt-16" >
+    <ng-container>
+    <label class="block font-size-16 mb-8">Selected Users</label>
+    <div class="mt-16">
+      <mat-chip-list class="avatar-chip">
+<!--        <mat-chip *ngFor="let user of users" (removed)="remove(user)">-->
+<!--          <img [src]="user.profile_picture || 'assets/images/profile.jpg'" width="24" height="24" class="mr-8 border-radius-100"/>-->
+<!--          <span>{{user.name}}</span>-->
+<!--          <mat-icon matChipRemove>cancel</mat-icon>-->
+<!--        </mat-chip>-->
+      </mat-chip-list>
+    </div>
+    </ng-container>
+  </div>
+</div>

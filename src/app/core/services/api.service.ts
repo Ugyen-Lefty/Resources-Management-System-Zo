@@ -23,22 +23,22 @@ export class ApiService {
      email: 'sc1@selise.ch',
      password: 'Selise123'
   }
-    return this.http.post(`${this.endPoints}`,{user: payload});
+    return this.http.post(`${this.endPoints}`,{user: payload}, {withCredentials: true});
   }
 
   getWorkerlists() {
-     return this.http.get(`${this.endPoints}workers`);
+     return this.http.get(`${this.endPoints}workers`, {withCredentials: true});
   }
 
   postJob(result: any) {
-    return this.http.post(`${this.endPoints}jobs`,{job: result});
+    return this.http.post(`${this.endPoints}jobs`,{job: result}, {withCredentials: true});
   }
 
   getJobs(id?: string){
   if(id){
-   return this.http.get(`${this.endPoints}jobs/${id}`);
+   return this.http.get(`${this.endPoints}jobs/${id}`, {withCredentials: true});
   } else {
-  return this.http.get(`${this.endPoints}jobs`);
+  return this.http.get(`${this.endPoints}jobs`, {withCredentials: true});
   }
   }
 
@@ -55,19 +55,19 @@ export class ApiService {
   }
 
   delete(id: string) {
-    return this.http.delete(`${this.endPoints}jobs/${id}`);
+    return this.http.delete(`${this.endPoints}jobs/${id}`, {withCredentials: true});
   }
 
   postCard(result: any, id?: any, card_id?: string ) {
   if(card_id){
-  return this.http.put(`${this.endPoints}jobs/${id}/cards/${card_id}`, {card: result});
+  return this.http.put(`${this.endPoints}jobs/${id}/cards/${card_id}`, {card: result}, {withCredentials: true});
   } else {
-  return this.http.post(`${this.endPoints}jobs/${id}/cards`, {card: result});
+  return this.http.post(`${this.endPoints}jobs/${id}/cards`, {card: result}, {withCredentials: true});
    }
   }
 
   getCards(id?: string) {
-    return this.http.get(`${this.endPoints}jobs/${id}/cards`);
+    return this.http.get(`${this.endPoints}jobs/${id}/cards`, {withCredentials: true});
   }
 
   updateCardStatus(id: any, status: any, job_id?: any) {
@@ -76,40 +76,40 @@ export class ApiService {
         ...res,
         status: status
       }
-       return this.http.put(`${this.endPoints}jobs/${job_id}/cards/${id}`, {card: payload});
+       return this.http.put(`${this.endPoints}jobs/${job_id}/cards/${id}`, {card: payload}, {withCredentials: true});
     } ))
   }
 
   signin(user: any) {
-    return this.http.post(`${this.endPoints}users/sign_in`, { user });
+    return this.http.post(`${this.endPoints}users/sign_in`, { user }, {withCredentials: true});
   }
 
   signup(user: any) {
-    return this.http.post(`${this.endPoints}users`, { user });
+    return this.http.post(`${this.endPoints}users`, { user }, {withCredentials: true});
   }
 
   updateJob(type: string, id: string) {
-    return this.http.put(`${this.endPoints}jobs/${id}`, {status: type});
+    return this.http.put(`${this.endPoints}jobs/${id}`, {status: type}, {withCredentials: true});
   }
 
   editJob(id: string, payload: any) {
-    return this.http.put(`${this.endPoints}jobs/${id}`, {job: payload});
+    return this.http.put(`${this.endPoints}jobs/${id}`, {job: payload}, {withCredentials: true});
   }
 
   getCardDetail(cardId: any, jobId: any) {
-    return this.http.get(`${this.endPoints}jobs/${jobId}/cards/${cardId}`);
+    return this.http.get(`${this.endPoints}jobs/${jobId}/cards/${cardId}`, {withCredentials: true});
   }
 
   deleteCard(jobId: any, cardId: any) {
-    return this.http.delete(`${this.endPoints}jobs/${jobId}/cards/${cardId}`);
+    return this.http.delete(`${this.endPoints}jobs/${jobId}/cards/${cardId}`, {withCredentials: true});
   }
 
   signOut() {
-    return this.http.delete(`${this.endPoints}users/sign_out`);
+    return this.http.delete(`${this.endPoints}users/sign_out`, {withCredentials: true});
   }
 
   getBookmarkedList(id: string) {
-     return this.http.get(`${this.endPoints}${id}/workers`);
+     return this.http.get(`${this.endPoints}${id}/workers`, {withCredentials: true});
   }
 
   // getUser(){
@@ -121,11 +121,11 @@ export class ApiService {
        user_id: id,
         worker_profile_id: worker_id
   }
-  return this.http.post(`${this.endPoints}workers/bookmarked`, {worker: payload} );
+  return this.http.post(`${this.endPoints}workers/bookmarked`, {worker: payload}, {withCredentials: true} );
   }
 
   removeBookMark(id: string, worker_id: string) {
-    return this.http.delete(`${this.endPoints}workers/${id}/${worker_id}`);
+    return this.http.delete(`${this.endPoints}workers/${id}/${worker_id}`, {withCredentials: true});
   }
 
   workerSendRequest(payload: { worker_ids: any[]; buyer_id: string; card_id: any }) {

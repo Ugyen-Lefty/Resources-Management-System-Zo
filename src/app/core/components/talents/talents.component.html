@@ -2,7 +2,7 @@
     <mat-tab class="bg-white" label="All Talents">
      <div class="p-20">
        <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
-         <div fxFlex="50" *ngFor="let list of talentLists; let i = index">
+         <div fxFlex="50" *ngFor="let list of talentLists; let i = index" (click)="openDetails(list)" class="cursor-pointer">
             <div class="bg-white p-20 rounded-8 card-shadow">
         <div>
           <div class="talent-list-header text-center">
@@ -31,7 +31,7 @@
      <mat-tab class="bg-white" label="Bookmarked Talents">
      <div class="p-20">
        <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
-         <div fxFlex="50" *ngFor="let list of bookmarkedTalentLists; let i = index">
+         <div fxFlex="50" *ngFor="let list of bookmarkedTalentLists; let i = index" (click)="openDetails(list)" class="cursor-pointer">
             <div class="bg-white p-20 rounded-8 card-shadow">
         <div>
           <div class="talent-list-header text-center">

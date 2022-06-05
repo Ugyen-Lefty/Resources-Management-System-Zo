@@ -18,7 +18,7 @@ export class JobPostingModalComponent implements OnInit {
      jobsControl = new FormControl();
      job: any;
 
-  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.job = data || '';
      }
 

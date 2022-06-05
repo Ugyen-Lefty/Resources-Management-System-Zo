@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { find } from 'lodash-es';
 import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { TalentDetailsComponent } from './talent-details/talent-details.component';
 
 @Component({
     selector: 'app-talents',
@@ -14,7 +16,7 @@ export class TalentsComponent implements OnInit {
     bookmarkedTalentLists: any = [];
     userId = localStorage.getItem('user_id') || '';
 
-    constructor(private api: ApiService) { }
+    constructor(private api: ApiService, private dialog: MatDialog)  { }
 
     ngOnInit(): void {
         this.initializer();
@@ -53,6 +55,17 @@ export class TalentsComponent implements OnInit {
   this.api.removeBookMark(this.userId, id).subscribe( (res: any) => {
      Swal.fire('Removed bookmarked successfully!', '', 'success');
         this.initializer();
-  });
+    });
   }
+
+ openDetails(worker: any){
+     this.dialog.open( TalentDetailsComponent, {
+       width: '550px',
+      autoFocus: false,
+      data: worker
+     }).afterClosed().subscribe( res => {
+
+     })
+ }
+
 }

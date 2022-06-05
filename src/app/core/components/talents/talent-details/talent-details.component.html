@@ -1,0 +1,24 @@
+<div>
+  <div fxLayoutAlign="center end" class="hack-profile">
+    <img class="hack-profile__img" height="120px" width="120px"
+         src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp">
+  </div>
+  <div class="mt-60">
+    <h2 class="text-center">{{workerDetails.user.name}} <mat-icon class="cursor-pointer" (click)="openChat()">chat</mat-icon></h2>
+  </div>
+  <div fxLayoutAlign="center" class="mt-28 p-20">
+    <div fxFlex="70">
+      <div class="bg-white p-20 rounded-8 card-shadow">
+        <div fxLayout="row" fxLayoutAlign="space-between start" class="mb-12">
+          <h2>Personal Information</h2>
+        </div>
+        <p>{{workerDetails.user.name}}</p>
+        <p>Phone number  - {{workerDetails.user?.phone}}</p>
+        <p>gender - {{workerDetails.user?.gender}}</p>
+        <p>Email - {{workerDetails.user?.email}}h</p>
+      </div>
+      <div class="bg-white rounded-8 card-shadow p-20 mt-28">
+      </div>
+    </div>
+  </div>
+</div>

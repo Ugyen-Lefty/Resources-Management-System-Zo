@@ -41,6 +41,7 @@ import { TalentVisibilityComponent } from './components/talent-visibility/talent
 import { BookmarkedSelectedComponent } from './components/talent-visibility/bookmarked-selected/bookmarked-selected.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TalentDetailsComponent } from './components/talents/talent-details/talent-details.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     UserProfileModalComponent,
     CardDetailsComponent,
     TalentVisibilityComponent,
-    BookmarkedSelectedComponent
+    BookmarkedSelectedComponent,
+    TalentDetailsComponent
   ],
   imports: [
     CommonModule,

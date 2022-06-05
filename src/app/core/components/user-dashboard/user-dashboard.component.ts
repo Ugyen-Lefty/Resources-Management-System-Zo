@@ -17,6 +17,7 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit(): void {
   this.api.getUser().subscribe( (res: any) => {
        localStorage.setItem('user_id', res.id);
+       localStorage.setItem('current user', JSON.stringify(res));
   })
     this.api.getWorkerlists()
       .subscribe((res: any) => {
@@ -33,6 +34,7 @@ export class UserDashboardComponent implements OnInit {
     this.api.signOut().subscribe();
     localStorage.removeItem('User Role');
     localStorage.removeItem('user_id');
+    localStorage.removeItem('current user');
     location.href = "";
   }
 

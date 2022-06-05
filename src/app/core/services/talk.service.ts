@@ -6,6 +6,14 @@ import Talk from 'talkjs';
 })
 export class TalkService {
  currentUser!: Talk.User;
+  otherApplicationUser = {
+      id: 1,
+      username: 'Lalit Pokhrel',
+      email: 'Lalit Pokhrel',
+      photoUrl: 'https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg',
+      welcomeMessage: 'Hey there! How are you? :-)',
+      role: 'default'
+    };
 
   constructor() { }
 
@@ -21,13 +29,14 @@ export class TalkService {
 
   async createCurrentSession() {
     await Talk.ready;
+    const userObject = JSON.parse(localStorage.getItem('current user') || '');
     const user = {
-       id: 5,
-      username: 'Jigme Jamtsho',
-      email: 'lalit.pokhrel@gmail.com',
+       id: userObject?.id,
+      username: userObject?.name,
+      email: userObject?.email,
       photoUrl: 'https://testasmpublic-14e65.kxcdn.com/1653235881_0aa0c9d755ac1ee2bc7f4ca453d588_JJ.jpeg',
       welcomeMessage: 'Hey, how can I help?',
-      role: 'default'
+      role: userObject?.roles
     };
     this.currentUser = await this.createUser(user);
     const session = new Talk.Session({
@@ -46,16 +55,7 @@ export class TalkService {
   }
 
   async createInbox(session: Talk.Session) {
-    const otherApplicationUser = {
-      id: 1,
-      username: 'Lalit Pokhrel',
-      email: 'Lalit Pokhrel',
-      photoUrl: 'https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg',
-      welcomeMessage: 'Hey there! How are you? :-)',
-      role: 'default'
-    };
-
-    const conversation = await this.getOrCreateConversation(session, otherApplicationUser);
+    const conversation = await this.getOrCreateConversation(session, this.otherApplicationUser);
     const inbox = session.createInbox();
     inbox.select(conversation);
     return inbox;

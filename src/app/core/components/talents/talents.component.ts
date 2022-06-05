@@ -12,6 +12,7 @@ export class TalentsComponent implements OnInit {
 
     talentLists: any = [];
     bookmarkedTalentLists: any = [];
+    userId = localStorage.getItem('user_id') || '';
 
     constructor(private api: ApiService) { }
 
@@ -38,7 +39,7 @@ export class TalentsComponent implements OnInit {
 
   setBookmarked(id: string) {
      //NOTE -- User ID should be dynamic
-     this.api.setBookmarkMark('3', id).subscribe(() => {
+     this.api.setBookmarkMark(this.userId, id).subscribe(() => {
         Swal.fire('Talent bookmarked successfully!', '', 'success');
         this.initializer();
       })
@@ -49,7 +50,7 @@ export class TalentsComponent implements OnInit {
   }
 
   removeBookmarked(id: string){
-  this.api.removeBookMark('3', id).subscribe( (res: any) => {
+  this.api.removeBookMark(this.userId, id).subscribe( (res: any) => {
      Swal.fire('Removed bookmarked successfully!', '', 'success');
         this.initializer();
   });

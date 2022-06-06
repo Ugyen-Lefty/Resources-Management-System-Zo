@@ -31,9 +31,14 @@
         <a class="text-16">Dashboard</a>
       </div>
 
-      <div routerLink="job-posting" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+      <div routerLink="job-posting" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer" *ngIf="role === 'Buyer'">
         <mat-icon class="text-20">signpost</mat-icon>
         <a class="text-16"><span>Job Posting</span></a>
+      </div>
+
+      <div routerLink="job-listing" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer" *ngIf="role === 'Worker'">
+        <mat-icon class="text-20">signpost</mat-icon>
+        <a class="text-16"><span>Job Listing</span></a>
       </div>
 
       <div routerLink="talents" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
@@ -55,6 +60,7 @@
         <mat-icon class="text-20">workspaces_filled</mat-icon>
         <a class="text-16"><span>Chats</span></a>
       </div>
+
 
     </div>
   </mat-drawer>

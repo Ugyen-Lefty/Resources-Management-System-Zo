@@ -11,16 +11,18 @@ export class UserDashboardComponent implements OnInit {
 
   drawer = false;
   currentUser: any;
+  role: any;
 
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
   this.api.getUser().subscribe( (res: any) => {
       this.currentUser = res;
+      this.role = res.roles;
+      debugger
       localStorage.setItem('user_id', res.id);
       localStorage.setItem('current user', JSON.stringify(res));
   })
-    
   }
 
   signOut() {

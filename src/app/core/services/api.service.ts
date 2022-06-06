@@ -142,7 +142,7 @@ export class ApiService {
     return this.http.get(`${this.endPoints}current_user`, {withCredentials: true});
   }
 
-  getRequestedAssignee() {
-    return this.http.get(`${this.endPoints}card/requested_jobs`, {withCredentials: true});
+  getRequestedAssignee(id: any) {
+    return this.http.get(`${this.endPoints}card/${id}/requested_talent`, {withCredentials: true});
   }
 }

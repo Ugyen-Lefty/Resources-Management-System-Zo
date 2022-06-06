@@ -11,6 +11,7 @@ import { YourProjectsComponent } from './components/your-projects/your-projects.
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { ChatsComponent } from './components/chats/chats.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
+import { JobListingComponent } from './components/job-listing/job-listing.component';
 
 const routes: Routes = [
   { path: '', component: UserDashboardComponent, children: [
@@ -24,6 +25,7 @@ const routes: Routes = [
      {path: 'job-posting/details/:id', component: PostDetailsComponent},
      {path: 'chats', component: ChatsComponent},
      {path: 'job/:jid/card-details/:cid', component: CardDetailsComponent},
+     {path: 'job-listing', component: JobListingComponent},
       { path: '', redirectTo: 'landing', pathMatch: 'full' }
 
 

@@ -4,22 +4,25 @@
          src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg">
   </div>
   <div class="mt-60">
-    <h2 class="text-center">Dechen Wangmo</h2>
+    <h2 class="text-center">{{ user?.name || 'N/A' }}</h2>
   </div>
   <div fxLayoutAlign="center" class="mt-28 p-20">
     <div fxFlex="70">
-      <div class="bg-white p-20 rounded-8 card-shadow">
+      <span *ngIf="isEdit" (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
+      <div *ngIf="!isEdit" class="bg-white p-20 rounded-8 card-shadow">
         <div fxLayout="row" fxLayoutAlign="space-between start" class="mb-12">
           <h2>Personal Information</h2>
           <mat-icon class="cursor-pointer text-primary text-20" (click)="editProfile()">edit</mat-icon>
         </div>
-        <p>Tilal</p>
-        <p>Phone number  - +975BYEBYE</p>
-        <p>gender - I don't know</p>
-        <p>Email - idontknow@selise.ch</p>
+        <p>Name - {{ user?.name || 'N/A' }}</p>
+        <p>Email - {{ user?.email || 'N/A' }}</p>
+        <p>Phone Number  - {{ user?.phone || 'N/A' }}</p>
+        <p>Address - {{ user?.address || 'N/A' }}</p>
+        <p>Gender - {{ user?.gender || 'N/A' }}</p>
+        <p>Role - {{ user?.roles || 'N/A' }}</p>
       </div>
-      <div class="bg-white rounded-8 card-shadow p-20 mt-28">
-        <app-user-profile-modal></app-user-profile-modal>
+      <div *ngIf="isEdit" class="bg-white rounded-8 card-shadow p-20 mt-28">
+        <app-user-profile-modal (isEdit)="toggleEdit($event)"></app-user-profile-modal>
       </div>
     </div>
   </div>

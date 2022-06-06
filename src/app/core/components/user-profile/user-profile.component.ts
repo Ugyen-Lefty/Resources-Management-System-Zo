@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserProfileModalComponent } from './user-profile-modal/user-profile-modal.component';
 import { filter } from 'rxjs';
 import { ApiService } from '../../services/api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -12,20 +13,43 @@ import { ApiService } from '../../services/api.service';
 export class UserProfileComponent implements OnInit {
 
   user: any;
-  constructor(private dialog: MatDialog, private api: ApiService) { }
+  isEdit = false;
+  userForm!: FormGroup;
+
+  constructor(private dialog: MatDialog, private api: ApiService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-  this.api.getCurrentUser().subscribe(user => {
-    this.user = user;
-  });
+    this.initializer();
   }
 
+  initializer() {
+    this.api.getUser().subscribe(user => {
+      this.user = user;
+    });
+    this.userForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      roles: ['', Validators.required],
+      address: ['', Validators.required],
+      gender: ['', Validators.required],
+    });
+  }
 
   editProfile() {
-   // this.dialog.open(UserProfileModalComponent, {
-   //  width: '550px',
-   //  autoFocus: false,
-   // }).afterClosed().pipe(filter( value => !!value)).subscribe( value => {
-   // })
+    this.isEdit = true;
+  }
+
+  toggleEdit(isedit: any){
+    this.isEdit = isedit;
+  }
+
+  updateProfile(){
+
+  }
+
+  goBack() {
+    this.isEdit = false;
+    this.initializer();
   }
 }

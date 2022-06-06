@@ -9,8 +9,15 @@
 
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>Gender</mat-label>
-        <mat-select [formControl]="gender">
+        <mat-select formControlName="gender">
           <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="roles">
+          <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -24,10 +31,10 @@
         <input matInput type="email" formControlName="email" placeholder="Email"><br>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="w-full">
+      <!-- <mat-form-field appearance="outline" class="w-full">
         <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" placeholder="Password"><br>
-      </mat-form-field>
+        <input matInput type="text" formControlName="password" placeholder="Roles"><br>
+      </mat-form-field> -->
 
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>Phone Number</mat-label>
@@ -35,14 +42,14 @@
       </mat-form-field>
     </div>
     <br>
-    <div>
+    <!-- <div>
       <div class="file-upload" type="file" (click)="file.click()">Upload</div>
       <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
              accept="image/jpg,image/jpeg,image/png" (click)="selectFiles($event)">
-    </div>
+    </div> -->
     <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px" class="mt-16">
-      <button mat-button mat-stroked-button color="primary" (click)="close()">cancel</button>
-      <button mat-button mat-flat-button color="primary" (click)="addJobPosting()">Add</button>
+      <button mat-button mat-flat-button color="primary" (click)="cancel()">Cancel</button>
+      <button mat-button mat-flat-button color="primary" (click)="editUser()">Update</button>
     </div>
   </div>
 </div>

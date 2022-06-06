@@ -16,7 +16,7 @@ export class UserLandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.role = localStorage.getItem('User Role');
-    this.currentUser = JSON.parse(localStorage.getItem('current user') || '');
+    this.api.getUser().subscribe(res => this.currentUser = res);
   }
 
 }

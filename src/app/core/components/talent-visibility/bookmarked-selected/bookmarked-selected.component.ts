@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-bookmarked-selected',
@@ -17,9 +18,12 @@ export class BookmarkedSelectedComponent implements OnInit {
    }
 
   ngOnInit(): void {
-   this.api.getBookmarkedList('3').subscribe((res: any) => {
-        this.bookmarkedTalentLists = res;
-      })
+    this.api.getBookmarkedList('3').subscribe((res: any) => {
+      this.bookmarkedTalentLists = res;
+    })
+    this.api.getRequestedAssignee().subscribe((res: any) => {
+      this.selectedLists = res;
+    })
   }
 
   selectGroup(checked: any, user: any) {
@@ -42,7 +46,12 @@ export class BookmarkedSelectedComponent implements OnInit {
       buyer_id: localStorage.getItem('user_id') || ''
     };
      this.api.workerSendRequest(payload).subscribe((res: any) => {
-       //value should be here
+          Swal.fire('Worker successfully invited!', '', 'success');
+          this.dialogRef.close();
      });
+  }
+
+  cancel() {
+    this.dialogRef.close();
   }
 }

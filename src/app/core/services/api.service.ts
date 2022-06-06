@@ -129,10 +129,20 @@ export class ApiService {
   }
 
   workerSendRequest(payload: { worker_ids: any[]; buyer_id: string; card_id: any }) {
-    return of({})
+    const data = {
+         card_id : payload.card_id,
+        worker_ids: payload.worker_ids,
+        status: 'invited',
+        applied_type: 'requested'
+    }
+     return this.http.post(`${this.endPoints}card/apply`, {apply: data}, {withCredentials: true} );
   }
 
   getUser() {
     return this.http.get(`${this.endPoints}current_user`, {withCredentials: true});
+  }
+
+  getRequestedAssignee() {
+    return this.http.get(`${this.endPoints}card/requested_jobs`, {withCredentials: true});
   }
 }

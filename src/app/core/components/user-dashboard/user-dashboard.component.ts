@@ -16,18 +16,11 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit(): void {
   this.api.getUser().subscribe( (res: any) => {
-       localStorage.setItem('user_id', res.id);
-       localStorage.setItem('current user', JSON.stringify(res));
+      this.currentUser = res;
+      localStorage.setItem('user_id', res.id);
+      localStorage.setItem('current user', JSON.stringify(res));
   })
-    this.api.getWorkerlists()
-      .subscribe((res: any) => {
-        res.forEach((res: any) => {
-          //DYNAMIC USER
-          if (res.id === "jntWRNUzw5tIItzzuafl") {
-            this.currentUser = res;
-          }
-        });
-      });
+    
   }
 
   signOut() {

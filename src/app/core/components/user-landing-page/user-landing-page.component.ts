@@ -9,22 +9,14 @@ import { ApiService } from '../../services/api.service';
 })
 export class UserLandingPageComponent implements OnInit {
 
-  users: any;
+  currentUser: any;
   role: any;
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('User Role');
-    this.api.getWorkerlists()
-      .subscribe((res: any) => {
-        res.forEach((res: any) => {
-          //DYNAMIC USER
-          if(res.id === "jntWRNUzw5tIItzzuafl"){
-            this.users = res;
-          }
-        });
-      });
+    this.currentUser = JSON.parse(localStorage.getItem('current user') || '');
   }
 
 }

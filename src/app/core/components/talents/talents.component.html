@@ -42,20 +42,27 @@
      <div class="p-20">
        <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
          <div fxFlex="33" *ngFor="let list of bookmarkedTalentLists; let i = index" (click)="openDetails(list)" class="cursor-pointer">
-            <div class="bg-white p-20 rounded-8 card-shadow">
+            <div class="bg-white rounded-8 card-shadow">
         <div>
-          <div class="talent-list-header text-center">
+          <div class="talent-list-header p-20 text-center">
             <div fxLayoutAlign="end">
               <ng-container>
                 <span class="material-icons" (click)="setBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
               </ng-container>
             </div>
-            <h2 class="bold mt-12 mb-12">{{list.user.name}}</h2>
-            <!-- <img [src]="list.image" height="75px" width="75px" class="rounded-full"> -->
-            <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp" height="75px" width="75px" class="rounded-full">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <div style="height: 88px; width: 88px; padding: 3px; border: 2px solid var(--primary); border-radius: 50%;">
+                <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp" height="100%" width="100%"
+                     class="rounded-full">
+              </div>
+              <div class="ml-20" style="text-align: left;">
+                <h2 class="bold">{{list.user.name}}</h2>
+                <p>{{list.profession}}</p>
+              </div>
+            </div>
           </div>
-          <div class="leading-15 mt-12">
-            <p>{{list.profession}}</p>
+          <div class="p-20" style="line-height: 2;
+          background-color: #C3E0FC; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
             <p>{{list.user.phone}}</p>
             <p>Hourly Pay:  ${{list.rate}}</p>
             <p>currently available:  {{list.available}}</p>

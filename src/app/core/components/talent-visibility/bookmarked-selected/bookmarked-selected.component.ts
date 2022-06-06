@@ -13,7 +13,7 @@ export class BookmarkedSelectedComponent implements OnInit {
   bookmarkedTalentLists: any[] = [];
   selectedLists: any[] = [];
   card_id: any;
-  user = JSON.parse(localStorage.getItem('user') || '');
+  user = JSON.parse(localStorage.getItem('current user') || '');
   constructor(private api: ApiService,  public dialogRef: MatDialogRef<BookmarkedSelectedComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
      this.card_id = data;
    }

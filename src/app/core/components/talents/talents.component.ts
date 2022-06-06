@@ -14,7 +14,7 @@ export class TalentsComponent implements OnInit {
 
     talentLists: any = [];
     bookmarkedTalentLists: any = [];
-    userId = JSON.parse(localStorage.getItem('user_id') || '');
+    userId = JSON.parse(localStorage.getItem('current user') || '');
 
     constructor(private api: ApiService, private dialog: MatDialog)  { }
 
@@ -26,7 +26,7 @@ export class TalentsComponent implements OnInit {
       this.api.getWorkerlists().subscribe((res: any) => {
         this.talentLists = res;
       });
-      this.api.getBookmarkedList(this.userId.roles).subscribe(res => {
+      this.api.getBookmarkedList(this.userId.id).subscribe(res => {
         this.bookmarkedTalentLists = res;
       })
 
@@ -37,7 +37,7 @@ export class TalentsComponent implements OnInit {
     }
 
   setBookmarked(id: string) {
-     this.api.setBookmarkMark(this.userId, id).subscribe(() => {
+     this.api.setBookmarkMark(this.userId.id, id).subscribe(() => {
         Swal.fire('Talent bookmarked successfully!', '', 'success');
         this.initializer();
       })
@@ -48,7 +48,7 @@ export class TalentsComponent implements OnInit {
   }
 
   removeBookmarked(id: string){
-  this.api.removeBookMark(this.userId, id).subscribe( (res: any) => {
+  this.api.removeBookMark(this.userId.id, id).subscribe( (res: any) => {
      Swal.fire('Removed bookmarked successfully!', '', 'success');
         this.initializer();
     });

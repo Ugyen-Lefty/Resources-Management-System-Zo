@@ -30,6 +30,7 @@
     "@types/lodash-es": "^4.17.6",
     "firebase": "^9.8.1",
     "lodash-es": "^4.17.21",
+    "ngx-material-timepicker": "^5.5.3",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.4.14",
     "talkjs": "^0.15.4",

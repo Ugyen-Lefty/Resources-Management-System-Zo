@@ -43,6 +43,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TalentDetailsComponent } from './components/talents/talent-details/talent-details.component';
 import { JobListingComponent } from './components/job-listing/job-listing.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 
 @NgModule({
@@ -69,35 +70,36 @@ import { JobListingComponent } from './components/job-listing/job-listing.compon
     TalentDetailsComponent,
     JobListingComponent
   ],
-  imports: [
-    CommonModule,
-    CoreRoutingModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatIconModule,
-    FlexLayoutModule,
-    FlexLayoutModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatChipsModule,
-    MatInputModule,
-    MatButtonModule,
-    FullCalendarModule,
-    MatCardModule,
-    DragDropModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    FormsModule,
-    MatTabsModule,
-    MatMenuModule,
-    HttpClientModule,
-    MatRadioModule,
-    MatCheckboxModule
-  ],
+    imports: [
+        CommonModule,
+        CoreRoutingModule,
+        MatSidenavModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatIconModule,
+        FlexLayoutModule,
+        FlexLayoutModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatAutocompleteModule,
+        MatDatepickerModule,
+        MatChipsModule,
+        MatInputModule,
+        MatButtonModule,
+        FullCalendarModule,
+        MatCardModule,
+        DragDropModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatInputModule,
+        FormsModule,
+        MatTabsModule,
+        MatMenuModule,
+        HttpClientModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        NgxMaterialTimepickerModule
+    ],
     providers: [TalkService],
 
 })

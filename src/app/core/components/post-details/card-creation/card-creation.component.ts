@@ -14,6 +14,8 @@ export class CardCreationComponent implements OnInit {
   id!: string;
   campaignOne?: FormGroup;
   card: any;
+  requirements: string[] = [];
+
 
   constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public data: any, private api: ApiService, public dialogRef: MatDialogRef<CardCreationComponent>) {
        this.id = data.id || '';
@@ -35,7 +37,9 @@ export class CardCreationComponent implements OnInit {
       description: [''],
       price: [''],
       start_date: [''],
-      end_date: ['']
+      end_date: [''],
+      start_time: [''],
+      end_time: ['']
     });
   }
 
@@ -44,11 +48,17 @@ export class CardCreationComponent implements OnInit {
        ...this.cardForm.value,
        status: 'requested',
        job_id: this.id,
+       requirements: this.requirements
     }
     this.close(payload);
   }
 
   close(data?: any){
     this.dialogRef.close(data);
+  }
+
+  addRequirements(event: any) {
+      this.requirements.push(event.value as never);
+      event.value = '';
   }
 }

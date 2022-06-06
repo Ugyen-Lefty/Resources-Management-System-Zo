@@ -15,6 +15,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -49,6 +50,7 @@ const firebaseConfig = {
     MatNativeDateModule,
     FullCalendarModule,
     HttpClientModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,7 @@ export class JobPostingModalComponent implements OnInit {
   totalJobs: string[] = [];
      jobsControl = new FormControl();
      job: any;
+     user = JSON.parse(localStorage.getItem('current user') || '');
 
     constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<JobPostingModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.job = data || '';
@@ -43,7 +44,7 @@ export class JobPostingModalComponent implements OnInit {
       ...this.jobPostingForm.value,
       image: this.attachment.value,
       status: this.job.status || 'draft',
-      creator_id: 3,
+      creator_id: this.user.id,
       recruits: [''],
       job_type: this.totalJobs,
     }

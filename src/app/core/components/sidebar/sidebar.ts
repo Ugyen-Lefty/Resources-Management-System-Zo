@@ -25,11 +25,12 @@ export class SidebarComponent implements OnInit {
   }
 
   signOut() {
-    this.api.signOut().subscribe();
+    this.api.signOut().subscribe( () => {
     localStorage.removeItem('User Role');
     localStorage.removeItem('user_id');
     localStorage.removeItem('current user');
     location.href = "";
+    });
   }
 
 }

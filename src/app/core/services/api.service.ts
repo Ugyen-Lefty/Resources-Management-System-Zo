@@ -105,7 +105,7 @@ export class ApiService {
   }
 
   signOut() {
-    return this.http.delete(`${this.endPoints}users/sign_out`, {withCredentials: true});
+    return this.http.delete(`${this.endPoints}users/sign_out`);
   }
 
   getBookmarkedList(id: string) {
@@ -145,6 +145,7 @@ export class ApiService {
   getRequestedAssignee(id: any) {
     return this.http.get(`${this.endPoints}card/${id}/requested_talent`, {withCredentials: true});
   }
+  
   updateUser(user: any) {
     return this.http.put(`${this.endPoints}users`, { user }, {withCredentials: true});
   }

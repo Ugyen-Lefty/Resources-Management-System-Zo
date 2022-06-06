@@ -16,10 +16,10 @@
             <p>Hourly Pay:  ${{list.rate}}</p>
             <p>currently available:  {{list.available}}</p>
             <ng-container *ngIf="!isBookmarked(list)">
-             <span class="material-icons" (click)="setBookmarked(list.user.id)" style="cursor: pointer">bookmark_border</span>
+             <span class="material-icons" (click)="setBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark_border</span>
             </ng-container>
              <ng-container *ngIf="isBookmarked(list)">
-             <span class="material-icons" (click)="removeBookmarked(list.user.id)" style="cursor: pointer">bookmark</span>
+             <span class="material-icons" (click)="removeBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
             </ng-container>
           </div>
         </div>
@@ -45,7 +45,7 @@
             <p>Hourly Pay:  ${{list.rate}}</p>
             <p>currently available:  {{list.available}}</p>
              <ng-container>
-             <span class="material-icons" (click)="setBookmarked(list.user.id)" style="cursor: pointer">bookmark</span>
+             <span class="material-icons" (click)="setBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
             </ng-container>
           </div>
         </div>

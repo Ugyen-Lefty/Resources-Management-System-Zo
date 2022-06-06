@@ -19,7 +19,6 @@ export class UserDashboardComponent implements OnInit {
   this.api.getUser().subscribe( (res: any) => {
       this.currentUser = res;
       this.role = res.roles;
-      debugger
       localStorage.setItem('user_id', res.id);
       localStorage.setItem('current user', JSON.stringify(res));
   })

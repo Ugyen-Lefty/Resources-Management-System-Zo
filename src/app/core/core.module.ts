@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoreRoutingModule } from './core-routing.module';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar';
 import { UserLandingPageComponent } from './components/user-landing-page/user-landing-page.component';
 import { JobPostingComponent } from './components/job-posting/job-posting.component';
 import { WorkTrackerComponent } from './components/work-tracker/work-tracker.component';
@@ -47,7 +47,7 @@ import { JobListingComponent } from './components/job-listing/job-listing.compon
 
 @NgModule({
   declarations: [
-    UserDashboardComponent,
+    SidebarComponent,
     UserLandingPageComponent,
     JobPostingComponent,
     WorkTrackerComponent,

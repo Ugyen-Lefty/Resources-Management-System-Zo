@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { JobPostingComponent } from './components/job-posting/job-posting.component';
 import { TalentsComponent } from './components/talents/talents.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar';
 import { UserLandingPageComponent } from './components/user-landing-page/user-landing-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { WorkProgressComponent } from './components/work-progress/work-progress.component';
@@ -14,7 +14,7 @@ import { CardDetailsComponent } from './components/card-details/card-details.com
 import { JobListingComponent } from './components/job-listing/job-listing.component';
 
 const routes: Routes = [
-  { path: '', component: UserDashboardComponent, children: [
+  { path: '', component: SidebarComponent, children: [
     { path: 'landing', component: UserLandingPageComponent},
     { path: 'job-posting', component: JobPostingComponent},
     { path: 'work-tracker', component: WorkTrackerComponent},

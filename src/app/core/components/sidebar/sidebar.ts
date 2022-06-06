@@ -4,10 +4,10 @@ import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-user-dashboard',
-  templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.scss']
+  templateUrl: './sidebar.html',
+  styleUrls: ['./sidebar.scss']
 })
-export class UserDashboardComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 
   drawer = false;
   currentUser: any;

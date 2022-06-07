@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { filter, take, tap } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { findIndex } from 'lodash-es';
+import { findIndex, uniqBy } from 'lodash-es';
 import { CardCreationComponent } from '../post-details/card-creation/card-creation.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -45,8 +45,9 @@ export class WorkProgressComponent implements OnInit {
     } else {
       this.api.getWorkerJobs().subscribe((res: any) => {
           this.projects = res;
+          this.projects = uniqBy(this.projects, 'id');
           this.currentProject = this.projects[0].id;
-          this.selectProject(this.projects[0].id);
+        this.selectProject(this.projects[0].id);
         }
       )
     }

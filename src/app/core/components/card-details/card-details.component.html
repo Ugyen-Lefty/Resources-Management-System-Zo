@@ -1,7 +1,7 @@
 <div>
+  <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
 <ng-container *ngIf="role === 'Buyer'">
   <div fxLayout="row" fxLayoutAlign="space-between start" class="bg-white p-28">
-  <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
   <div fxLayout="row" fxLayoutGap="12px">
     <button mat-button mat-stroked-button (click)="editCard()">edit</button>
     <button mat-button class="bg-primary text-white" (click)="deleteCard()">Delete</button>

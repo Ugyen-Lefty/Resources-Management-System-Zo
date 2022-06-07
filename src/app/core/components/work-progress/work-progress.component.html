@@ -9,11 +9,11 @@
     </mat-select>
   </mat-form-field>
 
-  <button [disabled]="!id" class="bg-primary text-white" (click)="newTask()" mat-button>
+  <button [disabled]="!id" class="bg-primary text-white" (click)="newTask()" mat-button *ngIf="role === 'Buyer'">
     <mat-icon>add</mat-icon> Add Task
   </button>
 </div>
-<div class="content-wrapper p-28">
+<div class="content-wrapper p-28" [ngClass]="{'diable-whole': role !== 'Buyer'}">
 
   <div class="container-wrapper">
     <div class="container">

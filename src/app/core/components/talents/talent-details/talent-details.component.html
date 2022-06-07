@@ -16,7 +16,8 @@
           </div>
         </div>
         <div>
-          <mat-icon class="cursor-pointer mr-12">turned_in_not</mat-icon>
+          <mat-icon class="cursor-pointer mr-12" *ngIf="isBookmarked()" (click)="setBookmarked()">bookmark_border</mat-icon>
+          <mat-icon class="cursor-pointer mr-12" *ngIf="!isBookmarked()" (click)="removeBookmarked()">bookmark</mat-icon>
           <mat-icon class="cursor-pointer" (click)="openChat()">chat_bubble_outline</mat-icon>
         </div>
       </div>
@@ -25,13 +26,13 @@
   <div class="mt-28 px-80">
     <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
       <div fxFlex="35">
-        <div class="p-20 bg-white rounded-8 card-shadow mb-20" *ngFor="let i of [0,1,2]">
+        <div class="p-20 bg-white rounded-8 card-shadow mb-20" *ngFor="let i of reviewList">
           <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" class="mt-16">
-            <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp"
+            <img [src]="i.profile"
                  alt="profile" height="38px" width="38px" class="rounded-full">
-            <h3>Dechen Wangmo</h3>
+            <h3>{{i.name}}</h3>
           </div>
-          <p>Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!</p>
+          <p>{{i.comments}}</p>
         </div>
       </div>
       <div fxFlex="65">
@@ -41,8 +42,9 @@
             <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp"
                  alt="profile" height="45px" width="45px" class="rounded-full">
             <mat-form-field appearance="outline" class="w-full">
-              <textarea matInput placeholder="Your comments here..."></textarea>
+              <textarea matInput placeholder="Your comments here..." [(ngModel)]="comments"></textarea>
             </mat-form-field>
+            <button (click)="submitComment()">Comments</button>
           </div>
         </div>
 
@@ -51,8 +53,8 @@
           <p>I’m a friendly kitchen assistant who suffers from a severe phobia of buttons.</p>
           <p>Brother of Elijah Jay Watkins, who has phobia of buttons and trust issues.</p>
           <div class="mt-20" style="border-top: 1px solid #E0E0E0;"></div>
-          <div fxLayout="row" fxLayoutGap="12px" class="mt-16" *ngFor="let abt of [ { icon: 'location_on', value: 'Thimphu'},
-          { icon: 'work_outline', value: 'Thimphu'}, { icon: 'attach_money', value: 'Thimphu'}]">
+          <div fxLayout="row" fxLayoutGap="12px" class="mt-16" *ngFor="let abt of [ { icon: 'location_on', value: workerDetails.user.address},
+          { icon: 'work_outline', value:  workerDetails.available? 'Currently available' : 'Currently unavailable'}, { icon: 'attach_money', value: 'Hourly Rate : '+ workerDetails.rate}]">
             <mat-icon>{{ abt.icon }}</mat-icon>
             <p>{{ abt.value }}</p>
           </div>

@@ -121,10 +121,12 @@ export class ApiService {
        user_id: id,
         worker_profile_id: worker_id
   }
+  debugger
   return this.http.post(`${this.endPoints}workers/bookmarked`, {worker: payload}, {withCredentials: true} );
   }
 
   removeBookMark(id: string, worker_id: string) {
+  debugger
     return this.http.delete(`${this.endPoints}workers/${id}/${worker_id}`, {withCredentials: true});
   }
 

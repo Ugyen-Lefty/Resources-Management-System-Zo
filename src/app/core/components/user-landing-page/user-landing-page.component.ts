@@ -16,6 +16,7 @@ export class UserLandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.role = localStorage.getItem('User Role');
+    this.getRequestList();
     this.api.getUser().subscribe(res => this.currentUser = res);
     if (this.role === 'Buyer') {
       this.api.getBuyerDashBoard().subscribe((res: any) => {
@@ -28,4 +29,11 @@ export class UserLandingPageComponent implements OnInit {
     }
   }
 
+  private getRequestList() {
+  if(this.role !== 'Buyer'){
+   this.api.getRequestList().subscribe(res => {
+      //Bind data here
+    })
+  }
+  }
 }

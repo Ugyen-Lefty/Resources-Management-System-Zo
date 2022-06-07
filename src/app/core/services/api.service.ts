@@ -178,4 +178,12 @@ export class ApiService {
   getWorkerCards(id: any) {
      return this.http.get(`${this.endPoints}worker/your_cards/${id}`, {withCredentials: true});
   }
+
+  getRequestList() {
+   return this.http.get(`${this.endPoints}your_job_requests`, {withCredentials: true});
+  }
+
+  getApplyList() {
+
+  }
 }

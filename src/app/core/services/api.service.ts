@@ -186,4 +186,13 @@ export class ApiService {
   getApplyList() {
 
   }
+  
+  postAddtionalInfo(info: any){
+    return this.http.post(`${this.endPoints}workers`, { worker: info }, { withCredentials: true});
+  }
+
+  updateAddtionalInfo(info: any, id: any) {
+    return this.http.put(`${this.endPoints}workers/${id}`, { worker: info }, { withCredentials: true});
+  }
+
 }

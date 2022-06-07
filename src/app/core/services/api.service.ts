@@ -161,6 +161,10 @@ export class ApiService {
   getWorkerDashBoard() {
    return this.http.get(`${this.endPoints}worker_dashboard`, { withCredentials: true});
   }
+  downgrade(downgrade: any){
+    return this.http.post(`${this.endPoints}update_user`, { user: downgrade }, { withCredentials: true });
+  }
+
 
   getWorkersDetails(id: any) {
    return this.http.get(`${this.endPoints}workers/${id}`, { withCredentials: true});

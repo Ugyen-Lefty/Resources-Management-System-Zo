@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TalkService } from '../../../services/talk.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-talent-details',
@@ -9,12 +11,19 @@ import { TalkService } from '../../../services/talk.service';
 export class TalentDetailsComponent implements OnInit {
 
   workerDetails: any;
-  constructor(private talkService: TalkService) {
-     // this.workerDetails = data;
+  id: any;
+  constructor(private talkService: TalkService, private route: ActivatedRoute, private api: ApiService) {
   }
 
   ngOnInit(): void {
-
+   this.route.paramMap.subscribe(paramMap => {
+            if (paramMap.get('id')) {
+                this.id = paramMap.get('id') as string;
+            }
+        })
+        this.api.getWorkersDetails(this.id).subscribe(data => {
+          this.workerDetails = data;
+        })
   }
 
   openChat() {

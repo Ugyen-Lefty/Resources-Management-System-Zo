@@ -161,4 +161,8 @@ export class ApiService {
   getWorkerDashBoard() {
    return this.http.get(`${this.endPoints}worker_dashboard`, { withCredentials: true});
   }
+
+  getWorkersDetails(id: any) {
+   return this.http.get(`${this.endPoints}workers/${id}`, { withCredentials: true});
+  }
 }

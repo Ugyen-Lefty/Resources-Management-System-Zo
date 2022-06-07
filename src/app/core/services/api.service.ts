@@ -154,4 +154,15 @@ export class ApiService {
     return this.http.post(`${this.endPoints}update_user`, { user: premium }, { withCredentials: true });
   }
 
+  getBuyerDashBoard() {
+   return this.http.get(`${this.endPoints}buyer_dashboard`, { withCredentials: true});
+  }
+
+  getWorkerDashBoard() {
+   return this.http.get(`${this.endPoints}worker_dashboard`, { withCredentials: true});
+  }
+  downgrade(downgrade: any){
+    return this.http.post(`${this.endPoints}update_user`, { user: downgrade }, { withCredentials: true });
+  }
+
 }

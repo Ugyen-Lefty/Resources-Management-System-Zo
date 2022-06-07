@@ -36,12 +36,12 @@
           <mat-icon class="cursor-pointer text-primary text-20" (click)="additionalInfo()">edit</mat-icon>
         </div>
         <h3>Bank Information</h3>
-        <p>Bank - {{ user?.bank || 'N/A' }}</p>
-        <p>Account Number - {{ user?.accno || 'N/A' }}</p>
+        <p>Bank - {{ user?.worker_profile?.bank_name || 'N/A' }}</p>
+        <p>Account Number - {{ user?.worker_profile?.account_number || 'N/A' }}</p>
         <br>
         <h3>Worker Details</h3>
-        <p>Profession - {{ user?.profession || 'N/A' }}</p>
-        <p>Skills - {{ user?.skills || 'N/A' }}</p>
+        <p>Profession - {{ user?.worker_profile?.profession || 'N/A' }}</p>
+        <p>{{ user?.worker_profile?.available ? 'Currently Available' : 'Currently Unavailable' }}</p>
       </div>
       <div *ngIf="isAdditional" class="bg-white rounded-8 card-shadow p-20 mt-28">
         <!-- <app-user-profile-modal (isAdditional)="toggleEdit($event)"></app-user-profile-modal> -->

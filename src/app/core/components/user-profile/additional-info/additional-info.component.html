@@ -2,14 +2,55 @@
     <div>
       <h2 class="mb-12">Edit Profile</h2>
       <br>
-      <!-- <div>
-        <div class="file-upload" type="file" (click)="file.click()">Upload</div>
-        <input [hidden]="true" class="image-uploader" #file  pattern="'.jpg,.jpeg,.png'"
-               accept="image/jpg,image/jpeg,image/png" (click)="selectFiles($event)">
-      </div> -->
+      <div [formGroup]="additionalForm">
+        <mat-form-field >
+          <mat-label>Rate per Hour</mat-label>
+          <input matInput type="text" formControlName="rate">
+        </mat-form-field>
+  
+        <mat-form-field >
+          <mat-label>Profession</mat-label>
+          <mat-select formControlName="profession">
+            <mat-option *ngFor="let profession of ['Plumber','Carpenter','Others']" [value]="profession">{{profession}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-radio-group aria-label="Available" formControlName="available">
+          <mat-radio-button value="true" style="display: block;" class="mt-12">Yes</mat-radio-button>
+          <mat-radio-button value="false" style="display: block;" class="mt-12 mb-20">No</mat-radio-button>
+        </mat-radio-group>
+  
+        <!-- <mat-form-field >
+          <mat-label>skills</mat-label>
+          <textarea matInput type="text" formControlName="skills" placeholder="Address"></textarea>
+        </mat-form-field> -->
+  
+        <mat-radio-group aria-label="Select a Bank" formControlName="bank_name">
+          <mat-radio-button value="Bank of Bhutan" style="display: block;" class="mt-12">Bank of Bhutan</mat-radio-button>
+          <mat-radio-button value="Bhutan National Bank" style="display: block;" class="mt-12">Bhutan National Bank</mat-radio-button>
+          <mat-radio-button value="Druk PNB" style="display: block;" class="mt-12">Druk PNB</mat-radio-button>
+          <mat-radio-button value="Tashi Bank" style="display: block;" class="mt-12 mb-20">Tashi Bank</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field >
+          <mat-label>Account Number</mat-label>
+          <input matInput type="text" formControlName="account_number"><br>
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Rating</mat-label>
+          <input matInput type="text" formControlName="rating"><br>
+        </mat-form-field>
+
+        <!-- <mat-form-field >
+          <mat-label>Password</mat-label>
+          <input matInput type="text" formControlName="password" placeholder="Roles"><br>
+        </mat-form-field> -->
+  
+      </div>
       <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px" class="mt-16">
         <button mat-button mat-flat-button color="primary" (click)="cancel()">Cancel</button>
-        <button mat-button mat-flat-button color="primary" (click)="editAdditional()">Update</button>
+        <button mat-button mat-flat-button color="primary" (click)="newAdditional()" [disabled]="additionalForm.invalid">Submit</button>
       </div>
     </div>
   </div>

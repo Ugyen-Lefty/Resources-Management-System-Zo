@@ -192,4 +192,13 @@ export class ApiService {
     }
      return this.http.post(`${this.endPoints}card/apply`, {apply: data}, {withCredentials: true} );
   }
+  
+  postAddtionalInfo(info: any){
+    return this.http.post(`${this.endPoints}workers`, { worker: info }, { withCredentials: true});
+  }
+
+  updateAddtionalInfo(info: any, id: any) {
+    return this.http.put(`${this.endPoints}workers/${id}`, { worker: info }, { withCredentials: true});
+  }
+
 }

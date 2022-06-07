@@ -48,6 +48,7 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
 import { SubscriptionModalComponent } from './components/subscription/subscription-modal/subscription-modal.component';
 import { ScanComponent } from './components/subscription/scan/scan.component';
 import { RmaComponent } from './components/subscription/rma/rma.component';
+import { AdditionalInfoComponent } from './components/user-profile/additional-info/additional-info.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { RmaComponent } from './components/subscription/rma/rma.component';
     SubscriptionComponent,
     SubscriptionModalComponent,
     ScanComponent,
-    RmaComponent
+    RmaComponent,
+    AdditionalInfoComponent
     ],
     imports: [
         CommonModule,

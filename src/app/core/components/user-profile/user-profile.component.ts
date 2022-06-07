@@ -14,6 +14,7 @@ export class UserProfileComponent implements OnInit {
 
   user: any;
   isEdit = false;
+  isAdditional = false;
   userForm!: FormGroup;
 
   constructor(private dialog: MatDialog, private api: ApiService, private fb: FormBuilder) { }
@@ -52,4 +53,18 @@ export class UserProfileComponent implements OnInit {
     this.isEdit = false;
     this.initializer();
   }
+
+  goBackAdd() {
+    this.isAdditional = false;
+    this.initializer();
+  }
+
+  additionalInfo() {
+    this.isAdditional = true;
+  }
+
+  toggleAdditional(isAdditional: any){
+    this.isAdditional = isAdditional;
+  }
+
 }

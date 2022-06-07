@@ -61,9 +61,13 @@
         <a class="text-16"><span>Chats</span></a>
       </div>
 
-       <div routerLink="subscription" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
-        <span>Subscription</span>
-        <a class="text-16"><span>Free - upgrade to Premium</span></a>
+       <div routerLink="subscription" class="rounded-4 border-gray ml-20 mr-20 mt-28 px-20 py-12 cursor-pointer">
+        <ng-container *ngIf="!isPremium">
+          <span>Free - Upgrade to Premium</span>
+        </ng-container>
+        <ng-container *ngIf="isPremium">
+          <span>Premium - Downgrade to Free</span>
+        </ng-container>
       </div>
 
 

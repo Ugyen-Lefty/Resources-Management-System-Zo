@@ -1,19 +1,14 @@
-.pb-consultation-banner {
-  background-color: rgba(blue, 0.1);
-}
-
-.pb-invoice {
-
-  &:not(:last-child) {
-    border-bottom: 0;
+.hack-sub {
+  ul {
+    list-style: none;
+  }
+  ul li:before {
+    content: '✓';
+    margin-right: 8px;
   }
 
-  &__plan {
-    border-right: 1px solid var(gray);
-
-    @media screen and (max-width: 599px) {
-      border-right: 0;
-      border-bottom: 1px solid var(gray);
-    }
+  li {
+    font-size: 16px;
+    line-height: 2;
   }
 }

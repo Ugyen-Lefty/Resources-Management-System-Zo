@@ -18,15 +18,15 @@
   </div>
   <div class="p-28">
     <div>
-      <h2 class="mb-20">Currently hired</h2>
+      <h2 class="mb-20">DASHBOARD</h2>
       <div fxLayout="row wrap" fxLayoutGap="20px grid">
-        <div fxFlex="25" *ngFor="let i of [{label: 'Total Hired', color: '#3B81F6', num: '23'},
-        {label: 'Types Hired', color: '#F59E0B', num: '45'},
-        {label: 'Total Hired', color: '#EF4444', num: '72'}, {label: 'Total Hired', color: '#21C55D', num: '88'} ]">
+        <div fxFlex="25" *ngFor="let i of [{label: 'Active Projects', color: '#3B81F6', num: dashboard?.active_projects},
+        {label: 'Completed Projects', color: '#F59E0B', num: dashboard?.completed_projects},
+        {label: 'Currently Hired', color: '#EF4444', num: dashboard?.currently_hired}, {label: 'Amount', color: '#21C55D', num: 'Nu. '+dashboard?.amount_paid} ]">
           <div class="rounded-8 bg-white p-20">
             <h3>{{ i.label }}</h3>
             <p class="text-58 bold leading-normal text-center mt-28" [style.color]="i.color">{{ i.num }}</p>
-            <p class="text-gray text-center mt-32">Completed: 13</p>
+            <p class="text-gray text-center mt-32">{{i.label}}: {{i.num}}</p>
           </div>
         </div>
       </div>

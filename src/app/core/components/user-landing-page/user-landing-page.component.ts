@@ -11,12 +11,21 @@ export class UserLandingPageComponent implements OnInit {
 
   currentUser: any;
   role: any;
-
+  dashboard: any= '';
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('User Role');
     this.api.getUser().subscribe(res => this.currentUser = res);
+    if (this.role === 'Buyer') {
+      this.api.getBuyerDashBoard().subscribe((res: any) => {
+        this.dashboard = res;
+      });
+    } else {
+      this.api.getWorkerDashBoard().subscribe((res: any) => {
+        this.dashboard = res;
+      });
+    }
   }
 
 }

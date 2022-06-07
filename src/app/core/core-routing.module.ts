@@ -12,6 +12,9 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { ChatsComponent } from './components/chats/chats.component';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { JobListingComponent } from './components/job-listing/job-listing.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { RmaComponent } from './components/subscription/rma/rma.component';
+import { ScanComponent } from './components/subscription/scan/scan.component';
 
 const routes: Routes = [
   { path: '', component: SidebarComponent, children: [
@@ -21,6 +24,9 @@ const routes: Routes = [
     { path: 'talents', component: TalentsComponent},
     { path: 'your-projects', component: YourProjectsComponent},
     { path: 'user-profile', component: UserProfileComponent},
+    { path: 'subscription', component: SubscriptionComponent},
+      { path: 'subscription/rma', component: RmaComponent},
+      { path: 'subscription/scan-qr', component: ScanComponent},
     { path: 'work-progress', component: WorkProgressComponent},
      {path: 'job-posting/details/:id', component: PostDetailsComponent},
      {path: 'chats', component: ChatsComponent},

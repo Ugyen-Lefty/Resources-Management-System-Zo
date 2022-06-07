@@ -1,0 +1,70 @@
+<div ngClass.gt-sm="p-80" ngClass.lt-md="p-20">
+  <div>
+    <p class="pb-font--bold font-size-28">Subscription Plan</p>
+    <p class="mt-12 mb-28">Choose Subscription</p>
+  </div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" fxLayoutGap.gt-sm="68px"
+    fxLayoutGap.lt-md="28px">
+    <div fxFlex.gt-xs="50" fxLayout="column" class="pb-bg--white py-40 br-8 pb-border--gray-300 pb-general-setting">
+      <div class="pb-font--bold pb-text--center">
+        <p class="font-size-24 mt-4">Free</p>
+        <div>
+          <p class="font-size-56 my-56">Nu 0</p>
+        </div>
+      </div>
+      <hr class="pb-hr-color">
+      <div fxFlex fxLayout="column" fxLayoutAlign="space-between">
+        <div fxLayout="column" fxLayoutAlign="start center">
+          <div class="mt-20">
+            <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let freemium of [
+                                'website_management', 'publishing_website', 'webshop_management', 'Free_selise_Domain',
+                                'User_Access_Management', 'Theme_Management', 'User_Manual_and_Insturctional_Video'
+                                ]">
+              <mat-icon class="pb-color--primary font-size-20">check_circle</mat-icon>
+              <p class="ml-12">{{ freemium | uppercase }}</p>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let freemium of [
+                                'Publishing_Webshop', 'Add_Custom_Domain', 'Delivery_Option_Management', 'Payment_Provider_Management',
+                                'One_Time_selise_Expert'
+                                ]">
+              <mat-icon class="pb-color--error font-size-20">cancel</mat-icon>
+              <p class="ml-12">{{ freemium | uppercase }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="px-40" ngClass.xs="mt-28">
+          <button mat-raised-button class="pb-full-width py-24 br-32">Free</button>
+        </div>
+      </div>
+    </div>
+
+    <div fxFlex.gt-xs="50" class="pb-bg--white pb-text--center pb-40 br-8 pb-border--gray-300 pb-general-setting">
+      <div class="br-top-left-8 br-top-right-8 pb-bg--purple pb-font--bold pb-color--white">
+        <p>Reccomended</p>
+      </div>
+      <p class="font-size-24 pb-font--bold mt-20">Premium</p>
+      <p>Cancel Anytime</p>
+      <div>
+        <p class="font-size-56 pb-font--bold mt-24 mb-12">Nu 699</p>
+      </div>
+      <p class="mb-16">A month</p>
+      <hr class="pb-hr-color">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="mt-20 pl-40">
+          <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let freemium of [
+                                'website_management', 'publishing_website', 'webshop_management', 'Free_selise_Domain',
+                                'User_Access_Management', 'Theme_Management', 'User_Manual_and_Insturctional_Video',
+                                'Publishing_Webshop', 'Add_Custom_Domain', 'Delivery_Option_Management', 'Payment_Provider_Management',
+                                'One_Time_selise_Expert'
+                                ]">
+            <mat-icon class="font-size-20">check_circle</mat-icon>
+            <p class="ml-12">{{ freemium | uppercase }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="px-40 mt-40">
+        <button (click)="premium()" mat-raised-button color="primary" class="pb-full-width py-24 br-32">Subscription</button>
+      </div>
+    </div>
+  </div>
+</div>

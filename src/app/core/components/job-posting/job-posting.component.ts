@@ -67,11 +67,31 @@ export class JobPostingComponent implements OnInit {
   }
 
   deleteJob(job: any): void {
-     this.api.delete(job.id).subscribe(() => {
-     this.completedJobs = [];
-     this.reviewJobs= [];
-     this.postedJobs = [];
-      this.getJobs();
-     })
+    Swal.fire({
+      title: 'Are you sure',
+      text: "You want to Delete this Project?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ok'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Project',
+          'deleted Successfully',
+          'success'
+        ).then((res) => {
+          if (res.isConfirmed) {
+            this.api.delete(job.id).subscribe(() => {
+              this.completedJobs = [];
+              this.reviewJobs = [];
+              this.postedJobs = [];
+              this.getJobs();
+            })
+          }
+        });
+      }
+    })
   }
 }

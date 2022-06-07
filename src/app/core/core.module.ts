@@ -44,6 +44,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TalentDetailsComponent } from './components/talents/talent-details/talent-details.component';
 import { JobListingComponent } from './components/job-listing/job-listing.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SubscriptionModalComponent } from './components/subscription/subscription-modal/subscription-modal.component';
+import { ScanComponent } from './components/subscription/scan/scan.component';
+import { RmaComponent } from './components/subscription/rma/rma.component';
 
 
 @NgModule({
@@ -68,7 +72,11 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     TalentVisibilityComponent,
     BookmarkedSelectedComponent,
     TalentDetailsComponent,
-    JobListingComponent
+    JobListingComponent,
+    SubscriptionComponent,
+    SubscriptionModalComponent,
+    ScanComponent,
+    RmaComponent
   ],
     imports: [
         CommonModule,

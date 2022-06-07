@@ -1,0 +1,37 @@
+  <div [formGroup]="rmaForm">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Mobile</mat-label>
+      <input matInput type="text" formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Amount per Annum</mat-label>
+      <input matInput type="text" disabled value="69">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email">
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Select a Bank" formControlName="bank">
+      <mat-radio-button value="Bank of Bhutan">Bank of Bhutan</mat-radio-button>
+      <mat-radio-button value="Bhutan National Bank">Bhutan National Bank</mat-radio-button>
+      <mat-radio-button value="Druk PNB">Druk PNB</mat-radio-button>
+      <mat-radio-button value="Tashi Bank">Tashi Bank</mat-radio-button>
+    </mat-radio-group>
+
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Account number</mat-label>
+      <input matInput type="text" formControlName="accountNo">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="premium()" [disabled]="rmaForm.invalid">Pay Now</button>
+
+  </div>

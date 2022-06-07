@@ -38,10 +38,29 @@ export class CardDetailsComponent implements OnInit {
   }
 
   deleteCard() {
-    this.api.deleteCard(this.jobId, this.cardId).subscribe( (res: any) => {
-    Swal.fire('Card successfully deleted!', '', 'success');
-     this.goBack();
-    });
+    Swal.fire({
+      title: 'Are you sure',
+      text: "You want to Delete this Card?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ok'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Card',
+          'deleted Successfully',
+          'success'
+        ).then((res) => {
+          if (res.isConfirmed) {
+            this.api.deleteCard(this.jobId, this.cardId).subscribe((res: any) => {
+              this.goBack();
+            });
+          }
+        });
+      }
+    })
   }
 
   goBack() {

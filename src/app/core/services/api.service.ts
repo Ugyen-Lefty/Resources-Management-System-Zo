@@ -150,4 +150,8 @@ export class ApiService {
     return this.http.put(`${this.endPoints}users`, { user }, {withCredentials: true});
   }
 
+  premium(premium: any) {
+    return this.http.post(`${this.endPoints}update_user`, { user: premium }, { withCredentials: true });
+  }
+
 }

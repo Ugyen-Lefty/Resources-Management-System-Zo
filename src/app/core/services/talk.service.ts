@@ -8,9 +8,9 @@ export class TalkService {
  currentUser!: Talk.User;
   otherApplicationUser = {
       id: 1,
-      username: 'Lalit Pokhrel',
+      username: ' ',
       email: 'Lalit Pokhrel',
-      photoUrl: 'https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg',
+      photoUrl: ' ',
       welcomeMessage: 'Hey there! How are you? :-)',
       role: 'default'
     };

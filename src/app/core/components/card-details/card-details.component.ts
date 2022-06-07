@@ -16,12 +16,14 @@ export class CardDetailsComponent implements OnInit {
   cardId: any;
   jobId: any;
   cardDetails: any;
+  role: any;
   constructor(private route: ActivatedRoute, private dialog: MatDialog, private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.cardId = this.route.snapshot.params['cid'];
     this.jobId = this.route.snapshot.params['jid'];
     this.getCardDetail();
+    this.role = localStorage.getItem('User Role')
   }
 
   editCard() {

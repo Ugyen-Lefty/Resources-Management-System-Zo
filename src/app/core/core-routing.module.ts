@@ -34,6 +34,8 @@ const routes: Routes = [
      {path: 'job/:jid/card-details/:cid', component: CardDetailsComponent},
      {path: 'job-listing', component: JobListingComponent},
      {path: 'worker/:id', component: TalentDetailsComponent},
+      {path: 'job-listing/details/:id', component: PostDetailsComponent},
+
       { path: '', redirectTo: 'landing', pathMatch: 'full' }
 
 

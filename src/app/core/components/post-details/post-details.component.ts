@@ -17,6 +17,7 @@ export class PostDetailsComponent implements OnInit {
    id: string = '';
    post: any = '';
    cards!: any[];
+   role: any;
 
   constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
 
@@ -28,6 +29,7 @@ export class PostDetailsComponent implements OnInit {
         })
        this.getJobs();
        this.getCards();
+       this.role = localStorage.getItem('User Role')
   }
 
    getJobs(): void {

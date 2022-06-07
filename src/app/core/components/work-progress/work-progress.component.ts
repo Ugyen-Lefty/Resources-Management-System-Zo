@@ -31,14 +31,27 @@ export class WorkProgressComponent implements OnInit {
   status: any;
   movedId!: any;
   currentProject: any;
+  role: any;
 
   ngOnInit(): void {
-    this.api.getJobs().subscribe(res => {
+    this.role = localStorage.getItem('User Role');
+
+    if (this.role === 'Buyer') {
+      this.api.getJobs().subscribe((res: any) => {
         this.projects = res;
         this.currentProject = this.projects[0].id;
         this.selectProject(this.projects[0].id);
       });
+    } else {
+      this.api.getWorkerJobs().subscribe((res: any) => {
+          this.projects = res;
+          this.currentProject = this.projects[0].id;
+          this.selectProject(this.projects[0].id);
+        }
+      )
+    }
   }
+
 
   constructor(private dialog: MatDialog, private api: ApiService, private router: Router, private route: ActivatedRoute) { }
 
@@ -86,7 +99,12 @@ export class WorkProgressComponent implements OnInit {
   selectProject(id: any) {
      this.currentProject = id;
       this.id = id;
+      if(this.role === 'Buyer'){
       this.getCards(this.id);
+      } else {
+      this.getWorkerCards(this.id);
+      }
+
       this.todo = [];
       this.inProgress = [];
       this.done = [];
@@ -110,6 +128,25 @@ export class WorkProgressComponent implements OnInit {
            }
          });
        });
+    }
+
+    getWorkerCards(id?: any, reset = false): void {
+      if (reset) {
+        this.todo = [];
+        this.inProgress = [];
+        this.done = [];
+      }
+      this.api.getWorkerCards(this.id).subscribe((res: any) => {
+        res.forEach((res: any) => {
+          if (res.status === 'requested') {
+            this.todo.push(res);
+          } else if (res.status === 'in_progress') {
+            this.inProgress.push(res);
+          } else {
+            this.done.push(res);
+          }
+        });
+      });
     }
 
   setId(task: any) {

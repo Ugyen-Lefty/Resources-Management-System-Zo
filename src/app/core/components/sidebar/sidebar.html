@@ -41,7 +41,7 @@
         <a class="text-16"><span>Job Listing</span></a>
       </div>
 
-      <div routerLink="talents" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+      <div routerLink="talents" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer" *ngIf="role === 'Buyer'">
         <mat-icon class="text-20">engineering</mat-icon>
         <a class="text-16"><span>Talents</span></a>
       </div>

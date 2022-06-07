@@ -1,1 +1,17 @@
-<p>job-listing works!</p>
+
+ <div fxFlex="50" *ngFor="let job of postedJobs; let i = index">
+           <div class="card bg-white rounded-8 p-20 card-shadow">
+             <div fxLayout="row" fxLayoutAlign="space-between">
+               <h2>{{job.title}}</h2>
+             </div>
+             <div fxLayout="row" fxLayoutAlign="start center">
+               <mat-icon class="mr-8 text-20">today</mat-icon>
+               <p>{{job.start_date}} ~ {{job?.end_date}}</p>
+             </div>
+             <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="space-between end" class="mt-12">
+               <button routerLink="details/{{job.id}}"  mat-button mat-stroked-button class="border-primary">
+                 <a class="text-primary">View Details</a>
+               </button>
+             </div>
+           </div>
+         </div>

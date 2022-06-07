@@ -4,6 +4,9 @@ import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { TalentDetailsComponent } from './talent-details/talent-details.component';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
     selector: 'app-talents',
@@ -16,7 +19,7 @@ export class TalentsComponent implements OnInit {
     bookmarkedTalentLists: any = [];
     userId = JSON.parse(localStorage.getItem('current user') || '');
 
-    constructor(private api: ApiService, private dialog: MatDialog)  { }
+    constructor(private api: ApiService, private dialog: MatDialog, private router: Router, private route: ActivatedRoute)  { }
 
     ngOnInit(): void {
         this.initializer();
@@ -54,11 +57,7 @@ export class TalentsComponent implements OnInit {
     });
   }
 
- openDetails(worker: any){
-     this.dialog.open( TalentDetailsComponent, {
-       width: '100%',
-      autoFocus: false,
-      data: worker
-     }).afterClosed().subscribe();
+ openDetails(worker: any) {
+   this.router.navigate(['worker/', worker.user.id] ,{relativeTo: this.route.parent});
  }
 }

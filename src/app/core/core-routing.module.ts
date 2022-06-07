@@ -15,6 +15,7 @@ import { JobListingComponent } from './components/job-listing/job-listing.compon
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { RmaComponent } from './components/subscription/rma/rma.component';
 import { ScanComponent } from './components/subscription/scan/scan.component';
+import { TalentDetailsComponent } from './components/talents/talent-details/talent-details.component';
 
 const routes: Routes = [
   { path: '', component: SidebarComponent, children: [
@@ -32,6 +33,7 @@ const routes: Routes = [
      {path: 'chats', component: ChatsComponent},
      {path: 'job/:jid/card-details/:cid', component: CardDetailsComponent},
      {path: 'job-listing', component: JobListingComponent},
+     {path: 'worker/:id', component: TalentDetailsComponent},
       { path: '', redirectTo: 'landing', pathMatch: 'full' }
 
 

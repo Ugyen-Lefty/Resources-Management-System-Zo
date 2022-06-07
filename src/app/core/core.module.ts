@@ -77,7 +77,7 @@ import { RmaComponent } from './components/subscription/rma/rma.component';
     SubscriptionModalComponent,
     ScanComponent,
     RmaComponent
-  ],
+    ],
     imports: [
         CommonModule,
         CoreRoutingModule,

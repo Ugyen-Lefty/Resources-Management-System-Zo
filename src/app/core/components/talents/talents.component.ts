@@ -58,6 +58,6 @@ export class TalentsComponent implements OnInit {
   }
 
  openDetails(worker: any) {
-   this.router.navigate(['worker/', worker.user.id] ,{relativeTo: this.route.parent});
+   this.router.navigate(['worker/', worker.id] ,{relativeTo: this.route.parent});
  }
 }

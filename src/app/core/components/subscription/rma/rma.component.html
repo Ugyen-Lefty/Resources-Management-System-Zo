@@ -1,4 +1,5 @@
-  <div [formGroup]="rmaForm">
+<div class="p-28">
+  <div [formGroup]="rmaForm" class="p-20 bg-white rounded-8 card-shadow" style="width: 60%;">
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Name</mat-label>
       <input matInput type="text" formControlName="name">
@@ -19,11 +20,12 @@
       <input matInput type="text" formControlName="email">
     </mat-form-field>
 
+    <h3 class="mt-16">Select a Bank</h3>
     <mat-radio-group aria-label="Select a Bank" formControlName="bank">
-      <mat-radio-button value="Bank of Bhutan">Bank of Bhutan</mat-radio-button>
-      <mat-radio-button value="Bhutan National Bank">Bhutan National Bank</mat-radio-button>
-      <mat-radio-button value="Druk PNB">Druk PNB</mat-radio-button>
-      <mat-radio-button value="Tashi Bank">Tashi Bank</mat-radio-button>
+      <mat-radio-button value="Bank of Bhutan" style="display: block;" class="mt-12">Bank of Bhutan</mat-radio-button>
+      <mat-radio-button value="Bhutan National Bank" style="display: block;" class="mt-12">Bhutan National Bank</mat-radio-button>
+      <mat-radio-button value="Druk PNB" style="display: block;" class="mt-12">Druk PNB</mat-radio-button>
+      <mat-radio-button value="Tashi Bank" style="display: block;" class="mt-12 mb-20">Tashi Bank</mat-radio-button>
     </mat-radio-group>
 
 
@@ -32,6 +34,8 @@
       <input matInput type="text" formControlName="accountNo">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="premium()" [disabled]="rmaForm.invalid">Pay Now</button>
-
+    <div style="text-align: right;">
+      <button mat-button mat-raised-button class="bg-primary text-white" (click)="premium()" [disabled]="rmaForm.invalid">Pay Now</button>
+    </div>
   </div>
+</div>

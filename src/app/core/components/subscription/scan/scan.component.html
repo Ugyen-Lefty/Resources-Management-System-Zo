@@ -1,16 +1,19 @@
-<div>
-  <img src="https://dziseldra.com/images/donations/bnb_dziseldra_qrcode.jpg" alt="" width="250px" height="250px">
-
-  <div>
-      <p>
-          Please transfer Nu - 299 to subscribe 
-      </p>
+<div style="width: 45%; margin: 60px auto;">
+  <div class="bg-white rounded-8 card-shadow" style="padding: 60px;">
+    <h2>
+      Please transfer Nu - 299 to subscribe
+    </h2>
+  <div class="mt-28 mb-28">
+    <img src="https://dziseldra.com/images/donations/bnb_dziseldra_qrcode.jpg" alt="scanner"
+         width="150px" height="150px">
   </div>
 
   <mat-form-field appearance="outline" class="w-full">
     <mat-label>Journal Number</mat-label>
     <input matInput>
   </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="payMoney()">Submit</button>
+    <div>
+      <button mat-button mat-raised-button class="bg-primary text-white" (click)="payMoney()">Submit</button>
+    </div>
+  </div>
 </div>

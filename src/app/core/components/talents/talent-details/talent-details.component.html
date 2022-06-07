@@ -1,27 +1,64 @@
 <div>
-  <div>
+  <div style="height: 380px;">
     <img src="https://angular-material.fusetheme.com/assets/images/pages/profile/cover.jpg"
          alt="background pic" height="380px" width="100%">
   </div>
-  <div class="hack-profile px-80">
+  <div class="hack-profile px-80 bg-white" style="position: relative; padding-bottom: 8px;">
     <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp"
          class="hack-profile__img rounded-full" height="120px" width="120px" style="margin-top: -70px; border: 4px solid #FFFFFF;">
-  </div>
-  <div class="mt-60">
-    <h2 class="text-center">{{workerDetails.user.name}} <mat-icon class="cursor-pointer" (click)="openChat()">chat</mat-icon></h2>
-  </div>
-  <div fxLayoutAlign="center" class="mt-28 p-20">
-    <div fxFlex="70">
-      <div class="bg-white p-20 rounded-8 card-shadow">
-        <div fxLayout="row" fxLayoutAlign="space-between start" class="mb-12">
-          <h2>Personal Information</h2>
+    <div style="position: absolute; left: 216px; top: 9px; right: 80px;">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <h3>Dechen Wangmo</h3>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="text-18">location_on</mat-icon>
+            <p>Thimphu</p>
+          </div>
         </div>
-        <p>{{workerDetails.user.name}}</p>
-        <p>Phone number  - {{workerDetails.user?.phone}}</p>
-        <p>gender - {{workerDetails.user?.gender}}</p>
-        <p>Email - {{workerDetails.user?.email}}h</p>
+        <div>
+          <mat-icon class="cursor-pointer mr-12" *ngIf="isBookmarked()" (click)="setBookmarked()">bookmark_border</mat-icon>
+          <mat-icon class="cursor-pointer mr-12" *ngIf="!isBookmarked()" (click)="removeBookmarked()">bookmark</mat-icon>
+          <mat-icon class="cursor-pointer" (click)="openChat()">chat_bubble_outline</mat-icon>
+        </div>
       </div>
-      <div class="bg-white rounded-8 card-shadow p-20 mt-28">
+    </div>
+  </div>
+  <div class="mt-28 px-80">
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
+      <div fxFlex="35">
+        <div class="p-20 bg-white rounded-8 card-shadow mb-20" *ngFor="let i of reviewList">
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" class="mt-16">
+            <img [src]="i.profile"
+                 alt="profile" height="38px" width="38px" class="rounded-full">
+            <h3>{{i.name}}</h3>
+          </div>
+          <p>{{i.comments}}</p>
+        </div>
+      </div>
+      <div fxFlex="65">
+        <div class="p-20 bg-white rounded-8 card-shadow">
+          <h2>Reviews</h2>
+          <div fxLayout="row" fxLayoutGap="20px" class="mt-16">
+            <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp"
+                 alt="profile" height="45px" width="45px" class="rounded-full">
+            <mat-form-field appearance="outline" class="w-full">
+              <textarea matInput placeholder="Your comments here..." [(ngModel)]="comments"></textarea>
+            </mat-form-field>
+            <button (click)="submitComment()">Comments</button>
+          </div>
+        </div>
+
+        <div class="p-20 bg-white rounded-8 card-shadow mt-20">
+          <h2>About Me</h2>
+          <p>I’m a friendly kitchen assistant who suffers from a severe phobia of buttons.</p>
+          <p>Brother of Elijah Jay Watkins, who has phobia of buttons and trust issues.</p>
+          <div class="mt-20" style="border-top: 1px solid #E0E0E0;"></div>
+          <div fxLayout="row" fxLayoutGap="12px" class="mt-16" *ngFor="let abt of [ { icon: 'location_on', value: workerDetails.user.address},
+          { icon: 'work_outline', value:  workerDetails.available? 'Currently available' : 'Currently unavailable'}, { icon: 'attach_money', value: 'Hourly Rate : '+ workerDetails.rate}]">
+            <mat-icon>{{ abt.icon }}</mat-icon>
+            <p>{{ abt.value }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

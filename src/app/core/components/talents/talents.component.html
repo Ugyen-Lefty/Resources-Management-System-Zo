@@ -8,10 +8,10 @@
           <div class="talent-list-header p-20 text-center">
             <div fxLayoutAlign="end">
               <ng-container *ngIf="!isBookmarked(list)">
-                <span class="material-icons" (click)="setBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark_border</span>
+                <span class="material-icons" (click)="setBookmarked(list.id); $event.stopPropagation();" style="cursor: pointer">bookmark_border</span>
               </ng-container>
               <ng-container *ngIf="isBookmarked(list)">
-                <span class="material-icons" (click)="removeBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
+                <span class="material-icons" (click)="removeBookmarked(list.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
               </ng-container>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center">
@@ -47,7 +47,7 @@
           <div class="talent-list-header p-20 text-center">
             <div fxLayoutAlign="end">
               <ng-container>
-                <span class="material-icons" (click)="removeBookmarked(list.user.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
+                <span class="material-icons" (click)="removeBookmarked(list.id); $event.stopPropagation();" style="cursor: pointer">bookmark</span>
               </ng-container>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center">

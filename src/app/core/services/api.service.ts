@@ -147,7 +147,7 @@ export class ApiService {
   }
 
   updateUser(user: any) {
-    return this.http.put(`${this.endPoints}users`, { user }, {withCredentials: true});
+    return this.http.put(`${this.endPoints}update_user`, { user }, {withCredentials: true});
   }
 
   premium(premium: any) {

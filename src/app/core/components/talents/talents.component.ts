@@ -56,7 +56,7 @@ export class TalentsComponent implements OnInit {
 
  openDetails(worker: any){
      this.dialog.open( TalentDetailsComponent, {
-       width: '550px',
+       width: '100%',
       autoFocus: false,
       data: worker
      }).afterClosed().subscribe();

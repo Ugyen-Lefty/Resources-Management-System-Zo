@@ -17,8 +17,10 @@
 
   <div class="container-wrapper">
     <div class="container">
-      <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #FFD035;">
-        <h3>Requested</h3>
+      <div class="px-20">
+        <div class="bg-white mb-16 p-12 rounded-4 card-shadow" style="border-bottom: 2px solid #FFD035;">
+          <h3>Requested</h3>
+        </div>
       </div>
 
       <mat-card cdkDropList id="todo" #todoList="cdkDropList" [cdkDropListData]="todo"
@@ -29,8 +31,10 @@
     </div>
 
     <div class="container">
-      <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #4094F6;">
-        <h3>In progress</h3>
+      <div class="px-20">
+        <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #4094F6;">
+          <h3>In progress</h3>
+        </div>
       </div>
 
       <mat-card cdkDropList id="inProgress" #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
@@ -42,8 +46,10 @@
     </div>
 
     <div class="container">
-      <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #2DCD6E;">
-        <h3>Done</h3>
+      <div class="px-20">
+        <div class="bg-white p-12 mb-16 rounded-4 card-shadow" style="border-bottom: 2px solid #2DCD6E;">
+          <h3>Done</h3>
+        </div>
       </div>
 
       <mat-card cdkDropList id="done" #doneList="cdkDropList" [cdkDropListData]="done"

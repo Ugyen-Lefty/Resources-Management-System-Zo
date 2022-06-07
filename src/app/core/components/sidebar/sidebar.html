@@ -63,9 +63,11 @@
 
        <div routerLink="subscription" class="rounded-4 border-gray ml-20 mr-20 mt-28 px-20 py-12 cursor-pointer">
         <ng-container *ngIf="!isPremium">
+          <div style="font-weight: bold;">Subscription</div>
           <span>Free - Upgrade to Premium</span>
         </ng-container>
         <ng-container *ngIf="isPremium">
+          <div style="font-weight: bold;">Subscription</div>
           <span>Premium - Downgrade to Free</span>
         </ng-container>
       </div>

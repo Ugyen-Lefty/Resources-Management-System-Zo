@@ -149,7 +149,7 @@ export class ApiService {
   }
 
   updateUser(user: any) {
-    return this.http.put(`${this.endPoints}update_user`, { user }, {withCredentials: true});
+    return this.http.post(`${this.endPoints}update_user`, { user }, {withCredentials: true});
   }
 
   premium(premium: any) {
@@ -163,6 +163,7 @@ export class ApiService {
   getWorkerDashBoard() {
    return this.http.get(`${this.endPoints}worker_dashboard`, { withCredentials: true});
   }
+
   downgrade(downgrade: any){
     return this.http.post(`${this.endPoints}update_user`, { user: downgrade }, { withCredentials: true });
   }

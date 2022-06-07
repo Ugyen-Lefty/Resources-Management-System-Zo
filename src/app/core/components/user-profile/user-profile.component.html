@@ -26,4 +26,28 @@
       </div>
     </div>
   </div>
+
+  <div fxLayoutAlign="center" class="mt-28 p-20">
+    <div fxFlex="70">
+      <span *ngIf="isAdditional" (click)="goBackAdd()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
+      <div *ngIf="!isAdditional" class="bg-white p-20 rounded-8 card-shadow">
+        <div fxLayout="row" fxLayoutAlign="space-between start" class="mb-12">
+          <h2>Additional Information</h2>
+          <mat-icon class="cursor-pointer text-primary text-20" (click)="additionalInfo()">edit</mat-icon>
+        </div>
+        <h3>Bank Information</h3>
+        <p>Bank - {{ user?.bank || 'N/A' }}</p>
+        <p>Account Number - {{ user?.accno || 'N/A' }}</p>
+        <br>
+        <h3>Worker Details</h3>
+        <p>Profession - {{ user?.profession || 'N/A' }}</p>
+        <p>Skills - {{ user?.skills || 'N/A' }}</p>
+      </div>
+      <div *ngIf="isAdditional" class="bg-white rounded-8 card-shadow p-20 mt-28">
+        <!-- <app-user-profile-modal (isAdditional)="toggleEdit($event)"></app-user-profile-modal> -->
+        <app-additional-info (isAdditional)="toggleAdditional($event)"></app-additional-info>
+      </div>
+    </div>
+  </div>
+
 </div>

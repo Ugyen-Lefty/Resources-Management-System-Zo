@@ -133,7 +133,7 @@ export class ApiService {
          card_id : payload.card_id,
         worker_ids: payload.worker_ids,
         status: 'invited',
-        applied_type: 'requested'
+        apply_type: 'requested'
     }
      return this.http.post(`${this.endPoints}card/apply`, {apply: data}, {withCredentials: true} );
   }
@@ -183,7 +183,13 @@ export class ApiService {
    return this.http.get(`${this.endPoints}your_job_requests`, {withCredentials: true});
   }
 
-  getApplyList() {
-
+   workerApply(payload: { worker_ids: any[]; buyer_id: string; card_id: any }) {
+    const data = {
+         card_id : payload.card_id,
+        worker_ids: payload.worker_ids,
+        status: 'invited',
+        apply_type: 'applied'
+    }
+     return this.http.post(`${this.endPoints}card/apply`, {apply: data}, {withCredentials: true} );
   }
 }

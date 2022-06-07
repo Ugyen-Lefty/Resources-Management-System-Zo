@@ -75,4 +75,15 @@ export class CardDetailsComponent implements OnInit {
     }
     );
   }
+
+  Apply() {
+    const payload = {
+      card_id: this.cardId,
+      worker_ids: [this.jobId],
+      buyer_id: ''
+    };
+    this.api.workerApply(payload).subscribe((res: any) => {
+      Swal.fire('Successfully applied to card!', '', 'success');
+    });
+  }
 }

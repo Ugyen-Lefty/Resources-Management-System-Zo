@@ -65,9 +65,9 @@ export class AdditionalInfoComponent implements OnInit {
   editAdditional() {
     const payload = {
       ...this.additionalForm.value,
-      user_id: this.currentUser.worker_profile.id
+      user_id: this.currentUser.id
     }
-    this.api.updateAddtionalInfo(payload, this.currentUser.id).subscribe(() => {
+    this.api.updateAddtionalInfo(payload, this.currentUser.worker_profile.id).subscribe(() => {
       this.initializer();
       Swal.fire('Additional Information added Successfully', '', 'success').then(() => this.cancel());
     }, () => {

@@ -154,4 +154,8 @@ export class ApiService {
     return this.http.post(`${this.endPoints}update_user`, { user: premium }, { withCredentials: true });
   }
 
+  downgrade(downgrade: any){
+    return this.http.post(`${this.endPoints}update_user`, { user: downgrade }, { withCredentials: true });
+  }
+
 }

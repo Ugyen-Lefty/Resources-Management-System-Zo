@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { ApiService } from '../../services/api.service';
 import { SubscriptionModalComponent } from './subscription-modal/subscription-modal.component';
 
 @Component({
@@ -10,9 +11,20 @@ import { SubscriptionModalComponent } from './subscription-modal/subscription-mo
 })
 export class SubscriptionComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  isPremium!: any;
+  currentUser!: any;
+
+  constructor(private dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit(): void {
+    this.initializer();
+  }
+
+  initializer() {
+    this.api.getUser().subscribe((res: any) => {
+      this.currentUser = res;
+      this.isPremium = res.subscribed;
+    });
   }
 
   premium() {
@@ -21,10 +33,10 @@ export class SubscriptionComponent implements OnInit {
       // data: { id: this.jobId, card: this.cardDetails },
       autoFocus: false
     });
-      // this.api.postCard(result, this.jobId, this.cardDetails.id).subscribe((res: any) => {
-      //   Swal.fire('Card successfully Changed!', '', 'success');
-      //   this.getCardDetail();
-      // });
+    // this.api.postCard(result, this.jobId, this.cardDetails.id).subscribe((res: any) => {
+    //   Swal.fire('Card successfully Changed!', '', 'success');
+    //   this.getCardDetail();
+    // });
     // Swal.fire({
     //   title: 'Are you sure',
     //   text: "You want to subscribe to premium?",
@@ -42,6 +54,28 @@ export class SubscriptionComponent implements OnInit {
     //     )
     //   }
     // })
+  }
+
+  downgrade() {
+    Swal.fire({
+      title: 'Are you sure',
+      text: "You want to unsubscribe?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.api.downgrade({ ...this.currentUser, subscribed: false }).subscribe(() => {
+          Swal.fire(
+            'You have been Unsubscribed',
+            '',
+            'success'
+          )
+        });
+      }
+    })
   }
 
 }

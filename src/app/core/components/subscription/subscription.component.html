@@ -13,12 +13,16 @@
              class="text-center p-20">
           <h3>Free</h3>
           <h2 class="mt-8 mb-8">Nu. 0</h2>
-          <button mat-button class="bg-primary text-white">Current Plan</button>
+          <ng-container *ngIf="!isPremium">
+            <button mat-button class="bg-primary text-white" disabled mat-raised-button>Current Plan</button>
+          </ng-container>
+          <ng-container *ngIf="isPremium">
+            <button mat-button class="bg-primary text-white" (click)="downgrade()">Downgrade</button>
+          </ng-container>
         </div>
         <div class="hack-sub mt-28 px-32 mb-20">
           <ul>
-            <li *ngFor="let free of ['1 project allowed', 'Access to all workers', 'Project progress', 'Finance systems', '3% cut']"
-            >{{ free }}</li>
+            <li *ngFor="let free of ['1 project allowed', 'Access to all workers', 'Project progress', 'Payment portal', '3% Platform Charge', 'Chat']">{{ free }}</li>
           </ul>
         </div>
       </div>
@@ -28,13 +32,18 @@
              class="text-center p-20">
           <h3>Standard</h3>
           <h2 class="mt-8 mb-8">Nu. 299</h2>
-          <button mat-button class="bg-primary text-white" (click)="premium()">Subscription</button>
+          <ng-container *ngIf="isPremium">
+            <button mat-button class="bg-primary text-white" disabled mat-raised-button>Current Plan</button>
+          </ng-container>
+          <ng-container *ngIf="!isPremium">
+            <button mat-button class="bg-primary text-white" (click)="premium()">Subscribe</button>
+          </ng-container>
         </div>
         <div class="hack-sub mt-28 px-32 mb-20">
           <ul>
-            <li *ngFor="let standard of ['Unlimited Project Allowed', 'Access to all worker',
-            'Professional Workers', 'Assignment system', 'Book mark feature', 'Project Progress', 'Payment portal', '1% platform charge',
-            'Work tracker', 'negotiation platform', 'chat', 'Performance Analytics']"
+            <li *ngFor="let standard of ['Unlimited Project Allowed', 'Access to all workers',
+            'Project Progress', 'Payment Portal', '1% Platform Charge', 'Chat', 'Professional Workers ', 'Assignment System', 'Book Mark Feature',
+            'Work Tracker', 'Negotiation Platform', 'Performance Analytics']"
             >{{ standard }}</li>
           </ul>
         </div>

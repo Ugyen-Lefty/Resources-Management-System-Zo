@@ -12,12 +12,14 @@ export class SidebarComponent implements OnInit {
   drawer = false;
   currentUser: any;
   role: any;
+  isPremium: any;
 
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
   this.api.getUser().subscribe( (res: any) => {
       this.currentUser = res;
+      this.isPremium = res.subscribed;
       this.role = res.roles;
       localStorage.setItem('user_id', res.id);
       localStorage.setItem('current user', JSON.stringify(res));

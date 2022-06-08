@@ -27,18 +27,20 @@ export class NegotiationComponent implements OnInit {
   initializer() {
     this.role = localStorage.getItem('User Role')
     this.buyerForm = this.fb.group({
-      price: ['', Validators.required]
+      negotiated_price: ['', Validators.required]
     });
     this.workerForm = this.fb.group({
-      price: ['', Validators.required]
+      negotiated_price: ['', Validators.required]
     });
     this.workerForm.disable();
-    this.buyerForm.patchValue(this.cardDetails);
-    this.workerForm.patchValue(this.cardDetails);
+    this.buyerForm.get('negotiated_price')?.setValue(this.cardDetails?.price);
+    // this.api.getUser().subscribe((res: any) => this.workerForm.patchValue(res));
   }
 
   negotiateAmount() {
-    this.api.negotiateAmount(this.buyerForm.value, this.cardDetails.id);
+    this.api.negotiateAmount(this.buyerForm.value, this.cardDetails.id, this.cardDetails.job_id).subscribe((res: any) => {
+      this.workerForm.get('negotiated_price')?.setValue(res.negotiated_price);
+    });
   }
 
 }

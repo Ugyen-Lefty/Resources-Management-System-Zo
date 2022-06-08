@@ -8,7 +8,7 @@
       <ng-template matStepLabel>Negotiated Rate per hour ( Employer )</ng-template>
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>Rate per Hour</mat-label>
-        <input matInput placeholder="Rate per Hour" formControlName="price" required>
+        <input matInput placeholder="Rate per Hour" formControlName="negotiated_price" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext mat-raised-button color="primary" (click)="negotiateAmount()" [disabled]="role == 'Worker' && buyerForm.invalid">Submit</button>
@@ -20,7 +20,7 @@
       <ng-template matStepLabel>Negotiated Rate per hour ( Employee )</ng-template>
       <mat-form-field  appearance="outline" class="w-full">
         <mat-label>Rate per Hour</mat-label>
-        <input matInput placeholder="Rate per Hour" formControlName="price" required>
+        <input matInput placeholder="Rate per Hour" formControlName="negotiated_price" required>
       </mat-form-field>
       <div fxLayout="row" fxLayoutGap="12px">
         <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>

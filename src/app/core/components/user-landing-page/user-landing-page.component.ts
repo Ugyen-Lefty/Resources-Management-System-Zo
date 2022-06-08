@@ -53,4 +53,8 @@ export class UserLandingPageComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+  showTalentDetails(user: any) {
+    this.router.navigate([`worker/${user.worker_id}`], {relativeTo: this.route.parent});
+  }
 }

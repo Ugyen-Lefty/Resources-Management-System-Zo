@@ -5,6 +5,7 @@ import { CardCreationComponent } from '../post-details/card-creation/card-creati
 import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2';
 import { filter } from 'rxjs';
+import { NegotiationComponent } from './negotiation/negotiation.component';
 
 @Component({
   selector: 'app-card-details',
@@ -86,4 +87,13 @@ export class CardDetailsComponent implements OnInit {
       Swal.fire('Successfully applied to card!', '', 'success');
     });
   }
+
+  negotiate() {
+    this.dialog.open(NegotiationComponent, {
+      width: '600px',
+      data: this.cardDetails || '',
+      autoFocus: false
+    })
+  }
+
 }

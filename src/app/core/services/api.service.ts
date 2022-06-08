@@ -201,4 +201,8 @@ export class ApiService {
     return this.http.put(`${this.endPoints}workers/${id}`, { worker: info }, { withCredentials: true});
   }
 
+  negotiateAmount(amount: any, id: any) {
+    // return this.http.put(`${this.endPoints}workers/${id}`, { card: amount }, { withCredentials: true});
+  }
+
 }

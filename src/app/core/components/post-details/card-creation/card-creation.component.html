@@ -1,4 +1,4 @@
-<h2 class="mb-20">CARD CREATION</h2>
+<h2 class="mb-20">{{ !card ? 'Add Card' : 'Edit Card' }}</h2>
 <div [formGroup]="cardForm">
   <mat-form-field appearance="outline" class="w-full">
     <mat-label>Title</mat-label>

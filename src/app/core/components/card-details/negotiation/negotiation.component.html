@@ -1,0 +1,35 @@
+<mat-stepper orientation="vertical" linear="true" #stepper>
+  <mat-step [stepControl]="buyerForm">
+    <div [formGroup]="buyerForm">
+      <ng-template matStepLabel>Negotiated Rate per hour ( Employer )</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Rate per Hour</mat-label>
+        <input matInput placeholder="Rate per Hour" formControlName="price" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext mat-raised-button color="primary" (click)="negotiateAmount()" [disabled]="role == 'Worker' && buyerForm.invalid">Submit</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="workerForm">
+    <div [formGroup]="workerForm">
+      <ng-template matStepLabel>Negotiated Rate per hour ( Employee )</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Rate per Hour</mat-label>
+        <input matInput placeholder="Rate per Hour" formControlName="price" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>
+        <button mat-button matStepperNext mat-raised-button color="primary" [disabled]="role == 'Buyer'">Accept</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>
+      <button mat-button (click)="stepper.reset()"  mat-raised-button color="primary">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

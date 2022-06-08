@@ -7,6 +7,9 @@
         <input matInput type="text" formControlName="name">
       </mat-form-field>
 
+      <input #picFile type="file" pattern="'.jpg,.png'" accept="image/png,image/jpg"
+        (change)="uploadAvatar($event)" />
+
       <mat-form-field appearance="outline" class="w-full">
         <mat-label>Gender</mat-label>
         <mat-select formControlName="gender">

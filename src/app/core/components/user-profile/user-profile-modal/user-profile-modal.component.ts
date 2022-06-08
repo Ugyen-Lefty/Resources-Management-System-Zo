@@ -1,6 +1,7 @@
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ApiService } from '../../../services/api.service';
+import { objectToFormData as o2f } from "object-to-formdata";
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Swal from 'sweetalert2';
@@ -22,6 +23,7 @@ export class UserProfileModalComponent implements OnInit {
   attachment = new FormControl();
   @Output() isEdit = new EventEmitter<any>();
   currentUser!: any;
+  avatar!: any;
 
   ngOnInit(): void {
     this.setForm();
@@ -30,7 +32,7 @@ export class UserProfileModalComponent implements OnInit {
       this.currentUser = res;
     });
   }
-  
+
   setForm(): void {
     this.userEditForm = this.fb.group({
       name: ['', Validators.required],
@@ -39,6 +41,7 @@ export class UserProfileModalComponent implements OnInit {
       roles: ['', Validators.required],
       address: ['', Validators.required],
       gender: ['', Validators.required],
+      avatar: ['', Validators.required],
     });
   }
 
@@ -51,12 +54,16 @@ export class UserProfileModalComponent implements OnInit {
     this.isEdit.emit(false);
   }
 
-  editUser(){
-    this.api.updateUser(this.userEditForm.value).subscribe(() => {
+  editUser(event?: any) {
+    this.api.updateUser({...this.userEditForm.value, avatar: this.avatar }).subscribe(() => {
       Swal.fire('User Edited Successfully!', '', 'success');
     }, () => {
       Swal.fire('User Edit Failed!', '', 'error');
     });
+  }
+
+  uploadAvatar(event: any): void {
+    this.avatar = event.target['files'][0];
   }
 
 }

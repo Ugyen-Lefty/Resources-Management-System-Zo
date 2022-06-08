@@ -39,6 +39,8 @@ export class NegotiationComponent implements OnInit {
     // this.buyerForm.get('negotiated_price')?.setValue(this.cardDetails?.price);
     this.buyerForm.patchValue(this.cardDetails);
     // this.api.getUser().subscribe((res: any) => this.workerForm.patchValue(res));
+    this.workerForm.patchValue(this.buyerForm.value || '');
+
   }
 
   negotiateAmount() {

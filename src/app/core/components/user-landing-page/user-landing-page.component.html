@@ -22,9 +22,30 @@
       <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
         <div fxFlex="50" class="p-20 bg-white rounded-8">
           <h2 class="mb-16">Pending</h2>
-          <div>
-            <p>Dechen Wangmo</p>
+          <ng-container *ngIf="role === 'Worker'">
+             <div *ngFor="let user of (requestedCard)">
+             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+              <p>{{user.name}} has requested you work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>
+<!--              <p>has requested you work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>-->
+             <div fxLayout="row" fxLayoutGap="10px">
+              <mat-icon class="done" (click)="acceptRequest(user)">done</mat-icon>
+              <mat-icon class="close">close</mat-icon>
+             </div>
+             </div>
           </div>
+          </ng-container>
+            <ng-container *ngIf="role === 'Buyer'">
+             <div *ngFor="let user of (appliedCard)">
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+              <p>{{user.name}} has applied to work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>
+<!--              <p>has requested you work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>-->
+             <div fxLayout="row" fxLayoutGap="10px">
+              <mat-icon class="done" (click)="acceptRequest(user)">done</mat-icon>
+              <mat-icon class="close">close</mat-icon>
+             </div>
+             </div>
+          </div>
+          </ng-container>
         </div>
         <div fxFlex="50">
           <div fxLayout="row wrap" fxLayoutGap="20px grid">

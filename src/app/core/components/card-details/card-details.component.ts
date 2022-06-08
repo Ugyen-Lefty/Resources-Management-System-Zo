@@ -18,13 +18,15 @@ export class CardDetailsComponent implements OnInit {
   jobId: any;
   cardDetails: any;
   role: any;
+  user: any;
   constructor(private route: ActivatedRoute, private dialog: MatDialog, private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.cardId = this.route.snapshot.params['cid'];
     this.jobId = this.route.snapshot.params['jid'];
     this.getCardDetail();
-    this.role = localStorage.getItem('User Role')
+    this.role = localStorage.getItem('User Role');
+     this.user = JSON.parse(localStorage.getItem('current user') || '');
   }
 
   editCard() {
@@ -80,7 +82,7 @@ export class CardDetailsComponent implements OnInit {
   Apply() {
     const payload = {
       card_id: this.cardId,
-      worker_ids: [this.jobId],
+      worker_ids: [this.user.id],
       buyer_id: ''
     };
     this.api.workerApply(payload).subscribe((res: any) => {
@@ -93,7 +95,7 @@ export class CardDetailsComponent implements OnInit {
       width: '600px',
       data: this.cardDetails || '',
       autoFocus: false
-    })
+    }).afterClosed().subscribe();
   }
 
 }

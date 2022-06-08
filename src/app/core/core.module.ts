@@ -50,7 +50,8 @@ import { ScanComponent } from './components/subscription/scan/scan.component';
 import { RmaComponent } from './components/subscription/rma/rma.component';
 import { AdditionalInfoComponent } from './components/user-profile/additional-info/additional-info.component';
 import { NegotiationComponent } from './components/card-details/negotiation/negotiation.component';
-import {MatStepperModule} from '@angular/material/stepper'; 
+import {MatStepperModule} from '@angular/material/stepper';
+import { AdminDashbaordComponent } from './components/admin-dashbaord/admin-dashbaord.component'; 
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     ScanComponent,
     RmaComponent,
     AdditionalInfoComponent,
-    NegotiationComponent
+    NegotiationComponent,
+    AdminDashbaordComponent
     ],
     imports: [
         CommonModule,

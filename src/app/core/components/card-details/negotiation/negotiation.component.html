@@ -11,7 +11,7 @@
         <input matInput placeholder="Rate per Hour" formControlName="negotiated_price" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext mat-raised-button color="primary" (click)="negotiateAmount()" [disabled]="role == 'Worker' && buyerForm.invalid">Submit</button>
+        <button mat-button matStepperNext mat-raised-button color="primary" (click)="negotiateAmount()" [disabled]="role == 'Worker' || buyerForm.invalid">Submit</button>
       </div>
     </div>
   </mat-step>
@@ -24,16 +24,14 @@
       </mat-form-field>
       <div fxLayout="row" fxLayoutGap="12px">
         <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>
-        <button mat-button matStepperNext mat-raised-button color="primary" [disabled]="role == 'Buyer'">Accept</button>
+        <button mat-button matStepperNext mat-raised-button color="primary" [disabled]="role == 'Buyer'" (click)="acceptNegotiation()">Accept</button>
       </div>
     </div>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
     <div fxLayout="row" fxLayoutGap="12px">
-      <button mat-button matStepperPrevious  mat-raised-button color="primary">Back</button>
-      <button mat-button (click)="stepper.reset()"  mat-raised-button color="primary">Reset</button>
+      <button mat-button mat-raised-button color="primary" [disabled]="role == 'Worker' || !confirmed" (click)="finalizeNegotiation()">Submit</button>
     </div>
   </mat-step>
 </mat-stepper>

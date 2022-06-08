@@ -1,6 +1,14 @@
 <mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
-  <h3>{{ task.title }}</h3>
-  <p class="text-gray">
-    {{ task.description }}
-  </p>
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+    <div>
+      <h3>{{ task.title }}</h3>
+      <p class="text-gray">
+        {{ task.description }}
+      </p>
+    </div>
+    <div>
+      <img src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg"
+           alt="profile" height="35px" width="35px" class="rounded-full">
+    </div>
+  </div>
 </mat-card>

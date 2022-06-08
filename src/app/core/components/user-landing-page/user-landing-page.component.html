@@ -19,14 +19,24 @@
   <div class="p-28">
     <div>
       <h2 class="mb-20">DASHBOARD</h2>
-      <div fxLayout="row wrap" fxLayoutGap="20px grid">
-        <div fxFlex="25" *ngFor="let i of [{label: 'Active Projects', color: '#3B81F6', num: dashboard?.active_projects},
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
+        <div fxFlex="50" class="p-20 bg-white rounded-8">
+          <h2 class="mb-16">Pending</h2>
+          <div>
+            <p>Dechen Wangmo</p>
+          </div>
+        </div>
+        <div fxFlex="50">
+          <div fxLayout="row wrap" fxLayoutGap="20px grid">
+            <div fxFlex="50" *ngFor="let i of [{label: 'Active Projects', color: '#3B81F6', num: dashboard?.active_projects},
         {label: 'Completed Projects', color: '#F59E0B', num: dashboard?.completed_projects},
         {label: 'Currently Hired', color: '#EF4444', num: dashboard?.currently_hired}, {label: 'Amount', color: '#21C55D', num: 'Nu. '+dashboard?.amount_paid} ]">
-          <div class="rounded-8 bg-white p-20">
-            <h3>{{ i.label }}</h3>
-            <p class="text-58 bold leading-normal text-center mt-28" [style.color]="i.color">{{ i.num }}</p>
-            <p class="text-gray text-center mt-32">{{i.label}}: {{i.num}}</p>
+              <div class="rounded-8 bg-white p-20">
+                <h3>{{ i.label }}</h3>
+                <p class="text-58 bold leading-normal text-center mt-28" [style.color]="i.color">{{ i.num }}</p>
+                <p class="text-gray text-center mt-32">{{i.label}}: {{i.num}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

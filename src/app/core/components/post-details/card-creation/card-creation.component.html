@@ -1,47 +1,53 @@
 <h2 class="mb-20">{{ !card ? 'Add Card' : 'Edit Card' }}</h2>
-<div [formGroup]="cardForm">
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Title</mat-label>
-    <input matInput formControlName="title">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Description</mat-label>
-    <input matInput formControlName="description">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Price</mat-label>
-    <input matInput formControlName="price">
-  </mat-form-field>
-  <ng-container *ngIf="card">
+<mat-dialog-content>
+  <div [formGroup]="cardForm">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price">
+    </mat-form-field>
+    <ng-container *ngIf="card">
       <app-talent-visibility [card_id]="card.id"></app-talent-visibility>
-  </ng-container>
-  <div class="default-time-example">
-    <input aria-label="default time" [ngxTimepicker]="defaultValue" readonly formControlName="start_time">
-    <ngx-material-timepicker #defaultValue></ngx-material-timepicker>
+    </ng-container>
+    <div class="default-time-example">
+      <mat-form-field appearance="outline" class="w-full">
+        <input matInput aria-label="default time" [ngxTimepicker]="defaultValue" readonly formControlName="start_time">
+        <ngx-material-timepicker #defaultValue></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+    <div class="default-time-example">
+      <mat-form-field appearance="outline" class="w-full">
+        <input matInput aria-label="default time" [ngxTimepicker]="defaultValue1" readonly formControlName="end_time">
+        <ngx-material-timepicker #defaultValue1></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-form-field" appearance="outline" class="w-full">
+      <mat-label>Select Date</mat-label>
+      <mat-date-range-input
+        [rangePicker] = "campaignOnePicker">
+        <input matStartDate placeholder="Start date" formControlName="start_date">
+        <input matEndDate placeholder="End date" formControlName="end_date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Requirements for the job</mat-label>
+      <input matInput (keyup.enter)="addRequirements($event.target)">
+    </mat-form-field>
+    <mat-chip-list aria-label="Fish selection" *ngFor="let val of requirements">
+      <mat-chip color="primary" selected>{{val}}</mat-chip>
+    </mat-chip-list>
+    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px">
+      <button mat-button mat-stroked-button (click)="close()">CLOSE</button>
+      <button mat-button class="bg-primary text-white" (click)="addCard()">{{card ? 'Edit Card' : 'Submit Card'}}</button>
+    </div>
   </div>
-  <div class="default-time-example">
-    <input aria-label="default time" [ngxTimepicker]="defaultValue1" readonly formControlName="end_time">
-    <ngx-material-timepicker #defaultValue1></ngx-material-timepicker>
-  </div>
-  <mat-form-field class="example-form-field" appearance="outline" class="w-full">
-    <mat-label>Select Date</mat-label>
-    <mat-date-range-input
-      [rangePicker] = "campaignOnePicker">
-      <input matStartDate placeholder="Start date" formControlName="start_date">
-      <input matEndDate placeholder="End date" formControlName="end_date">
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="w-full">
-    <mat-label>Requirements for the job</mat-label>
-    <input matInput (keyup.enter)="addRequirements($event.target)">
-  </mat-form-field>
-  <mat-chip-list aria-label="Fish selection" *ngFor="let val of requirements">
-  <mat-chip color="primary" selected>{{val}}</mat-chip>
-</mat-chip-list>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="12px">
-    <button mat-button mat-stroked-button (click)="close()">CLOSE</button>
-    <button mat-button class="bg-primary text-white" (click)="addCard()">{{card ? 'Edit Card' : 'Submit Card'}}</button>
-  </div>
-</div>
+</mat-dialog-content>

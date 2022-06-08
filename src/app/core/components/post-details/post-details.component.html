@@ -11,14 +11,20 @@
     </ng-container>
 
   </div>
-  <div>
-    {{post?.description}}
-  </div>
-  <div>
-    {{post?.location}}
-  </div>
-  <div>
-    {{post?.start_date}} ~ {{post?.end_date}}
+  <!--Description design-->
+  <div class="ml-32 pl-16" style="border-left: 2px solid var(--primary);
+  padding-top: 16px; padding-bottom: 20px; margin-top:16px; background-color: #F5F5F5;">
+    <div>
+      <p class="mt-8 mb-12">{{post?.description}}</p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+      <mat-icon class="text-18">location_on</mat-icon>
+      <p>{{post?.location}}</p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+      <mat-icon class="text-18">hourglass_empty</mat-icon>
+      <p>{{post?.start_date}} ~ {{post?.end_date}}</p>
+    </div>
   </div>
     <div *ngFor="let type of post?.job_type">
      <mat-chip-list aria-label="Fish selection" fxLayout="row">

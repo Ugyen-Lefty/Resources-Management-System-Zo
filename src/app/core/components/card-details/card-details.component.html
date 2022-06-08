@@ -1,35 +1,45 @@
 <div>
-  <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
 <ng-container *ngIf="role === 'Buyer'">
   <div fxLayout="row" fxLayoutAlign="space-between start" class="bg-white p-28">
+    <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
   <div fxLayout="row" fxLayoutGap="12px">
-    <button mat-button mat-stroked-button (click)="editCard()">edit</button>
-    <button mat-button class="bg-primary text-white" (click)="deleteCard()">Delete</button>
+    <div fxLayout="row" fxLayoutGap="12px">
+      <button mat-button mat-stroked-button (click)="editCard()">edit</button>
+      <button mat-button class="bg-primary text-white" (click)="deleteCard()">Delete</button>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="12px">
+      <ng-container>
+        <button mat-button mat-stroked-button (click)="Apply()">Apply to this Card</button>
+      </ng-container>
+      <ng-container>
+        <button mat-button class="bg-primary text-white" (click)="negotiate()"><span>Negotiate</span>
+          <mat-icon class="text-18">question_mark</mat-icon></button>
+      </ng-container>
+    </div>
   </div>
+
 </div>
 </ng-container>
-<ng-container>
-  <button mat-button mat-raised-button (click)="negotiate()">Negotiate<span><mat-icon>question_mark</mat-icon></span></button>
-</ng-container>
-
-<ng-container>
-      <button mat-button mat-stroked-button (click)="Apply()">Apply to this Card</button>
-</ng-container>
   <div class="p-28">
-    <div>
-     <h2>{{cardDetails?.title}}</h2>
-      <p class="mt-12 mb-12">{{cardDetails?.description}}</p>
-      <div fxLayout="row" fxLayoutAlign="start center">
-       <mat-icon class="mr-12">today</mat-icon> <p>{{cardDetails?.start_date}} - {{cardDetails?.end_date}}</p>
+    <div class="p-28 rounded-8 card-shadow bg-white">
+      <div>
+        <h2 class="mb-20">{{cardDetails?.title}}</h2>
+        <img src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg"
+             alt="profile" height="80px" width="80px" class="rounded-full">
+        <p class="mt-12 mb-12">{{cardDetails?.description}}</p>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon class="mr-12">today</mat-icon> <p>{{cardDetails?.start_date}} - {{cardDetails?.end_date}}</p>
+        </div>
       </div>
-    </div>
 
-    <!--  show it in chips-->
-    <div>
-      assignees
-    </div>
-    <div>
-      ${{cardDetails?.price}}
+      <!--  show it in chips-->
+      <div>
+        assignees
+      </div>
+      <div>
+        ${{cardDetails?.price}}
+      </div>
     </div>
   </div>
 </div>

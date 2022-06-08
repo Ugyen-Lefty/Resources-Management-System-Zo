@@ -1,17 +1,19 @@
-<div fxLayout="row" fxLayoutAlign="space-between start" class="p-28 bg-white">
+<div class="p-28 bg-white">
+  <h1 class="mb-12">Select your job</h1>
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+    <mat-form-field appearance="outline">
+      <mat-label>Select One</mat-label>
+      <mat-select (selectionChange)="selectProject($event?.value)" [(value)]="currentProject">
+        <mat-option *ngFor="let item of projects" [value]="item?.id">
+          {{ item?.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Select One</mat-label>
-    <mat-select (selectionChange)="selectProject($event?.value)" [(value)]="currentProject">
-      <mat-option *ngFor="let item of projects" [value]="item?.id">
-        {{ item?.title }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <button [disabled]="!id" class="bg-primary text-white" (click)="newTask()" mat-button *ngIf="role === 'Buyer'">
-    <mat-icon>add</mat-icon> Add Task
-  </button>
+    <button [disabled]="!id" class="bg-primary text-white" (click)="newTask()" mat-button *ngIf="role === 'Buyer'">
+      <mat-icon>add</mat-icon> Add Task
+    </button>
+  </div>
 </div>
 <div class="content-wrapper p-28" [ngClass]="{'diable-whole': role !== 'Buyer'}">
 

@@ -38,13 +38,14 @@
       <div fxFlex="65">
         <div class="p-20 bg-white rounded-8 card-shadow">
           <h2>Reviews</h2>
-          <div fxLayout="row" fxLayoutGap="20px" class="mt-16">
+          <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start start" class="mt-16">
             <img src="https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp"
                  alt="profile" height="45px" width="45px" class="rounded-full">
             <mat-form-field appearance="outline" class="w-full">
               <textarea matInput placeholder="Your comments here..." [(ngModel)]="comments"></textarea>
             </mat-form-field>
-            <button (click)="submitComment()">Comments</button>
+            <div class="rounded-4 bg-primary text-white p-12 mt-4"
+                 (click)="submitComment()">Comments</div>
           </div>
         </div>
 

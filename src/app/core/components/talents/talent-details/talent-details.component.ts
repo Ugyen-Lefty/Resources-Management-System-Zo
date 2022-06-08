@@ -17,13 +17,13 @@ export class TalentDetailsComponent implements OnInit {
   user = JSON.parse(localStorage.getItem('current user') || '');
 
   reviewList = [{
-     name: 'Sonam Usui',
-     profile: 'https://picsum.photos/1000/1000',
-     comments: 'You are ugly as shit!'
+     name: 'Elok Musk',
+     profile: 'https://testasmpublic-14e65.kxcdn.com/1654725232_f675d7fa11f4d6e768877070977991_pf1.jpeg',
+     comments: 'Good job!'
   },
   {
-     name: 'Boss',
-     profile: 'https://picsum.photos/1000/1000',
+     name: 'Johnny Depp',
+     profile: 'https://testasmpublic-14e65.kxcdn.com/1654725232_f675d7fa11f4d6e768877070977991_pf1.jpeg',
      comments: 'Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!'
   }
   ]
@@ -50,7 +50,7 @@ export class TalentDetailsComponent implements OnInit {
         id: this.workerDetails.user.id,
         username: this.workerDetails.user.name,
         email: this.workerDetails.user.email,
-        photoUrl: 'https://testasmpublic-14e65.kxcdn.com/1652999675_56815616dbd7146cd2745998abe861_harry-potter-book-sets.jpg.webp',
+        photoUrl: 'https://testasmpublic-14e65.kxcdn.com/1654725232_f675d7fa11f4d6e768877070977991_pf1.jpeg',
         welcomeMessage: 'Hey there! How are you? :-)',
         role: this.workerDetails.user.roles
       }
@@ -60,7 +60,7 @@ export class TalentDetailsComponent implements OnInit {
   submitComment() {
     this.reviewList.push({
       name: this.user.name,
-      profile: 'https://picsum.photos/1000/1000',
+      profile: 'https://testasmpublic-14e65.kxcdn.com/1654725232_f675d7fa11f4d6e768877070977991_pf1.jpeg',
       comments: this.comments
     })
     this.comments = '';

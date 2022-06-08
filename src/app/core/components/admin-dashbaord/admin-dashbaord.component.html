@@ -12,7 +12,7 @@
     <div>
       <h2 class="mb-20">DASHBOARD</h2>
       <div fxLayout="row grid" fxLayoutAlign="start end" fxLayoutGap="20px">
-            <div fxFlex="31" *ngFor="let i of [{label: 'Total Cards', color: '#3B81F6', num: dashboard?.admin_total_cards},
+            <div fxFlex="30"  class="m-12" *ngFor="let i of [{label: 'Total Cards', color: '#3B81F6', num: dashboard?.admin_total_cards},
         {label: 'total Projects', color: '#F59E0B', num: dashboard?.admin_total_projects},
         {label: 'Total Commission', color: '#EF4444', num: dashboard?.commission}, {label: 'Net Amount', color: '#21C55D', num: 'Nu. '+dashboard?.net_amount},
         {label: 'Subscribed Users', color: '#21C55D', num: 'Nu. '+dashboard?.subscribed_users}, {label: 'Total aid Out', color: '#21C55D', num: 'Nu. '+dashboard?.total_paid_out}  ]">

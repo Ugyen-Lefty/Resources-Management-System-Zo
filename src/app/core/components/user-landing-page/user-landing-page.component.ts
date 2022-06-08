@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, switchMap, tap } from 'rxjs';
+import Swal from 'sweetalert2';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -50,6 +51,11 @@ export class UserLandingPageComponent implements OnInit {
 
   acceptRequest(user: any) {
     this.api.acceptRequest(user).subscribe((res: any) => {
+    Swal.fire(
+            'Job successfully approved!',
+            '',
+            'success'
+          )
       this.ngOnInit();
     });
   }

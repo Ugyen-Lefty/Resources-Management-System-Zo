@@ -27,10 +27,10 @@
     <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
   </mat-form-field>
   </div>
-  <input (keyup.enter)="addJobs(jobsControl.value)" [formControl]="jobsControl"><br>
+  <!-- <input (keyup.enter)="addJobs(jobsControl.value)" [formControl]="jobsControl"><br>
   <mat-chip-list *ngFor="let chip of totalJobs">
     <mat-chip class="white-color">{{chip}}</mat-chip>
-  </mat-chip-list>
+  </mat-chip-list> -->
 </mat-dialog-content>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="end" class="mb-20">
   <button mat-button mat-stroked-button [mat-dialog-close]="true">cancel</button>

@@ -82,7 +82,11 @@ export class WorkProgressComponent implements OnInit {
       event.currentIndex
     );
     const index = findIndex(event.container.data, (data) => { return data.id === this.movedId; })
-    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop), this.id).subscribe();
+    this.api.updateCardStatus(event.container.data[index].id, this.getStatus(drop), this.id).subscribe(() => {
+      if (drop === 2) {
+        Swal.fire('Transaction','Payment to worker pending, will receive shortly','info');
+      }
+    });
   }
 
   getStatus(index?: number) {

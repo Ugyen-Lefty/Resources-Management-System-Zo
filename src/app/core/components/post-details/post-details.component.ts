@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CardCreationComponent } from './card-creation/card-creation.component';
 import Swal from 'sweetalert2';
+import { PortalComponent } from './portal/portal.component';
 
 @Component({
   selector: 'app-post-details',
@@ -66,8 +67,14 @@ export class PostDetailsComponent implements OnInit {
   }
 
   postJob(type: string) {
+    this.dialog.open(PortalComponent, {
+      width: '600px',
+      data: this.post,
+      autoFocus: false
+  }).afterClosed().pipe(filter(res => !!res)).subscribe(() => {
     this.api.updateJob(type, this.id).subscribe( () => {
        Swal.fire('Job Status successfully Changed!', '', 'success');
     });
+  });
   }
 }

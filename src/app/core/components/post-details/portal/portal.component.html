@@ -1,0 +1,69 @@
+    <div [formGroup]="rmaForm" class="bg-white rounded-8" style="width: 100%;">
+      <h1>Proceed to payment</h1>
+      <hr>
+      <br>
+      <mat-dialog-content>
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Mobile</mat-label>
+          <input matInput type="text" formControlName="phone">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email">
+        </mat-form-field>
+
+        <h3 class="mt-16">Select a Bank</h3>
+        <mat-radio-group aria-label="Select a Bank" formControlName="bank">
+          <mat-radio-button value="Bank of Bhutan" style="display: block;" class="mt-12">Bank of Bhutan
+          </mat-radio-button>
+          <mat-radio-button value="Bhutan National Bank" style="display: block;" class="mt-12">Bhutan National Bank
+          </mat-radio-button>
+          <mat-radio-button value="Druk PNB" style="display: block;" class="mt-12">Druk PNB</mat-radio-button>
+          <mat-radio-button value="Tashi Bank" style="display: block;" class="mt-12 mb-20">Tashi Bank</mat-radio-button>
+        </mat-radio-group>
+
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Account number</mat-label>
+          <input matInput type="text" formControlName="accountNo">
+        </mat-form-field>
+
+        <hr><br>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Cost</mat-label>
+          <input matInput type="text" disabled [value]="totalCost">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>3% Platform Charge</mat-label>
+          <input matInput type="text" disabled [value]="platformCharge">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Total Cost</mat-label>
+          <input matInput type="text" disabled [value]="netCost">
+        </mat-form-field>
+
+      </mat-dialog-content>
+
+      <mat-card-actions>
+        <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="end center">
+          <div>
+            <button mat-button mat-raised-button class="bg-primary text-white" (click)="close()">Cancel</button>
+          </div>
+          <div>
+            <button mat-button mat-raised-button class="bg-primary text-white" (click)="premium()"
+              [disabled]="rmaForm.invalid">Pay Now</button>
+          </div>
+
+        </div>
+      </mat-card-actions>
+    </div>

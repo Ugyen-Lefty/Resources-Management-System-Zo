@@ -37,7 +37,7 @@ export class AdditionalInfoComponent implements OnInit {
       available: ['', Validators.required],
       bank_name: ['', Validators.required],
       account_number: ['', Validators.required],
-      rating: ['', Validators.required]
+      // rating: ['', Validators.required]
     });
   }
 

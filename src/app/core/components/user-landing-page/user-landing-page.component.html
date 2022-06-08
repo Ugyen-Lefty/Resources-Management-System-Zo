@@ -37,7 +37,7 @@
             <ng-container *ngIf="role === 'Buyer'">
              <div *ngFor="let user of (appliedCard)">
             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between center">
-              <p>{{user.name}} has applied to work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>
+              <p> <b class="cursor-pointer" (click)="showTalentDetails(user)">{{user.name}}</b> has applied to work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>
 <!--              <p>has requested you work in card ~ <b (click)="openCard(user)" class="cursor-pointer">{{user?.card}}</b></p>-->
              <div fxLayout="row" fxLayoutGap="10px">
               <mat-icon class="done" (click)="acceptRequest(user)">done</mat-icon>
@@ -61,17 +61,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div fxLayoutAlign="center end" class="mt-32">
-      <button mat-button class="bg-primary text-white bold">My Projects</button>
-    </div>
-  </div>
-  <div fxLayout="row" fxLayoutGap="32px" class="mt-32">
-    <div fxFlex="40" class="border-gray p-28 rounded-8">
-      <h2>Accounts</h2>
-    </div>
-    <div fxFlex="60" class="border-gray p-28 rounded-8">
-      <h2>Incidents</h2>
     </div>
   </div>
 </div>

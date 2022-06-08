@@ -52,6 +52,7 @@ import { AdditionalInfoComponent } from './components/user-profile/additional-in
 import { NegotiationComponent } from './components/card-details/negotiation/negotiation.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { PortalComponent } from './components/post-details/portal/portal.component';
+import { AdminDashbaordComponent } from './components/admin-dashbaord/admin-dashbaord.component'; 
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { PortalComponent } from './components/post-details/portal/portal.compone
     RmaComponent,
     AdditionalInfoComponent,
     NegotiationComponent,
-    PortalComponent
+    PortalComponent,
+    AdminDashbaordComponent
     ],
     imports: [
         CommonModule,

@@ -19,12 +19,12 @@
       <img src="https://testasmpublic-14e65.kxcdn.com/1654705585_1142e9e58d14cb2e05ba34d635f2d8_1-PhotoRoom.png" alt="logo" height="80px">
     </div>
     <div fxLayout="column" class="text-white px-16">
-
       <div class="text-center mt-32 mb-32">
         <img routerLink="user-profile" src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg" alt="profile" height="80px" width="80px" class="rounded-full mb-20 cursor-pointer">
         <p class="text-18 bold leading-normal">{{ currentUser?.name }}</p>
         <p class="text-gray">{{ currentUser?.email }}</p>
       </div>
+      <ng-container *ngIf="role !== 'Admin'">
 
       <div routerLink="landing" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
         <mat-icon class="text-20 material-icons-outlined">dashboard</mat-icon>
@@ -72,7 +72,13 @@
         </ng-container>
       </div>
 
-
+     </ng-container>
+     <ng-container *ngIf="role === 'Admin'">
+     <div routerLink="admin-dashboard" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" routerLinkActive="hack-nav-list bold" class="hack-nav-list--hover px-20 py-12 cursor-pointer">
+        <mat-icon class="text-20 material-icons-outlined">dashboard</mat-icon>
+        <a class="text-16">Dashboard</a>
+      </div>
+     </ng-container>
     </div>
   </mat-drawer>
   <div class="hack-content">

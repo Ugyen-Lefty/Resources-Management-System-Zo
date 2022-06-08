@@ -17,6 +17,9 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit(): void {
+  if(this.role === 'Admin'){
+     this.router.navigate(['admin-dashboard']);
+  }
   this.api.getUser().subscribe( (res: any) => {
       this.currentUser = res;
       this.isPremium = res.subscribed;

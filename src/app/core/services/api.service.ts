@@ -218,4 +218,8 @@ export class ApiService {
   }
      return this.http.post(`${this.endPoints}card/assign_workers`, {apply: payload}, {withCredentials: true});
   }
+
+  getAdminDashboard() {
+    return this.http.get(`${this.endPoints}admin_dashboard`, {withCredentials: true});
+  }
 }

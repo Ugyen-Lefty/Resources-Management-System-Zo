@@ -1,36 +1,175 @@
 <div class="hack-landing">
-  <header fxLayout="row" fxLayoutAlign="space-between center" class="px-20 py-12 bg-white hack-landing__header">
-    <img src="assets/images/google.png" alt="logo" height="66px" width="auto">
-    <div fxLayout="row" fxLayoutGap="20px">
+  <header fxLayout="row" fxLayoutAlign="space-between center" class="pl-32 text-20 bg-white bold pr-32 py-12 hack-landing__header">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <img src="assets/images/google.png" alt="logo" height="66px" width="auto">
       <a href="#">HOME</a>
-      <a href="#">HOME</a>
-      <a href="#">HOME</a>
-      <a href="#">HOME</a>
-      <a href="login">Login</a>
+      <a href="#">About</a>
+      <a href="#">Testimonials</a>
+      <a href="#">Contact</a>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <a href="#">Sign Up</a>
+      <a class="rounded-4 bg-primary text-white card-shadow" style="padding: 12px 16px;" href="login">Sign in</a>
     </div>
   </header>
-  <div class="hack-landing__banner w-full" style="background-image: url('assets/images/banner.jpg');">
+ <!-- <div class="hack-landing__banner w-full" style="background-image: url('assets/images/banner.jpg');">
     <div fxLayout="row" fxLayoutAlign="end center" class="hack-landing__banner-layer">
       <div fxFlex="50">
         <h1 class="text-white" style="font-size: 38px;">Find you job with Layoed here</h1>
       </div>
     </div>
+  </div>-->
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap.gt-sm="90px" class="h-full w-full" ngClass.gt-sm="p-80" ngClass.lt-md="p-20">
+    <div fxFlex="45">
+      <h1 class="text-58">We Provide <br> Best IT Services</h1>
+      <p class="leading-17 text-20">Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS.</p>
+    </div>
+    <div fxFlex="50" fxLayout="row" fxLayoutGap="38px">
+      <div style="height: 500px; width: 250px;
+      background-image: url('assets/images/banner.jpg'); background-size: cover;
+       border-top-left-radius: 250px; border-bottom-left-radius: 250px;" class="mt-60">
+      </div>
+      <div style="height: 500px; width: 250px; background-color: #E0E0E0;
+      background-image: url('assets/images/banner.jpg'); background-size: cover;
+       border-top-right-radius: 250px; border-bottom-right-radius: 250px;">
+      </div>
+    </div>
   </div>
 
-  <div class="text-center p-80">
-    <h1 class="mb-32">Updated News</h1>
-    <div fxLayout="row wrap" fxLayoutGap="28px grid">
-      <div fxFlex="25" *ngFor="let i of [0,1,2,3]">
-        <div class="bg-white rounded-8 p-20">
-          <h3 class="mb-20">UX/UI design</h3>
-          <p>This UX/UI design test evaluates candidates' knowledge of the overall UX/UI design process and their ability to turn feature requirements into useful and intuitive designs for digital products that provide a great experience to your users.</p>
+  <div fxLayout="row" fxLayoutAlign="start center"  ngStyle.gt-sm="padding-left: 80px;" class="p-20">
+    <div>
+     <!-- FE chang heigh and width according to you image-->
+      <img src="assets/images/banner.jpg" alt="about us image" height="550px" width="400px"
+      style="border: 2px solid var(--primary); padding: 4px;">
+    </div>
+    <div fxFlex ngStyle.gt-sm="padding: 60px;" class="p-20" style="background-color: #F1F2F3;">
+      <h1 class="text-38">About Us</h1>
+      <p class="leading-17 text-16">Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS.</p>
+      <p class="leading-17 text-16 mt-20">Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS.Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS.</p>
+    </div>
+  </div>
+
+  <div ngClass.gt-sm="px-80 mt-60 py-12">
+   <div ngClass.gt-sm="px-80 py-12">
+     <div fxLayout="row" fxLayoutAlign="space-around center" class="border-primary rounded-4 p-28">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="border-right: 2px solid var(--primary); padding-right: 40px;">
+          <h1 class="text-38">15K+</h1>
+          <p class="text-22 leading-normal">Trusted <br> user</p>
+        </div>
+
+       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="border-right: 2px solid var(--primary); padding-right: 40px;">
+         <h1 class="text-38">15K+</h1>
+         <p class="text-22 leading-normal">Trusted <br> user</p>
+       </div>
+
+       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+         <h1 class="text-38">15K+</h1>
+         <p class="text-22 leading-normal">Trusted <br> user</p>
+       </div>
+     </div>
+   </div>
+  </div>
+
+  <div ngClass.gt-sm="p-80" class="p-20">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="50px">
+      <img src="assets/images/banner.jpg" alt="client" height="400px" width="auto">
+      <div>
+        <h1 class="text-38">Client with chaty Remarks</h1>
+        <p class="leading-17 text-16 mt-20">Follow the instructions to embed the icon font
+          in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+          in your site and learn how to style your icons using CSS.Follow the instructions to embed the icon font
+          in your site and learn how to style your icons using CSS. Follow the instructions to embed the icon font
+          in your site and learn how to style your icons using CSS.</p>
+      </div>
+    </div>
+  </div>
+
+  <div ngClass.gt-sm="p-80" class="p-20">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="50px">
+      <div>
+        <h1 class="text-38">Real Time analytics</h1>
+        <p class="leading-17 text-16 mt-20">Follow the instructions to embed the icon font
+          in your site and learn how to style your icons using CSS.</p>
+        <div fxLayout="row" fxLayoutGap="20px" class="mt-20">
+          <div fxFlex="50">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <img src="assets/images/banner.jpg" alt="sd" height="40px">
+              <h3 class="ml-8">Dechne</h3>
+            </div>
+            <p class="leading-17 mt-8">Follow the instructions to embed the icon font
+              in your site and learn how to style your icons using CSS.</p>
+          </div>
+
+          <div fxFlex="50">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <img src="assets/images/banner.jpg" alt="sd" height="40px">
+              <h3 class="ml-8">Dechne</h3>
+            </div>
+            <p class="leading-17 mt-8">Follow the instructions to embed the icon font
+              in your site and learn how to style your icons using CSS.</p>
+          </div>
+        </div>
+      </div>
+      <img src="assets/images/banner.jpg" alt="client" height="400px" width="auto">
+    </div>
+  </div>
+
+  <div ngClass.gt-sm="p-80" class="p-20" style="background-color: #F1F2F3;">
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="28px">
+      <div fxFlex>
+        <h1>Level up your Craft and career</h1>
+        <p class="leading-17 mt-8">Follow the instructions to embed the icon font
+        in your site and learn how to style your icons using CSS.</p>
+      </div>
+      <div style="width: 400px;" class="bg-white rounded-8 mat-elevation-z3">
+        <div style="background-color: #F5F4F3; border-top-left-radius: 8px; border-top-right-radius: 8px;"
+             class="text-center p-20">
+          <h3>Free</h3>
+          <h2 class="mt-8 mb-8">Nu. 0</h2>
+          <div class="text-center mt-20">
+            <button mat-button class="bg-primary text-white">Subscribe</button>
+          </div>
+        </div>
+        <div class="hack-sub mt-28 px-32 mb-20">
+          <ul>
+            <li *ngFor="let free of ['1 project allowed', 'Access to all workers', 'Project progress', 'Payment portal', '3% Platform Charge', 'Chat']">{{ free }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="width: 400px" class="bg-white rounded-8 mat-elevation-z23">
+        <div style="background-color: #F1F2F3; border-top-left-radius: 8px; border-top-right-radius: 8px;"
+             class="text-center p-20">
+          <h3>Standard</h3>
+          <h2 class="mt-8 mb-8">Nu. 299</h2>
+          <div class="text-center mt-20">
+            <button mat-button class="bg-primary text-white">Subscribe</button>
+          </div>
+        </div>
+        <div class="hack-sub mt-28 px-32 mb-20">
+          <ul>
+            <li *ngFor="let standard of ['Unlimited Project Allowed', 'Access to all workers',
+            'Project Progress', 'Payment Portal', '1% Platform Charge', 'Chat', 'Professional Workers ', 'Assignment System', 'Book Mark Feature',
+            'Work Tracker', 'Negotiation Platform', 'Performance Analytics']"
+            >{{ standard }}</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
   <div class="bg-white p-80">
-    <h1 class="mb-32 text-center">Latest Hires</h1>
+    <h1 class="mb-32 text-center">Services We provide</h1>
     <div fxLayout="row wrap" fxLayoutGap="28px grid">
       <div fxFlex="25" *ngFor="let i of [0,1,2,3]">
         <div class="border-gray rounded-8 p-20">
@@ -41,19 +180,53 @@
     </div>
   </div>
 
-  <div class="p-80">
-    <h1 class="mb-32 text-center">Filteration</h1>
-    <div fxLayout="row wrap" fxLayoutGap="28px grid">
-      <div fxFlex="25" *ngFor="let i of [0,1,2,3]">
-        <div class="bg-white rounded-8 p-20">
-          <h3 class="mb-20">UX/UI design</h3>
-          <p>This UX/UI design test evaluates candidates' knowledge of the overall UX/UI design process and their ability to turn feature requirements into useful and intuitive designs for digital products that provide a great experience to your users.</p>
-        </div>
-      </div>
-    </div>
+  <div ngClass.gt-sm="p-80" class="p-20 text-center" style="background-color: #F1F2F3;">
+    <h1 class="text-58">Want to Talk more?</h1>
+    <button mat-button class="bg-primary text-white mt-20">Contact us</button>
   </div>
 
   <div class="hack-footer bg-primary p-80">
+    <footer class="text-white">
+      <div class="f1">
+        <div fxFlex="40" class="mr-20">
+          <h2>Selise Foodfairy</h2>
+          <p>provides you with simple and convenient way for customers to
+            purchase food online, without having to go to the restaurant.
+          </p>
+        </div>
+
+        <div class="pr-32">
+          <h2>Location</h2>
+          Bhutan Innovation Tech <br>
+          <mat-icon class="text-20">location_on</mat-icon> Babesa,Thimphu <br>
+          Bhutan
+        </div>
+
+        <div class="pr-32">
+          <h2>Follows us</h2>
+        </div>
+
+        <hr>
+        <div>
+
+          <ul>
+            <li><h2>Quick Links</h2></li>
+
+            <li><a routerLink="/menus">MENU</a></li>
+            <li><a routerLink="/shop">SHOP</a></li>
+            <li><a routerLink="/cart">CART</a></li>
+            <li><a routerLink="/contact">CONTACT</a></li>
+
+          </ul>
+
+        </div>
+      </div>
+      <div class="f2">
+        <hr>
+        <br>
+        <pre>&copy; 2022 Voyager        Privacy Policy       Terms and conditions</pre>
+      </div>
+    </footer>
 
   </div>
 </div>

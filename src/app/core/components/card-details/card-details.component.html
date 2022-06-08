@@ -1,15 +1,15 @@
 <div>
-<ng-container *ngIf="role === 'Buyer'">
+<ng-container>
   <div fxLayout="row" fxLayoutAlign="space-between start" class="bg-white p-28">
     <span (click)="goBack()" class="cursor-pointer"><mat-icon>arrow_back</mat-icon></span>
   <div fxLayout="row" fxLayoutGap="12px">
-    <div fxLayout="row" fxLayoutGap="12px">
+    <div fxLayout="row" fxLayoutGap="12px" *ngIf="role === 'Buyer'">
       <button mat-button mat-stroked-button (click)="editCard()">edit</button>
       <button mat-button class="bg-primary text-white" (click)="deleteCard()">Delete</button>
     </div>
 
     <div fxLayout="row" fxLayoutGap="12px">
-      <ng-container>
+      <ng-container *ngIf="role === 'Worker'">
         <button mat-button mat-stroked-button (click)="Apply()">Apply to this Card</button>
       </ng-container>
       <ng-container>
@@ -21,6 +21,7 @@
 
 </div>
 </ng-container>
+
   <div class="p-28">
     <div class="p-28 rounded-8 card-shadow bg-white">
       <div>

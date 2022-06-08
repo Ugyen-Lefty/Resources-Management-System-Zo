@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, tap } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, switchMap, tap } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class UserLandingPageComponent implements OnInit {
   currentUser: any;
   role: any;
   dashboard: any= '';
-  constructor(private api: ApiService) { }
+  requestedCard: any[] = [];
+  appliedCard: any[] = [];
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute)  { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('User Role');
@@ -31,9 +34,23 @@ export class UserLandingPageComponent implements OnInit {
 
   private getRequestList() {
   if(this.role !== 'Buyer'){
-   this.api.getRequestList().subscribe(res => {
-      //Bind data here
+   this.api.getRequestList().subscribe((res: any) => {
+      this.requestedCard = res;
+    })
+  } else {
+  this.api.getAppliedList().subscribe((res: any) => {
+      this.appliedCard = res;
     })
   }
+  }
+
+  openCard(user: any) {
+    this.router.navigate([`job/${user.job_id}/card-details/${user.card_id}`], {relativeTo: this.route.parent});
+  }
+
+  acceptRequest(user: any) {
+    this.api.acceptRequest(user).subscribe((res: any) => {
+      this.ngOnInit();
+    });
   }
 }

@@ -192,7 +192,7 @@ export class ApiService {
     }
      return this.http.post(`${this.endPoints}card/apply`, {apply: data}, {withCredentials: true} );
   }
-  
+
   postAddtionalInfo(info: any){
     return this.http.post(`${this.endPoints}workers`, { worker: info }, { withCredentials: true});
   }
@@ -205,4 +205,16 @@ export class ApiService {
     return this.http.put(`${this.endPoints}jobs/${job_id}/cards/${id}`, {card: amount}, {withCredentials: true});
   }
 
+  getAppliedList() {
+    return this.http.get(`${this.endPoints}your_job_appliers`, {withCredentials: true});
+  }
+
+  acceptRequest(user: any) {
+  const payload = {
+    id: user.id,
+    card_id: user.card_id,
+    worker_ids: [user.worker_id]
+  }
+     return this.http.post(`${this.endPoints}card/assign_workers`, {apply: payload}, {withCredentials: true});
+  }
 }

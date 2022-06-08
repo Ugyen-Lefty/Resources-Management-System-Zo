@@ -67,4 +67,14 @@ export class UserProfileComponent implements OnInit {
     this.isAdditional = isAdditional;
   }
 
+  uploadProfileImage(event: any) {
+     const photo = event.target['files'][0];
+     const payload = {
+       ...this.userForm.value,
+        avatar: photo
+     }
+      this.api.updateUser(payload).subscribe(user => {
+          debugger
+      });
+  }
 }

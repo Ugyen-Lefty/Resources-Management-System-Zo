@@ -22,25 +22,26 @@
 </div>
 </ng-container>
 
-  <div class="p-28">
-    <div class="p-28 rounded-8 card-shadow bg-white">
-      <div>
+  <div  class="p-28">
+    <div fxLayout="row" class="p-28 w-full rounded-8 card-shadow bg-white">
+      <div fxFlex="50" class="card-details__image">
         <h2 class="mb-20">{{cardDetails?.title}}</h2>
-        <img src="https://testasmpublic-14e65.kxcdn.com/1653235566_6e861319fbc9abe3cb513888a90479_lalit.jpeg"
-             alt="profile" height="80px" width="80px" class="rounded-full">
-        <p class="mt-12 mb-12">{{cardDetails?.description}}</p>
-        <div fxLayout="row" fxLayoutAlign="start center">
+        <img src="https://testasmpublic-14e65.kxcdn.com/1654725726_26f080c4bf16520b38c0c24c9d3ca5_card.jpeg"
+        alt="profile" height="90%" width="100%">
+       </div>
+      <div fxFlex="50" class="m-12 pl-32 p-16 mt-32">
+        <p class="text-18 mt-18 mb-12">{{cardDetails?.description}}</p>
+        <div fxLayout="row" fxLayoutAlign="start center" class="text-18 mt-18">
           <mat-icon class="mr-12">today</mat-icon> <p>{{cardDetails?.start_date}} - {{cardDetails?.end_date}}</p>
         </div>
+         <p class="text-18 mt-18" >assignees</p>
+      <p class="text-18 mt-18">
+        ${{cardDetails?.price}}
+      </p>
       </div>
 
       <!--  show it in chips-->
-      <div>
-        assignees
-      </div>
-      <div>
-        ${{cardDetails?.price}}
-      </div>
+
     </div>
   </div>
 </div>

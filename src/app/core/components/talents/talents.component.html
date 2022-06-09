@@ -73,4 +73,41 @@
        </div>
      </div>
     </mat-tab>
+    <mat-tab class="bg-white" label="Professionals">
+     <div class="p-20">
+       <div fxLayout="row wrap" fxLayoutGap="24px grid" class="m-20">
+         <div fxFlex="33" *ngFor="let list of professionalLists; let i = index" (click)="openDetails(list)" class="cursor-pointer">
+            <div class="bg-white rounded-8 card-shadow">
+        <div>
+          <div class="talent-list-header p-20 text-center">
+            <div fxLayoutAlign="end">
+              <ng-container>
+                <span class="material-icons" style="cursor: pointer">star</span>
+              </ng-container>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <div style="height: 88px; width: 88px; padding: 3px; border: 2px solid var(--primary); border-radius: 50%;">
+                <img [src]="list.profile" height="100%" width="100%"
+                     class="rounded-full">
+              </div>
+              <div class="ml-20" style="text-align: left;">
+                <h2 class="bold">{{list.name}}</h2>
+                <p>{{list.profession}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-20" style="line-height: 2;
+          background-color: #C3E0FC; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;">
+            <p>{{list.phone}}</p>
+            <p>Hourly Pay:  {{list.rate}}</p>
+            <p>{{list.available ? 'Currently Available' : 'Currently unavailable'}}</p>
+            <button mat-stroked-button color="primary" [disabled]="!list.available" class="text-uppercase my-20" (click)="applyNow()">APPLY NOW</button>
+
+          </div>
+        </div>
+      </div>
+         </div>
+       </div>
+     </div>
+    </mat-tab>
   </mat-tab-group>

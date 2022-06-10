@@ -15,7 +15,7 @@
             <div fxFlex="30"  class="m-12" *ngFor="let i of [{label: 'Total Cards', color: '#3B81F6', num: dashboard?.admin_total_cards},
         {label: 'total Projects', color: '#F59E0B', num: dashboard?.admin_total_projects},
         {label: 'Platform Charge', color: '#EF4444', num: '3%'}, {label: 'Net Amount', color: '#21C55D', num: 'Nu. '+dashboard?.net_amount},
-        {label: 'Subscribed Users', color: '#21C55D', num: dashboard?.subscribed_users}, {label: 'Total aid Out', color: '#21C55D', num: 'Nu. '+dashboard?.total_paid_out}  ]">
+        {label: 'Subscribed Users', color: '#21C55D', num: dashboard?.subscribed_users}, {label: 'Total paid out', color: '#21C55D', num: 'Nu. '+dashboard?.total_paid_out}  ]">
               <div class="rounded-8 bg-white p-20">
                 <h3>{{ i.label }}</h3>
                 <p class="text-58 bold leading-normal text-center mt-28" [style.color]="i.color">{{ i.num }}</p>
